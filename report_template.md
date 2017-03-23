@@ -10,8 +10,6 @@ author:
 - Henrik Helén Edholm
 ---
 
-This is a basic template for the project report. Fill it out over the course of the project.
-
 # Project Description
 An application that allows users to subscribe to specific flights, providing flight information (e.g. delays, cancellation, early arrival) via push notifications.
 
