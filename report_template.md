@@ -1,8 +1,13 @@
 ---
 title: 'Agile Development Processes Project Report'
 author:
-- Magnus Ågren
-- Terese Besker
+- Dimitrios Platis
+- Lídia Nyman
+- Elsa Mjöll Bergsteinsdóttir
+- Lois Alberte Gomez Sanchez
+- Ayesha Aslam
+- Jobaer Ahmed
+- Henrik Helén Edholm
 ---
 
 This is a basic template for the project report. Fill it out over the course of the project.
