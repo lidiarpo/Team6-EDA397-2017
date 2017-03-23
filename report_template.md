@@ -8,10 +8,9 @@ author:
 This is a basic template for the project report. Fill it out over the course of the project.
 
 # Project Description
-Write a brief description of your software,
-including the target platform(s),
-programming language,
-and what the software will do.
+An application that allows users to subscribe to specific flights, providing flight information (e.g. delays, cancellation, early arrival) via push notifications.
+
+The app will show all the flights from, and to, GOT Landvetter (later on the user will be able to choose among other airports in Sweden and then we can might expand to the rest of the world depending on public interest). The user can filter the departures/arrivals and subscribe to some flight of concern. The user can filter to many flights. The user can choose (in settings) or in each flight what kind of notification he/she wants to receive about that flight.
 
 # Sprint Log
 Write one log per sprint.
