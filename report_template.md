@@ -4,7 +4,7 @@ author:
 - Dimitrios Platis
 - Lídia Nyman
 - Elsa Mjöll Bergsteinsdóttir
-- Lois Alberte Gomez Sanchez
+- Lois Alberte Gómez Sánchez
 - Ayesha Aslam
 - Jobaer Ahmed
 - Henrik Helén Edholm
