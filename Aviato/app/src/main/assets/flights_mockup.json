@@ -1,0 +1,40 @@
+{
+	"Flights": [{
+		"AirlineAlias": "WX",
+		"AirlineName": "CityJET",
+		"FlightNumber":"164",
+		"SourceAirport":"GOT",
+		"DestinationAirport":"ARN",
+		"DestinationName":"Stockholm",
+		"DepTime":"16:10",
+		"ArrTime":"17:10"
+
+	}, {
+		"AirlineAlias": "AY",
+		"AirlineName": "FINNAIR",
+		"FlightNumber":"678",
+		"SourceAirport":"GOT",
+		"DestinationAirport":"HEL",
+		"DestinationName":"Helsinki",
+		"DepTime":"17:05",
+		"ArrTime":"19:25"
+	},{
+		"AirlineAlias": "WF",
+		"AirlineName": "WIDEROE",
+		"FlightNumber":"333",
+		"SourceAirport":"GOT",
+		"DestinationAirport":"OSL",
+		"DestinationName":"Oslo",
+		"DepTime":"17:50",
+		"ArrTime":"18:45"
+	},{
+		"AirlineAlias": "SK",
+		"AirlineName": "SAS",
+		"FlightNumber":"3031",
+		"SourceAirport": "GOT",
+		"DestinationAirport":"OSL",
+		"DestinationName":"Oslo",
+		"DepTime":"17:50",
+		"ArrTime":"18:45"
+	}]
+}
