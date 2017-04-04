@@ -21,6 +21,15 @@ We started the sprint by populating the backlog of stories written as issues in 
 
 ## Commitment
 List the features/stories the team commits to finish during the sprint.
+### Sprint 1 Commitment:
+In the parathesis the estimation point of each issue, followed by the issue number.
+1. Create a hello world application (3) #5
+2. Travis CI setup (5) #26
+3. Investigate appropriate API for flight retrieval (3) #3
+4. Retrieve flight information from public API (5) #22
+5. Parse flight information (programmatic representation of flight data) (5) #18
+6. Present flight data (5) #13
+
 
 ## Work Done
 Log what was accomplished, and how.
