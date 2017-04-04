@@ -1,18 +1,14 @@
 package se.chalmers.student.aviato;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
-
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 
 /**
  * Created by gryphex on 2017-04-04.
@@ -49,11 +45,11 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
 
         // Populate the data into the template view using the data object
         if(flight != null){
-            tvSource.setText(flight.SourceAirport);
-            tvDestination.setText(flight.DestinationAirport);
-            tvArrTime.setText(flight.ArrTime);
-            tvDepTime.setText(flight.DepTime);
-            tvAirline.setText(flight.AirlineName);
+            tvSource.setText(flight.get("SourceAirport"));
+            tvDestination.setText(flight.get("DestinationAirport"));
+            tvArrTime.setText(flight.get("ArrTime"));
+            tvDepTime.setText(flight.get("DepTime"));
+            tvAirline.setText(flight.get("AirlineName"));
         }
 
         // Return the completed view to render on screen

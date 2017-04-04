@@ -3,20 +3,17 @@ package se.chalmers.student.aviato;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class FlightActivity extends Activity{
@@ -42,31 +39,14 @@ flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
             //Using the ArrayList "flight_array" to temporarily hold our json rows, for each row we return
             //until we use the array to create our FlightObject
             JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray flight_array = obj.getJSONArray("Flights");
-
-            for(int i=0; i < flight_array.length() ; i++) {
-                //This is our flight data
-                JSONObject flight_obj = flight_array.getJSONObject(i);
-                //Create a new flight
-                Flight resultRow = new Flight();
-                //set the  flights attributes
-                resultRow.AirlineAlias = flight_obj.getString("AirlineAlias");
-                resultRow.AirlineName = flight_obj.getString("AirlineName");
-                resultRow.FlightNumber = flight_obj.getString("FlightNumber");
-                resultRow.SourceAirport = flight_obj.getString("SourceAirport");
-                resultRow.DestinationAirport = flight_obj.getString("DestinationAirport");
-                resultRow.DestinationName = flight_obj.getString("DestinationName");
-                resultRow.DepTime = flight_obj.getString("DepTime");
-                resultRow.ArrTime = flight_obj.getString("ArrTime");
-
-                arrayoftheFlightData.add(resultRow);
-            }
+            FlightParser fp = new FlightParser();
+            arrayoftheFlightData = fp.parseFlights(obj);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
         //log out the final object after the JSON parse for debugging purposes
-        //System.out.println(arrayoftheFlightData);
+        Log.d("arrayoftheFlightData", arrayoftheFlightData.toString());
 
 
         //TODO: Make Flight attributes look differently in the listview now the Flight object is
@@ -81,9 +61,7 @@ flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
             public void onResponse(JSONObject response) {
                 FlightParser fp = new FlightParser();
                 Log.d("RESPONSE",response.toString());
-                //TO-DO Lydia and Jobbaer
-                //List<Flight> flights= fp.parseFlights(response);
-                //setFlights(flights);
+                //setFlights(new FlightParser().parseFlights(response));
             }
         };
 
