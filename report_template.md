@@ -42,7 +42,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#3|xx|xx|xx|xx|
 |#22|xx|xx|xx|xx|
 |#18|xx|xx|xx|xx|
-|#13| fb27b881b279dd2428fabe665df5c0554a9718cd, 64bb0e4ae17713c6809eba977d13cd4b6f8a901a, fe563647462211d121114a624c58c3da70f05909, 7ab13e2b7922034b8a0e5d44e0eb0d00842f02a5, |Henrik, Elsa|5|Refactoring, Small Realeases, Simple Design, Sustainable Pace|
+|#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Realeases, Simple Design, Sustainable Pace|
 
 ## Reflections
 Reflect on how the work worked.
