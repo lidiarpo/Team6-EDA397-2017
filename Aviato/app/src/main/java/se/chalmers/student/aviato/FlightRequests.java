@@ -16,15 +16,22 @@ import static com.android.volley.VolleyLog.TAG;
 public class FlightRequests {
 
     private RequestQueueSingleton queue;
+    private Context context;
+
+    public FlightRequests(Context cOntext) {
+        this.context = context;
+    }
 
     public void getArrivals(String airportCode, int year, int month, int day, int hour, int timeWindow, Context context,
-                                   Response.Listener<JSONObject>listener, Response.ErrorListener errorListener){
+                            Response.Listener<JSONObject>listener, Response.ErrorListener errorListener){
             queue = RequestQueueSingleton.getInstance(context);
 
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/dep/"
                 + Integer.toString(year)+  "/" + Integer.toString(month)+ "/" + Integer.toString(day)
-                + "/" + Integer.toString(day) + "/" + Integer.toString(hour) + "?appId="+ Utilities.APPID +
+                + "/" + Integer.toString(hour) + "?appId="+ Utilities.APPID +
                 "&appKey=" + Utilities.APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
+
+        Log.d("GET", url);
 
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
                     (Request.Method.GET, url, null, listener, errorListener);
@@ -38,8 +45,10 @@ public class FlightRequests {
         queue = RequestQueueSingleton.getInstance(context);
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/arr/"
                 + Integer.toString(year)+  "/" + Integer.toString(month)+ "/" + Integer.toString(day)
-                + "/" + Integer.toString(day) + "/" + Integer.toString(hour) + "?appId="+ Utilities.APPID +
+                + "/" + Integer.toString(hour) + "?appId="+ Utilities.APPID +
                 "&appKey=" + Utilities.APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
+
+        Log.d("GET", url);
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, listener, errorListener);
