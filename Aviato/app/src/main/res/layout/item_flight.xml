@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Source" />
+
+    <TextView
+        android:id="@+id/tvDestination"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+        android:text="Destination"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tvSource"
+        android:layout_marginStart="24dp" />
+
+    <TextView
+        android:id="@+id/tvAirline"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+        android:text="Ariline"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="46dp" />
+
+    <TextView
+        android:id="@+id/tvArrTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ArrTime"
+        android:layout_alignBaseline="@+id/tvDepTime"
+        android:layout_alignBottom="@+id/tvDepTime"
+        android:layout_alignStart="@+id/tvDestination" />
+
+    <TextView
+        android:id="@+id/tvDepTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvSource"
+        android:layout_marginTop="12dp"
+        android:text="DepTime" />
+
+</RelativeLayout>

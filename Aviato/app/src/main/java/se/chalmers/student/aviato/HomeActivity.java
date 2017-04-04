@@ -24,6 +24,7 @@ public class HomeActivity extends Activity {
             public void onClick(View v){
                Intent loadFlightActivity = new Intent(HomeActivity.this, FlightActivity.class);
                startActivity(loadFlightActivity);
+               System.out.print("started");
 
            }
         });
