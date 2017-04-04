@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlSingleFlightEntry"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,13 +17,13 @@
         android:text="Destination"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/tvSource"
-        android:layout_marginStart="24dp" />
+        android:layout_marginStart="28dp" />
 
     <TextView
         android:id="@+id/tvAirline"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
-        android:text="Ariline"
+        android:text="Airline"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp" />

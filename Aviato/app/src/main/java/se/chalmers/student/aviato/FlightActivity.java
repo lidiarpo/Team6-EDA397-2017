@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +36,7 @@ public class FlightActivity extends Activity{
         setContentView(R.layout.activity_flight);
 
         // The listview to populate
-        flightlistView = (ListView) findViewById(R.id.list);
+flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
 
         try {
             //Using the ArrayList "flight_array" to temporarily hold our json rows, for each row we return
