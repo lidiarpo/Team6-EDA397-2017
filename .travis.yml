@@ -60,3 +60,4 @@ script:
     - adb devices   #Display list of devices
     - adb shell input keyevent 82 &
     - ./gradlew connectedCheck -PdisablePreDex --stacktrace
+    - ./gradlew test
