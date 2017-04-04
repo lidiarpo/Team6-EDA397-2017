@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +25,8 @@ public class FlightActivity extends Activity {
         setContentView(R.layout.activity_flight);
 
         // The listview to populate
-        ListView flightlistView = (ListView) findViewById(R.id.list);
+        ListView flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
+
 
         try {
             //Using the ArrayList "flight_array" to temporarily hold our json rows, for each row we return
