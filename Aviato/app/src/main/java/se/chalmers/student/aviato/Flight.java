@@ -13,21 +13,19 @@ import java.util.Set;
 public class Flight{
     //Attributes for our FlightObject
     private Map<String, String> flightAttributes = new HashMap();
-    private final String INVALID_ATTRIBUTE = "INVALID ATTRIBUTE";
+    public final static String INVALID_ATTRIBUTE = "INVALID ATTRIBUTE";
+    public final static String NOT_AVAILABLE = "N/A";
+    private final String [] flightAttributeArray = {"AirlineAlias", "AirlineName", "FlightNumber", "SourceAirport",
+            "DestinationAirport", "DestinationName", "DepTime", "ArrTime"};
 
     /**
      * The Flight class constructor that initializes the flight attributes
      */
     public Flight() {
         // Initialize the Flight attributes map with some default values
-        flightAttributes.put("AirlineAlias", "N/A");
-        flightAttributes.put("AirlineName", "N/A");
-        flightAttributes.put("FlightNumber", "N/A");
-        flightAttributes.put("SourceAirport", "N/A");
-        flightAttributes.put("DestinationAirport", "N/A");
-        flightAttributes.put("DestinationName", "N/A");
-        flightAttributes.put("DepTime", "N/A");
-        flightAttributes.put("ArrTime", "N/A");
+        for (String attribute : flightAttributeArray) {
+            flightAttributes.put(attribute, NOT_AVAILABLE);
+        }
     }
 
     /**
