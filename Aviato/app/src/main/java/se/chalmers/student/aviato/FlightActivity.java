@@ -16,33 +16,6 @@ public class FlightActivity extends Activity {
 
     //This is our main array it will hold our flight data:
     ArrayList<Flight> arrayoftheFlightData = new ArrayList<Flight>();
-    //This will be our result object:
-    class Flight{
-        //Attributes for our FlightObject
-        public String AirlineAlias;
-        public String AirlineName;
-        public String FlightNumber;
-        public String SourceAirport;
-        public String DestinationAirport;
-        public String DestinationName;
-        public String DepTime;
-        public String ArrTime;
-
-        //So we can logout an Arraylist of our FlightObject easily for debugging purposes
-        @Override
-        public String toString() {
-            return "Flight{" +
-                    "AirlineAlias='" + AirlineAlias + '\'' +
-                    ", AirlineName='" + AirlineName + '\'' +
-                    ", FlightNumber='" + FlightNumber + '\'' +
-                    ", SourceAirport='" + SourceAirport + '\'' +
-                    ", DestinationAirport='" + DestinationAirport + '\'' +
-                    ", DestinationName='" + DestinationName + '\'' +
-                    ", DepTime='" + DepTime + '\'' +
-                    ", ArrTime='" + ArrTime + '\'' +
-                    '}';
-        }
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +59,7 @@ public class FlightActivity extends Activity {
         //TODO: Make Flight attributes look differently in the listview now the Flight object is
         //TODO: just shown as a list, need to change activity_flight.xml
         //Populate listview with the Flight object
-        ArrayAdapter<Flight> adapter = new ArrayAdapter<Flight>(this, android.R.layout.simple_list_item_1, arrayoftheFlightData);
+        FlightAdapter adapter = new FlightAdapter(this, arrayoftheFlightData);
         flightlistView.setAdapter(adapter);
     }
 
