@@ -38,10 +38,10 @@ Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
 |#5|xx|xx|xx|xx|
-|#26|xx|xx|xx|xx|
+|#26| 7de24dc, 917ab15 |Dimitris|5|CI|
 |#3|xx|xx|xx|xx|
 |#22|xx|xx|xx|xx|
-|#18|xx|xx|xx|xx|
+|#18| dce7b29, 72ec745 |Dimitris|5|Testing, Refactoring|
 |#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Realeases, Simple Design, Sustainable Pace|
 
 ## Reflections
@@ -60,7 +60,13 @@ For each practice practiced:
 - How efficient was the practice, given the time it took to use?
 
 ### Sprint 1:
+During the 1st sprint we setted both the procedural and technical foundations of the product. The team got acquainted with various XP practices (e.g. pair programming, planning poker etc) and was able to complete the planned user stories, indicating that the chosen sprint velocity is appropriate and allows for a sustainable development pace.
 
+* **Planning poker**: Planning poker proved interestingly troublesome, as to its effectiveness and efficiency, since often large deviations between the team member estimations emerged that remained unsettled. This is however natural, as it was the first session of the kind that the team was engaged in and it is expected for the process to become more "normalized" and faster as the team members get better acquainted to each other, the agile methodology but most importantly the product under development and its challenges.
+
+* **Testing**: Unit tests were written for a part of the system, namely the _Flight_ class. By writing the test cases first, based on the various use cases that were decided, we were able to formulate the class' API before the implementation. This allowed us to maintain a cleaner interface and avoid small bugs which could result from omitting to consider the various edge cases.
+
+* **Pair programming**:
 
 # Postmortem
 Once the project is finished, summarize your experiences.
