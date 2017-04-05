@@ -1,6 +1,6 @@
 ---
-title: 'Agile Development Processes Project Report'
-author:
+Title: 'Agile Development Processes Project Report'
+Authors:
 - Dimitrios Platis
 - Lídia Nyman
 - Elsa Mjöll Bergsteinsdóttir
@@ -11,13 +11,13 @@ author:
 ---
 
 # Project Description
-An application developed for Android based mobile phones that allows users to subscribe to specific flights, providing flight information (e.g. delays, cancellation, early arrival) via push notifications.
+This is an android application that allows users to subscribe to specific flights, providing flight information (e.g. delays, cancellation, early arrival) via push notifications.
 
-The app will show all the flights from, and to, Gothenburg Landvetter Airport (GOT). Later on the user will be able to choose among other airports in Sweden and then we can might expand to the rest of the world depending on public interest. The user can filter the departures/arrivals and subscribe to some flight of concern. The user can filter to many flights. The user can choose (in settings) or in each flight what kind of notification he/she wants to receive about that flight.
+The app will show all the flights from, and to, Gothenburg Landvetter Airport (GOT). Later, the user will be able to choose among other airports in Sweden which can further be expanded to the rest of the world depending on public interest. The user can filter the departures/arrivals and subscribe to some flights of concern. The user can filter to many flights. The user can choose (in settings) or in each flight what kind of notification he/she wants to receive about that flight.
 
 # Sprint Log
 ## Sprint 1:
-We started the sprint by populating the backlog of stories written as issues in git. Next we had to estimate the issues by giving them story points that would indicate their complexity, in our wiki the explanation of how we map our story point metric to complexity for the estimation of each issue can be read. We used a a well known estimation technque to estimate our backlog the Planning Poker. For the Planning Poker we used a online servie Plan IT Poker (http://www.planitpoker.com/) so every member of the group could remotely vote. After the results of the voting we reasoned together to come to a estimation conclustion that everybody agreed on. When every issue had an estimation, we had to plan how many issues we were going to commit to for the first acceptance test.  Based on the time capacity each member should contribute per week and the issues that had the most priority we decided to commit to 6 issues in Sprint 1. 
+We started the sprint by populating the backlog of stories written as issues in git. Next we had to estimate the issues by giving them story points that would indicate their complexity, in our wiki the explanation of how we map our story point metric to complexity for the estimation of each issue can be read. We used a a well known estimation technique to estimate our backlog, the Planning Poker. For the Planning Poker, we used an online servie Plan IT Poker (http://www.planitpoker.com/) so every member of the group could remotely vote. After the results of the voting, we reasoned together to come to an estimation conclustion that everybody agreed on. When every issue had an estimation, we had to plan how many issues we were going to commit to for the first acceptance test.  Based on the time capacity each member should contribute per week and the issues that had the most priority, we decided to commit to 6 issues in Sprint 1. 
 
 ## Commitment
 List the features/stories the team commits to finish during the sprint.
@@ -60,13 +60,13 @@ For each practice practiced:
 - How efficient was the practice, given the time it took to use?
 
 ### Sprint 1:
-During the 1st sprint we setted both the procedural and technical foundations of the product. The team got acquainted with various XP practices (e.g. pair programming, planning poker etc) and was able to complete the planned user stories, indicating that the chosen sprint velocity is appropriate and allows for a sustainable development pace.
+During the 1st sprint we setted both the procedural and technical foundations of the product. The team got acquainted with various XP practices (e.g. pair programming, planning game etc) and was able to complete the planned user stories, indicating that the chosen sprint velocity is appropriate and allows for a sustainable development pace.
 
-* **Planning poker**: Planning poker proved interestingly troublesome, as to its effectiveness and efficiency, since often large deviations between the team member estimations emerged that remained unsettled. This is however natural, as it was the first session of the kind that the team was engaged in and it is expected for the process to become more "normalized" and faster as the team members get better acquainted to each other, the agile methodology but most importantly the product under development and its challenges.
+* **Planning poker**: Planning poker proved interestingly troublesome, as to its effectiveness and efficiency, since often large deviations between the team member estimations emerged that remained unsettled. This is however natural, as it was the first session of the kind that the team was engaged in and it is expected for the process to become more "normalized" and faster as the team members get better acquainted to each other, the agile methodology but most importantly the product under development and its challenges. However, the deviations among team members were also helpful in pointing out some trivial yet important details that other members were overlooking. therefore, it helped to take those details in account thus improving effort estimation.
 
 * **Test-first**: Unit tests were written for a part of the system, namely the _Flight_ class. By writing the test cases first, based on the various use cases that were decided, we were able to formulate the class' API before the implementation. This allowed us to maintain a cleaner interface and avoid small bugs which could result from omitting to consider the various edge cases.
 
-* **Pair programming**: We splitted some of the features among the team members in groups of two persons in order to execute pair programming. In some cases this was not possible due to time schedules but for those that experienced pair programming was specially useful for those not familiar with Android development or the managing of Git control version.
+* **Pair programming**: We splitted some of the features among the team members in groups of two persons in order to execute pair programming. In some cases this was not possible due to conflicts in time schedules for members but for those that experienced pair programming, it was specially useful for the members who were not familiar with Android development or the managing of Git control version. However, there was some drawbacks associated with pair programming such as boredom for the member helping the other one who is actually coding. It would have been a more appropriate approach to actually use a timer to switch positions.
 
 * **Continuous Integration**: 
 
