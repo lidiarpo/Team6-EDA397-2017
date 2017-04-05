@@ -38,11 +38,11 @@ Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
 |#5|xx|xx|xx|xx|
-|#26| 7de24dc, 917ab15 |Dimitris|5|CI|
+|#26| 7de24dc, 917ab15 |Dimitris|5|Continuous Integration|
 |#3|xx|xx|xx|xx|
 |#22|xx|xx|xx|xx|
 |#18| dce7b29, 72ec745 |Dimitris|5|Testing, Refactoring|
-|#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Realeases, Simple Design, Sustainable Pace|
+|#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
 
 ## Reflections
 Reflect on how the work worked.
@@ -67,6 +67,16 @@ During the 1st sprint we setted both the procedural and technical foundations of
 * **Testing**: Unit tests were written for a part of the system, namely the _Flight_ class. By writing the test cases first, based on the various use cases that were decided, we were able to formulate the class' API before the implementation. This allowed us to maintain a cleaner interface and avoid small bugs which could result from omitting to consider the various edge cases.
 
 * **Pair programming**:
+
+* **Continuous Integration**:
+
+* **Small Releases**:
+
+* **Simple Design**:
+
+* **Refactoring**:
+
+* **Sustainable Pace**:
 
 # Postmortem
 Once the project is finished, summarize your experiences.
