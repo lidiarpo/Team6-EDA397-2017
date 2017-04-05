@@ -37,12 +37,12 @@ Log what was accomplished, and how.
 Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
-|#5|b8df8fe|Lídia, Elsa, Lois, Ayesha, Jobaer, Henrik|3|Simple Design, Collective Ownership|
+|#5| b8df8fe |Lídia, Elsa, Lois, Ayesha, Jobaer, Henrik|3|Simple Design, Collective Ownership|
 |#26| 7de24dc, 917ab15 |Dimitris|5|Continuous Integration|
-|#3|2c44c23|Ayesha, Lois|3|Pair Programming|
-|#22|2c44c23, bc6100e, 06c9049, 3739373, 6740509 |Ayesha, Lois|5|Pair Programming, Refactoring, Simple Design|
-|#18| dce7b29, 72ec745, 3739373 |Dimitris|5|Test-first, Refactoring|
-|#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
+|#3| 2c44c23 |Ayesha, Lois|3|Pair Programming|
+|#22| 2c44c23, bc6100e, 06c9049, 3739373, 6740509 |Ayesha, Lois|5|Pair Programming, Refactoring, Simple Design|
+|#18| dce7b29, 72ec745, 3739373, 43e74f7 |Lídia, Jobaer, Dimitris|5|Test-first, Refactoring|
+|#13| fb27b88, 64bb0e4, fe56364, 7ab13e2 |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
 
 ## Reflections
 Reflect on how the work worked.
