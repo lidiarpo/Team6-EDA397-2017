@@ -11,7 +11,7 @@ author:
 ---
 
 # Project Description
-An application that allows users to subscribe to specific flights, providing flight information (e.g. delays, cancellation, early arrival) via push notifications.
+An application developed for Android based mobile phones that allows users to subscribe to specific flights, providing flight information (e.g. delays, cancellation, early arrival) via push notifications.
 
 The app will show all the flights from, and to, Gothenburg Landvetter Airport (GOT). Later on the user will be able to choose among other airports in Sweden and then we can might expand to the rest of the world depending on public interest. The user can filter the departures/arrivals and subscribe to some flight of concern. The user can filter to many flights. The user can choose (in settings) or in each flight what kind of notification he/she wants to receive about that flight.
 
@@ -39,8 +39,8 @@ Feature | Commits  | Group members | Effort | Practices
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
 |#5|b8df8fe|Lídia, Elsa, Lois, Ayesha, Jobaer, Henrik|3|Simple Design, Collective Ownership|
 |#26| 7de24dc, 917ab15 |Dimitris|5|Continuous Integration|
-|#3|2c44c23|Lois, Ayesha|3|Pair Programming|
-|#22|2c44c23, bc6100e, 06c9049, 3739373, 6740509 |Lois, Ayesha|5|Pair Programming, Refactoring, Simple Design|
+|#3|2c44c23|Ayesha, Lois|3|Pair Programming|
+|#22|2c44c23, bc6100e, 06c9049, 3739373, 6740509 |Ayesha, Lois|5|Pair Programming, Refactoring, Simple Design|
 |#18| dce7b29, 72ec745, 3739373 |Dimitris|5|Test-first, Refactoring|
 |#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
 
@@ -66,9 +66,9 @@ During the 1st sprint we setted both the procedural and technical foundations of
 
 * **Test-first**: Unit tests were written for a part of the system, namely the _Flight_ class. By writing the test cases first, based on the various use cases that were decided, we were able to formulate the class' API before the implementation. This allowed us to maintain a cleaner interface and avoid small bugs which could result from omitting to consider the various edge cases.
 
-* **Pair programming**:
+* **Pair programming**: We splitted some of the features among the team members in groups of two persons in order to execute pair programming. In some cases this was not possible due to time schedules but for those that experienced pair programming was specially useful for those not familiar with Android development or the managing of Git control version.
 
-* **Continuous Integration**:
+* **Continuous Integration**: 
 
 * **Onsite Customer**: Having an onsite customer has felt reassuring. If we have any uncertanties of what the customer wants we have been able to get almost immediate response. Considering that it hasn't cost us any extra time to use this practice it should be considered to be rather efficient.
 
@@ -76,7 +76,7 @@ During the 1st sprint we setted both the procedural and technical foundations of
 
 * **Simple Design**: Parts of the development has been done by using simple design. We tried to do the simplest solution to fix the task at hand, corner cases were then handled and refactoring had to take place. The practice was rather efficient as it enabled constant progress, instead of sitting stuck trying to figure out everything at once.
 
-* **Refactoring**: Refactoring has been highly related to the Simple Design. The practice was really efficient, making the code more readable and functional.
+* **Refactoring**: Refactoring has been highly related to the Simple Design. The practice was really efficient, making the code more readable and functional. A lot of refactoring has been done in this initial sprint due to the lack of experience working with the Android framework and the complexity invoved on the initial phase of the project.
 
 * **Sustainable Pace**: A lot of the work has been done at a sustainable pace. No real overtime or extreme peaks of work have been encountered throughout the sprint. This might partially be out of pure luck as we havn't planned that everyone should work X hours/day etc.
 
