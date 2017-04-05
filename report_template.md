@@ -20,8 +20,7 @@ The app will show all the flights from, and to, Gothenburg Landvetter Airport (G
 We started the sprint by populating the backlog of stories written as issues in git. Next we had to estimate the issues by giving them story points that would indicate their complexity, in our wiki the explanation of how we map our story point metric to complexity for the estimation of each issue can be read. We used a a well known estimation technique to estimate our backlog, the Planning Poker. For the Planning Poker, we used an online servie Plan IT Poker (http://www.planitpoker.com/) so every member of the group could remotely vote. After the results of the voting, we reasoned together to come to an estimation conclustion that everybody agreed on. When every issue had an estimation, we had to plan how many issues we were going to commit to for the first acceptance test.  Based on the time capacity each member should contribute per week and the issues that had the most priority, we decided to commit to 6 issues in Sprint 1. 
 
 ## Commitment
-List the features/stories the team commits to finish during the sprint.
-### Sprint 1 Commitment:
+### Sprint 1:
 In the parathesis the estimation point of each issue, followed by the issue number.
 1. Create a hello world application (3) #5
 2. Travis CI setup (5) #26
@@ -32,8 +31,8 @@ In the parathesis the estimation point of each issue, followed by the issue numb
 
 
 ## Work Done
-Log what was accomplished, and how.
 
+### Sprint 1: 
 Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
@@ -45,19 +44,6 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
 
 ## Reflections
-Reflect on how the work worked.
-
-Discuss any deviations from the sprint commitment.
-
-For each practice practiced:
-
-- Did your experience correspond to or contradict with what literature claims?
-
-    - Analysis of why. Mostly interesting if something unexpected happens, but even
-      if everything runs according to plan, reflecting on the underlying mechanisms
-      can be interesting.
-
-- How efficient was the practice, given the time it took to use?
 
 ### Sprint 1:
 During the 1st sprint we setted both the procedural and technical foundations of the product. The team got acquainted with various XP practices (e.g. pair programming, planning game etc) and was able to complete the planned user stories, indicating that the chosen sprint velocity is appropriate and allows for a sustainable development pace.
@@ -68,7 +54,8 @@ During the 1st sprint we setted both the procedural and technical foundations of
 
 * **Pair programming**: We splitted some of the features among the team members in groups of two persons in order to execute pair programming. In some cases this was not possible due to conflicts in time schedules for members but for those that experienced pair programming, it was specially useful for the members who were not familiar with Android development or the managing of Git control version. However, there was some drawbacks associated with pair programming such as boredom for the member helping the other one who is actually coding. It would have been a more appropriate approach to actually use a timer to switch positions.
 
-* **Continuous Integration**: 
+* **Continuous Integration**: By using continous integration we merged the code changes into our repository often, sometimes several times a day in order to have a functioning app at any moment. To produce a clean build of the system several times a day, we integrated Travis CI to our repository so it could compile the Android application for us. Travis runs our builds after every commit to the master branch, this way Travis can provide us with a "safety net": when we commit a change a build will be triggered automatically and if everything works as expected, nothing will prompt us, to the contrary if something stops working we would get an email that informs us about the problem and we can take action to react. 
+
 
 * **Onsite Customer**: Having an onsite customer has felt reassuring. If we have any uncertanties of what the customer wants we have been able to get almost immediate response. Considering that it hasn't cost us any extra time to use this practice it should be considered to be rather efficient.
 
