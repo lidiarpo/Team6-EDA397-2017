@@ -33,9 +33,9 @@ public class FlightActivity extends Activity{
         setContentView(R.layout.activity_flight);
 
         // The listview to populate
-flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
+        flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
 
-        try {
+       /* try {
             //Using the ArrayList "flight_array" to temporarily hold our json rows, for each row we return
             //until we use the array to create our FlightObject
             JSONObject obj = new JSONObject(loadJSONFromAsset());
@@ -53,7 +53,7 @@ flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
         //TODO: just shown as a list, need to change activity_flight.xml
         //Populate listview with the Flight object
         FlightAdapter adapter = new FlightAdapter(this, arrayoftheFlightData);
-        flightlistView.setAdapter(adapter);
+        flightlistView.setAdapter(adapter);*/
 
         listener  = new Response.Listener<JSONObject>() {
 
@@ -61,7 +61,7 @@ flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
             public void onResponse(JSONObject response) {
                 FlightParser fp = new FlightParser();
                 Log.d("RESPONSE",response.toString());
-                //setFlights(new FlightParser().parseFlights(response));
+                setFlights(new FlightParser().parseFlights(response));
             }
         };
 
@@ -99,7 +99,7 @@ flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
         super.onStart();
         flightRequests  = new FlightRequests(this);
         //TO-DO Modify in order to select Departures
-        flightRequests.getDepartures("GOT", 2017, 4, 4, 16, 6, this, listener, errorListener);
+        flightRequests.getDepartures("GOT", 2017, 4, 5, 21, 1, this, listener, errorListener);
     }
 
 

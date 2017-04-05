@@ -1,17 +1,15 @@
 package se.chalmers.student.aviato;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
-import static com.android.volley.VolleyLog.TAG;
+import static se.chalmers.student.aviato.Utilities.*;
 
 public class FlightRequests {
 
@@ -24,12 +22,13 @@ public class FlightRequests {
 
     public void getArrivals(String airportCode, int year, int month, int day, int hour, int timeWindow, Context context,
                             Response.Listener<JSONObject>listener, Response.ErrorListener errorListener){
+
             queue = RequestQueueSingleton.getInstance(context);
 
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/dep/"
                 + Integer.toString(year)+  "/" + Integer.toString(month)+ "/" + Integer.toString(day)
-                + "/" + Integer.toString(hour) + "?appId="+ Utilities.APPID +
-                "&appKey=" + Utilities.APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
+                + "/" + Integer.toString(hour) + "?appId="+ APPID +
+                "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
 
         Log.d("GET", url);
 
@@ -45,8 +44,8 @@ public class FlightRequests {
         queue = RequestQueueSingleton.getInstance(context);
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/arr/"
                 + Integer.toString(year)+  "/" + Integer.toString(month)+ "/" + Integer.toString(day)
-                + "/" + Integer.toString(hour) + "?appId="+ Utilities.APPID +
-                "&appKey=" + Utilities.APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
+                + "/" + Integer.toString(hour) + "?appId="+ APPID +
+                "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
 
         Log.d("GET", url);
 

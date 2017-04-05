@@ -15,8 +15,8 @@ public class Flight{
     private Map<String, String> flightAttributes = new HashMap();
     public final static String INVALID_ATTRIBUTE = "INVALID ATTRIBUTE";
     public final static String NOT_AVAILABLE = "N/A";
-    private final String [] flightAttributeArray = {"AirlineAlias", "AirlineName", "FlightNumber", "SourceAirport",
-            "DestinationAirport", "DestinationName", "DepTime", "ArrTime"};
+    private final String [] flightAttributeArray = {"carrierFsCode", "flightNumber", "departureAirportFsCode",
+            "arrivalAirportFsCode", "departureDate", "arrivalDate"};
 
     /**
      * The Flight class constructor that initializes the flight attributes
