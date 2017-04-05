@@ -41,7 +41,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#26| 7de24dc, 917ab15 |Dimitris|5|Continuous Integration|
 |#3|xx|xx|xx|xx|
 |#22|xx|xx|xx|xx|
-|#18| dce7b29, 72ec745 |Dimitris|5|Testing, Refactoring|
+|#18| dce7b29, 72ec745 |Dimitris|5|Test-first, Refactoring|
 |#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
 
 ## Reflections
@@ -64,19 +64,27 @@ During the 1st sprint we setted both the procedural and technical foundations of
 
 * **Planning poker**: Planning poker proved interestingly troublesome, as to its effectiveness and efficiency, since often large deviations between the team member estimations emerged that remained unsettled. This is however natural, as it was the first session of the kind that the team was engaged in and it is expected for the process to become more "normalized" and faster as the team members get better acquainted to each other, the agile methodology but most importantly the product under development and its challenges.
 
-* **Testing**: Unit tests were written for a part of the system, namely the _Flight_ class. By writing the test cases first, based on the various use cases that were decided, we were able to formulate the class' API before the implementation. This allowed us to maintain a cleaner interface and avoid small bugs which could result from omitting to consider the various edge cases.
+* **Test-first**: Unit tests were written for a part of the system, namely the _Flight_ class. By writing the test cases first, based on the various use cases that were decided, we were able to formulate the class' API before the implementation. This allowed us to maintain a cleaner interface and avoid small bugs which could result from omitting to consider the various edge cases.
 
 * **Pair programming**:
 
 * **Continuous Integration**:
 
-* **Small Releases**:
+* **Onsite Customer**: Having an onsite customer has felt reassuring. If we have any uncertanties of what the customer wants we have been able to get almost immediate response. Considering that it hasn't cost us any extra time to use this practice it should be considered to be rather efficient.
 
-* **Simple Design**:
+* **Small Releases**: Producing small (internal) releases have proven very beneficial for us. A lot of our initial development have had a lot of dependencies. By producing small releases of functionality for the ongoing User Stories we have been able to keep the team aware of design decisions without the necessity of always sitting next to eachother.
 
-* **Refactoring**:
+* **Simple Design**: Parts of the development has been done by using simple design. We tried to do the simplest solution to fix the task at hand, corner cases were then handled and refactoring had to take place. The practice was rather efficient as it enabled constant progress, instead of sitting stuck trying to figure out everything at once.
 
-* **Sustainable Pace**:
+* **Refactoring**: Refactoring has been highly related to the Simple Design. The practice was really efficient, making the code more readable and functional.
+
+* **Sustainable Pace**: A lot of the work has been done at a sustainable pace. No real overtime or extreme peaks of work have been encountered throughout the sprint. This might partially be out of pure luck as we havn't planned that everyone should work X hours/day etc.
+
+* **Point estimates**: All the user stories that were subject to enter the sprint received (function) point estimates during the Planning Poker session. The point estimates were to a quite large extent guesstimates, they were however not pointless. As the team gets into the habit of making such estimates, future estimates are likely to be more accurate.
+
+* **Definition of Done (DoD)**: We came up with a somewhat standardized definition of what it means to be 'done'. This definition was added to every User Story. The DoD wasn't very efficient as we didn't reflect too much on it once we started with the work. It was also hard to live up the the DoD as some parts of the code is difficult to test. To make this practice more beneficial we would have to make the generic DoD more realistic, and then extend the definition (with e.g. tests etc.) where applicable.
+
+* **Backlog**: User Stories were kept in two distinct backlogs, one for the product and one for the sprint. Whenever a new User Story is created it is added to the Product Backlog. Before the sprint is started the team selects the top prioritized user User Stories from the product backlog and put them into the Sprint Backlog. The Sprint Backlog is then closed, meaning that the team cannot commit to more work than what is in the Sprint Backlog.
 
 # Postmortem
 Once the project is finished, summarize your experiences.
