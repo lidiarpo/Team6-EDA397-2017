@@ -13,8 +13,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class FlightTest {
     Flight f;
-    String [] someValidAttributes = {"AirlineName", "FlightNumber", "SourceAirport",
-            "DestinationAirport", "DestinationName", "DepTime", "ArrTime"};
+    String [] someValidAttributes = {"carrierFsCode", "flightNumber", "departureAirportFsCode",
+            "arrivalAirportFsCode", "departureDate", "arrivalDate"};
     String [] someInvalidAttributes = {"Attr1", "Attr2", "Attr3"};
 
     @Before
@@ -23,7 +23,7 @@ public class FlightTest {
     }
     @Test
     public void initializedCorrectly() throws Exception {
-        assertEquals(f.get("AirlineAlias"), Flight.NOT_AVAILABLE);
+        assertEquals(f.get("flightNumber"), Flight.NOT_AVAILABLE);
     }
 
     @Test
