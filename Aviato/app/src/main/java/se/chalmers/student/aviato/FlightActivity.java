@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class FlightActivity extends Activity{
@@ -99,7 +100,12 @@ public class FlightActivity extends Activity{
         super.onStart();
         flightRequests  = new FlightRequests(this);
         //TO-DO Modify in order to select Departures
-        flightRequests.getDepartures("GOT", 2017, 4, 5, 21, 1, this, listener, errorListener);
+
+        Calendar rightNow = Calendar.getInstance();
+        int timeWindow = 6;
+        String airportCode = "GOT";
+
+        flightRequests.getDepartures(airportCode, rightNow, timeWindow, this, listener, errorListener);
     }
 
 
