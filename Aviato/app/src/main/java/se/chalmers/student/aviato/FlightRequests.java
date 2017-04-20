@@ -9,6 +9,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 import static se.chalmers.student.aviato.Utilities.*;
 
 public class FlightRequests {
@@ -20,14 +22,14 @@ public class FlightRequests {
         this.context = context;
     }
 
-    public void getArrivals(String airportCode, int year, int month, int day, int hour, int timeWindow, Context context,
+    public void getArrivals(String airportCode, Calendar calendar, int timeWindow, Context context,
                             Response.Listener<JSONObject>listener, Response.ErrorListener errorListener){
 
             queue = RequestQueueSingleton.getInstance(context);
 
-        String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/dep/"
-                + Integer.toString(year)+  "/" + Integer.toString(month)+ "/" + Integer.toString(day)
-                + "/" + Integer.toString(hour) + "?appId="+ APPID +
+        String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/arr/"
+                + Integer.toString(calendar.get(Calendar.YEAR))+  "/" + Integer.toString(calendar.get(Calendar.MONTH) + 1)+ "/" + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH))
+                + "/" + Integer.toString(calendar.get(Calendar.HOUR_OF_DAY)) + "?appId="+ APPID +
                 "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
 
         Log.d("GET", url);
@@ -38,13 +40,13 @@ public class FlightRequests {
             queue.addToRequestQueue(jsObjRequest);
         }
 
-    public void getDepartures(String airportCode, int year, int month, int day, int hour, int timeWindow, Context context,
-                                     Response.Listener<JSONObject>listener, Response.ErrorListener errorListener){
+    public void getDepartures(String airportCode, Calendar calendar, int timeWindow, Context context,
+                              Response.Listener<JSONObject>listener, Response.ErrorListener errorListener){
 
         queue = RequestQueueSingleton.getInstance(context);
-        String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/arr/"
-                + Integer.toString(year)+  "/" + Integer.toString(month)+ "/" + Integer.toString(day)
-                + "/" + Integer.toString(hour) + "?appId="+ APPID +
+        String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/dep/"
+                + Integer.toString(calendar.get(Calendar.YEAR))+  "/" + Integer.toString(calendar.get(Calendar.MONTH) + 1)+ "/" + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH))
+                + "/" + Integer.toString(calendar.get(Calendar.HOUR_OF_DAY)) + "?appId="+ APPID +
                 "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
 
         Log.d("GET", url);
