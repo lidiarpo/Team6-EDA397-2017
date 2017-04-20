@@ -3,6 +3,7 @@ package se.chalmers.student.aviato;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -113,7 +114,7 @@ public class FlightActivity extends Activity{
 
         FlightAdapter adapter = new FlightAdapter(this, result);
         flightlistView.setAdapter(adapter);
-
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
     }
 
 
