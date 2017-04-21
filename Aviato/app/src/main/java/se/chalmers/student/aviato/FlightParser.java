@@ -34,29 +34,51 @@ public class FlightParser{
             JSONArray allFlights = flights.getJSONArray("flightStatuses");
             // Iterate through all the collected flights
             for (int i = 0; i < allFlights.length(); i++) {
-                JSONObject flightObject = allFlights.getJSONObject(i);
-                Flight flight = new Flight();
-                Set<String> flightAttributes = flight.getAttributes();
-                // Fetch each attribute from the JSON object
-                for (String attribute : flightAttributes) {
-                    if (attribute.equals("departureDate") || attribute.equals("arrivalDate")){
-                        try {
-                            date = format.parse(flightObject.getJSONObject(attribute).getString("dateUtc"));
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                        flight.set(attribute, viewFormat.format(date));
-                    }else {
-                        flight.set(attribute, flightObject.getString(attribute));
-                    }
-                }
-                // By now we should have fetched all flight attributes so add the flight to the list
-                flightList.add(flight);
+                flightList.add(parseFlightStatus(allFlights.getJSONObject(i)));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return flightList;
+    }
+
+    public Flight parseSingleFlight(JSONObject flightObject){
+        try {
+            return parseFlightStatus(flightObject.getJSONObject("flightStatus"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Flight parseFlightStatus(JSONObject flightStatus){
+
+        SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
+        SimpleDateFormat viewFormat = new SimpleDateFormat(VIEW_DATE_FORMAT);
+        Date date = new Date();
+
+        Flight flight= new Flight();
+
+        try {
+            //flightObject = flightJson.getJSONObject("flightStatus");
+            Set<String> flightAttributes = flight.getAttributes();
+            // Fetch each attribute from the JSON object
+            for (String attribute : flightAttributes) {
+                if (attribute.equals("departureDate") || attribute.equals("arrivalDate")){
+                    try {
+                        date = format.parse(flightStatus.getJSONObject(attribute).getString("dateUtc"));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    flight.set(attribute, viewFormat.format(date));
+                }else {
+                    flight.set(attribute, flightStatus.getString(attribute));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return flight;
     }
 
 }
