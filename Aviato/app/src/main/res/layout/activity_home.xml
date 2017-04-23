@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_color"
     tools:context="se.chalmers.student.aviato.HomeActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/flight_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@drawable/android_airplane_takeoff"
-        android:paddingTop="120dp"
-        android:text="Check Flights"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="16dp"/>
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/flight_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/android_airplane_takeoff"
+            android:layout_weight="1.0"
+            android:textSize="17sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_flights"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bulldozer"
+            android:layout_weight="1.0"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_under_construction" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bulldozer"
+            android:layout_weight="1.0"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_under_construction" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bulldozer"
+            android:layout_weight="1.0"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_under_construction" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

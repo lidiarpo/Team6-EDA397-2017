@@ -3,4 +3,6 @@
     <string name="flight_header_from">From</string>
     <string name="flight_header_to">To</string>
     <string name="flight_header_airline">Airline</string>
+    <string name="home_flights">Check Flights</string>
+    <string name="home_under_construction">Coming soon</string>
 </resources>
