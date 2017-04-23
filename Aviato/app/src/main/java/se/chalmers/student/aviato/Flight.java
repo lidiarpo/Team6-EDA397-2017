@@ -16,7 +16,8 @@ public class Flight{
     public final static String INVALID_ATTRIBUTE = "INVALID ATTRIBUTE";
     public final static String NOT_AVAILABLE = "N/A";
     private final String [] flightAttributeArray = {"flightId","carrierFsCode", "flightNumber", "departureAirportFsCode",
-            "arrivalAirportFsCode", "departureDate", "arrivalDate","status"};
+            "arrivalAirportFsCode", "departureDate", "arrivalDate","status", "flightType","flightDurations",
+            "departureTerminal","departureGate","arrivalTerminal","arrivalGate"};
 
     /**
      * The Flight class constructor that initializes the flight attributes
