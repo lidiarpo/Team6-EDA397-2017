@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorHeader">#939393</color>
     <color name="colorFlightItem">#c2ff49</color>
+    <color name="colorWhite">#ffffff</color>
 </resources>
