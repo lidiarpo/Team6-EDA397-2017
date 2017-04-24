@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,8 +24,10 @@ public class FlightActivity extends Activity{
     private Response.Listener<JSONObject> listener;
     private Response.ErrorListener errorListener;
     private FlightRequests flightRequests;
+    private SwipeRefreshLayout.OnRefreshListener refreshListener;
 
     ListView flightlistView;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,21 @@ public class FlightActivity extends Activity{
         setContentView(R.layout.activity_flight);
 
         // The listview to populate
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
-
+        refreshListener = new SwipeRefreshLayout.OnRefreshListener(){
+            @Override
+            public void onRefresh() {
+                flightRequests  = new FlightRequests(getApplicationContext());
+                //TO-DO Modify in order to select Departures
+                Calendar rightNow = Calendar.getInstance();
+                int timeWindow = 6;
+                String airportCode = "GOT";
+                flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), listener, errorListener);
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        };
+        mSwipeRefreshLayout.setOnRefreshListener(refreshListener);
 
         //TODO: Make Flight attributes look differently in the listview now the Flight object is
         //TODO: just shown as a list, need to change activity_flight.xml
