@@ -1,6 +1,10 @@
 package se.chalmers.student.aviato;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -71,6 +75,8 @@ public class FlightActivity extends Activity{
                 Log.e("ERROR","Volley Error");
             }
         };
+
+        scheduleAlarm();
     }
 
     //TODO: make OnItemClick method for the flightlistView
@@ -88,7 +94,10 @@ public class FlightActivity extends Activity{
         flightRequests.getDepartures(airportCode, rightNow, timeWindow, this, listener, errorListener);
     }
 
-
+    /**
+     * Set the flights in the adapter of the listview
+     * @param result the arrayList with Flights objects
+     */
     public void setFlights(ArrayList<Flight> result) {
 
         FlightAdapter adapter = new FlightAdapter(this, result);
@@ -96,5 +105,17 @@ public class FlightActivity extends Activity{
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
     }
 
-
+    /**
+     * Schedules an alarm to launch a service in the background to update
+     * flight information from subscriptions and create notifications
+     */
+    public void scheduleAlarm() {
+        Intent intent = new Intent(getApplicationContext(), SubscriptionReceiver.class);
+        final PendingIntent pIntent = PendingIntent.getBroadcast(this, SubscriptionReceiver.REQUEST_CODE,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        long firstMillis = System.currentTimeMillis();
+        AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pIntent);
+    }
 }

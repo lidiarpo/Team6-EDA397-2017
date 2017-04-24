@@ -17,6 +17,8 @@ import static se.chalmers.student.aviato.Utilities.*;
 
 public class FlightParser{
 
+    private static String TAG = "FlightParser";
+
     /**
      * Given a JSON object containing flight data, parse it and return a list of flights that can
      * be easily manipulated in code.
@@ -42,6 +44,12 @@ public class FlightParser{
         return flightList;
     }
 
+    /**
+     * Given a JSON object containing flight data, parse it and return a flight that can
+     * be easily manipulated in code.
+     * @param flightObject a JSON object containing the flight data
+     * @return a Flight class instance
+     */
     public Flight parseSingleFlight(JSONObject flightObject){
         try {
             return parseFlightStatus(flightObject.getJSONObject("flightStatus"));
@@ -51,6 +59,12 @@ public class FlightParser{
         return null;
     }
 
+    /**
+     * Given a JSON object containing flight status data, parse it and return a flight that can
+     * be easily manipulated in code.
+     * @param flightStatus a JSON object containing the flight data
+     * @return a Flight class instance
+     */
     private Flight parseFlightStatus(JSONObject flightStatus){
 
         SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
@@ -59,26 +73,62 @@ public class FlightParser{
 
         Flight flight= new Flight();
 
+        //TO-DO: Refactor code to make it API agnostic and cleaner handling of optional fields
         try {
-            //flightObject = flightJson.getJSONObject("flightStatus");
             Set<String> flightAttributes = flight.getAttributes();
+            String value;
             // Fetch each attribute from the JSON object
             for (String attribute : flightAttributes) {
-                if (attribute.equals("departureDate") || attribute.equals("arrivalDate")){
+                value = null;
+                if (attribute.equals("departureDate") || attribute.equals("arrivalDate")) {
                     try {
-                        date = format.parse(flightStatus.getJSONObject(attribute).getString("dateUtc"));
+                        if (flightStatus.optJSONObject(attribute)!=null) {
+                            date = format.parse(flightStatus.getJSONObject(attribute).optString("dateUtc",""));
+                        }
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    flight.set(attribute, viewFormat.format(date));
-                }else {
-                    flight.set(attribute, flightStatus.getString(attribute));
+                    value = viewFormat.format(date);
+                } else if (attribute.equals("flightType")) {
+                    if (flightStatus.optJSONObject(attribute)!=null) {
+                        value = flightStatus.getJSONObject("schedule").optString(attribute);
+                    }
+                }else if (attribute.equals("flightDurations")){
+                    if (flightStatus.optJSONObject(attribute)!=null) {
+                        value = flightStatus.getJSONObject(attribute).optString("scheduledBlockMinutes");
+                    }
+                }else if (attribute.equals("departureTerminal")){
+                    if (flightStatus.optJSONObject("airportResources")!=null) {
+                        value = flightStatus.getJSONObject("airportResources").optString(attribute);
+                    }
+                }else if (attribute.equals("departureGate")){
+                    if (flightStatus.optJSONObject("airportResources")!=null) {
+                        value = flightStatus.getJSONObject("airportResources").optString(attribute);
+                    }
+                }else if (attribute.equals("arrivalTerminal")){
+                    if (flightStatus.optJSONObject("airportResources")!=null) {
+                        value = flightStatus.getJSONObject("airportResources").optString(attribute);
+                    }
+                }else if (attribute.equals("arrivalGate")){
+                    if (flightStatus.optJSONObject("airportResources")!=null) {
+                        value = flightStatus.getJSONObject("airportResources").optString(attribute);
+                    }
+                }else{
+                    value = flightStatus.optString(attribute);
+                }
+
+                if (value!=null && !value.isEmpty()) {
+                    flight.set(attribute, value);
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        Log.d(TAG,flight.toString());
+
         return flight;
     }
+
 
 }
