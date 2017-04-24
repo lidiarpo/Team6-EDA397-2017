@@ -54,6 +54,33 @@
 
     </ListView>
 
+    <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/myProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/myTextProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetching Flights..."
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:layout_above="@+id/myProgress"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
 
 
 
