@@ -19,8 +19,7 @@ The app will show all the flights from, and to, Gothenburg Landvetter Airport (G
 ## Sprint 1:
 We started the sprint by populating the backlog of stories written as issues in git. Next we had to estimate the issues by giving them story points that would indicate their complexity, in our wiki the explanation of how we map our story point metric to complexity for the estimation of each issue can be read. We used a a well known estimation technique to estimate our backlog, the Planning Poker. For the Planning Poker, we used an online servie Plan IT Poker (http://www.planitpoker.com/) so every member of the group could remotely vote. After the results of the voting, we reasoned together to come to an estimation conclustion that everybody agreed on. When every issue had an estimation, we had to plan how many issues we were going to commit to for the first acceptance test.  Based on the time capacity each member should contribute per week and the issues that had the most priority, we decided to commit to 6 issues in Sprint 1. 
 
-## Commitment
-### Sprint 1:
+### Commitment
 In the parathesis the estimation point of each issue, followed by the issue number.
 1. Create a hello world application (3) #5
 2. Travis CI setup (5) #26
@@ -30,9 +29,7 @@ In the parathesis the estimation point of each issue, followed by the issue numb
 6. Present flight data (5) #13
 
 
-## Work Done
-
-### Sprint 1: 
+### Work Done 
 Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
@@ -43,9 +40,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#18| dce7b29, 72ec745, 3739373, 43e74f7, 169b844|Dimitris, Lídia, Jobaer|5|Test-first, Refactoring, Pair Programming|
 |#13| fb27b88, 64bb0e4, fe56364, 7ab13e2, |Henrik, Elsa Mjöll|5|Refactoring, Small Releases, Simple Design, Sustainable Pace|
 
-## Reflections
-
-### Sprint 1:
+### Reflections
 During the 1st sprint we setted both the procedural and technical foundations of the product. The team got acquainted with various XP practices (e.g. pair programming, planning game etc) and was able to complete the planned user stories, indicating that the chosen sprint velocity is appropriate and allows for a sustainable development pace.
 
 * **Planning poker**: Planning poker proved interestingly troublesome, as to its effectiveness and efficiency, since often large deviations between the team member estimations emerged that remained unsettled. This is however natural, as it was the first session of the kind that the team was engaged in and it is expected for the process to become more "normalized" and faster as the team members get better acquainted to each other, the agile methodology but most importantly the product under development and its challenges. However, the deviations among team members were also helpful in pointing out some trivial yet important details that other members were overlooking. therefore, it helped to take those details in account thus improving effort estimation.
@@ -72,6 +67,49 @@ During the 1st sprint we setted both the procedural and technical foundations of
 * **Definition of Done (DoD)**: We came up with a somewhat standardized definition of what it means to be 'done'. This definition was added to every User Story. The DoD wasn't very efficient as we didn't reflect too much on it once we started with the work. It was also hard to live up the the DoD as some parts of the code is difficult to test. To make this practice more beneficial we would have to make the generic DoD more realistic, and then extend the definition (with e.g. tests etc.) where applicable.
 
 * **Backlog**: User Stories were kept in two distinct backlogs, one for the product and one for the sprint. Whenever a new User Story is created it is added to the Product Backlog. Before the sprint is started the team selects the top prioritized user User Stories from the product backlog and put them into the Sprint Backlog. The Sprint Backlog is then closed, meaning that the team cannot commit to more work than what is in the Sprint Backlog.
+
+## Sprint 2:
+
+
+### Commitment
+In the parenthesis the estimation point of each issue, followed by the issue number.
+1. Loading wheel when fetching API information for FlightActivity #52 (2)
+2. Manual retrieval of API information #42 (2)
+3. Refactoring of the Flight Request Interface #44 (2)
+4. Splash screen #45 (2)
+5. Add shaded containers to main interface for future items #49 (2)
+6. Wiki entry with code convention #50 (1)
+7. Extend the information stored on Flight class #51 (3)
+8. Create background service #12 (5)
+9. Notify user at least 1 hour before the subscribed flight #25 (8)
+10. Choose a flight to subcscribe to #4 (3)
+11. Present flight subscription #19 (3)
+12. Provide detailed information about the flight(s) #48 (5)
+13. Present notifications #15 (5)
+14. Add flight to subscription list #8 (5)
+15. Remove flight from subscriptions list #10 (3)
+
+
+### Work Done 
+Feature | Commits  | Group members | Effort | Practices
+----------------|----------------|----------------|----------------|----------------
+Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
+|#52|xxxx|Person X|2|Practice, practice, practice|
+|#42|xxxx|Person X|2|Practice, practice, practice|
+|#44|xxxx|Person X|2|Practice, practice, practice|
+|#45|xxxx|Person X|2|Practice, practice, practice|
+|#49|940b7a9|Henrik|2|Refactoring|
+|#50|N/A|Henrik|1|Coding standards|
+|#51|xxxx|Person X|3|Practice, practice, practice|
+|#12|xxxx|Person X|5|Practice, practice, practice|
+
+
+### Reflections
+
+
+* **Refactoring**: Naturally we refactored much of the code for this sprint. A lot of previous code were already outdated and needed to be polished, complete reworked or removed. 
+
+* **Coding standards**: We came up with coding standards, primarilty based on the ones that Google have set up for Android contributors. Coding standards can be a very effective practice to ease readability and make the team members feel a larger collective ownership. The coding standards were however defined in the middle of the sprint, which was very stacked with work from the start. This made it difficult to integrate the coding standards for this sprint. This is however a practice that we could benefit greatly from for next sprint.
 
 # Postmortem
 Once the project is finished, summarize your experiences.
