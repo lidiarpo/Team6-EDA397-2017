@@ -20,15 +20,22 @@ public class HomeActivity extends Activity {
 
         //add flight image button to homescreen
         Button flightBtn = (Button) findViewById(R.id.flight_button);
+        Button notificationBtn = (Button) findViewById(R.id.notification_button);
 
         flightBtn.setOnClickListener(new View.OnClickListener() {
            @Override
             public void onClick(View v){
                Intent loadFlightActivity = new Intent(HomeActivity.this, FlightActivity.class);
                startActivity(loadFlightActivity);
-               System.out.print("started");
-
            }
+        });
+
+        notificationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent loadNotificationActivity = new Intent(HomeActivity.this, NotificationActivity.class);
+                startActivity(loadNotificationActivity);
+            }
         });
     }
 
