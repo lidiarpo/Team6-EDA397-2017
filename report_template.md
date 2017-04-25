@@ -98,8 +98,8 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#42|xxxx|Person X|2|Practice, practice, practice|
 |#44|xxxx|Person X|2|Practice, practice, practice|
 |#45|xxxx|Person X|2|Practice, practice, practice|
-|#49|xxxx|Henrik|2|Refactoring|
-|#50|xxxx|Henrik|1|Coding standards|
+|#49|940b7a9|Henrik|2|Refactoring|
+|#50|N/A|Henrik|1|Coding standards|
 |#51|xxxx|Person X|3|Practice, practice, practice|
 |#12|xxxx|Person X|5|Practice, practice, practice|
 
