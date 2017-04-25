@@ -39,17 +39,20 @@
             android:layout_marginEnd="46dp" />
 
     </RelativeLayout>
+
     <View
         android:id="@+id/vDivider"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
         android:layout_below="@+id/rlFlightPresentation"
-        android:background="#c0c0c0"/>
+        android:background="#c0c0c0" />
+
     <ListView
         android:id="@+id/lvFlightContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/vDivider"
+        android:clickable="true"
         android:headerDividersEnabled="false">
 
     </ListView>
@@ -57,7 +60,9 @@
     <RelativeLayout
         android:id="@+id/loadingPanel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <ProgressBar
             android:id="@+id/myProgress"
@@ -72,16 +77,14 @@
             android:id="@+id/myTextProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fetching Flights..."
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="25dp"
-            android:gravity="center"
             android:layout_above="@+id/myProgress"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="Searching for Flights..." />
 
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>
