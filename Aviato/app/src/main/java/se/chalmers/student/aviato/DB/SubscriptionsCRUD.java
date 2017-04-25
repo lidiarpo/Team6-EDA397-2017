@@ -25,6 +25,9 @@ public class SubscriptionsCRUD {
 
         db = mDbHelper.getWritableDatabase();
 
+        //TO-DO Fix code below
+        deleteSubscription(flight.get("flightId"));
+
         ContentValues values = new ContentValues();
         values.put(FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_ID, flight.get("flightId"));
         values.put(FlightsContract.FlightEntry.COLUMN_NAME_CARRIER_FS_CODE,flight.get("carrierFsCode"));
