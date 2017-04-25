@@ -12,10 +12,6 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-/**
- * Created by Wasif Ali Moon on 4/20/2017.
- */
-
 public class SplashActivity extends Activity {
     private static boolean splashLoaded = false;
 

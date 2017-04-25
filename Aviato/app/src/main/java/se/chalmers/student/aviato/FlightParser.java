@@ -10,8 +10,10 @@ import java.sql.SQLOutput;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
+import java.util.TimeZone;
 
 import static se.chalmers.student.aviato.Utilities.*;
 
@@ -69,7 +71,10 @@ public class FlightParser{
     private Flight parseFlightStatus(JSONObject flightStatus){
 
         SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
         SimpleDateFormat viewFormat = new SimpleDateFormat(VIEW_DATE_FORMAT);
+        Calendar cal = Calendar.getInstance();
+        viewFormat.setTimeZone(cal.getTimeZone());
         Date date = new Date();
 
         Flight flight= new Flight();
@@ -89,6 +94,7 @@ public class FlightParser{
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+
                     value = viewFormat.format(date);
                 } else if (attribute.equals("flightType")) {
                     if (flightStatus.optJSONObject(attribute)!=null) {

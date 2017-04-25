@@ -1,10 +1,15 @@
 package se.chalmers.student.aviato;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,8 +28,10 @@ public class FlightActivity extends Activity{
     private Response.Listener<JSONObject> listener;
     private Response.ErrorListener errorListener;
     private FlightRequests flightRequests;
+    private SwipeRefreshLayout.OnRefreshListener refreshListener;
 
     ListView flightlistView;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,8 +39,21 @@ public class FlightActivity extends Activity{
         setContentView(R.layout.activity_flight);
 
         // The listview to populate
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
-
+        refreshListener = new SwipeRefreshLayout.OnRefreshListener(){
+            @Override
+            public void onRefresh() {
+                flightRequests  = new FlightRequests(getApplicationContext());
+                //TO-DO Modify in order to select Departures
+                Calendar rightNow = Calendar.getInstance();
+                int timeWindow = 6;
+                String airportCode = "GOT";
+                flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), listener, errorListener);
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        };
+        mSwipeRefreshLayout.setOnRefreshListener(refreshListener);
 
         //TODO: Make Flight attributes look differently in the listview now the Flight object is
         //TODO: just shown as a list, need to change activity_flight.xml
@@ -55,6 +75,8 @@ public class FlightActivity extends Activity{
                 Log.e("ERROR","Volley Error");
             }
         };
+
+        scheduleAlarm();
     }
 
     //TODO: make OnItemClick method for the flightlistView
@@ -72,7 +94,10 @@ public class FlightActivity extends Activity{
         flightRequests.getDepartures(airportCode, rightNow, timeWindow, this, listener, errorListener);
     }
 
-
+    /**
+     * Set the flights in the adapter of the listview
+     * @param result the arrayList with Flights objects
+     */
     public void setFlights(ArrayList<Flight> result) {
 
         FlightAdapter adapter = new FlightAdapter(this, result);
@@ -80,5 +105,17 @@ public class FlightActivity extends Activity{
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
     }
 
-
+    /**
+     * Schedules an alarm to launch a service in the background to update
+     * flight information from subscriptions and create notifications
+     */
+    public void scheduleAlarm() {
+        Intent intent = new Intent(getApplicationContext(), SubscriptionReceiver.class);
+        final PendingIntent pIntent = PendingIntent.getBroadcast(this, SubscriptionReceiver.REQUEST_CODE,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        long firstMillis = System.currentTimeMillis();
+        AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pIntent);
+    }
 }
