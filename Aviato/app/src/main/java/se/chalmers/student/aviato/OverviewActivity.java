@@ -1,15 +1,20 @@
 package se.chalmers.student.aviato;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.StringTokenizer;
+
+import static android.R.id.message;
 
 
 public class OverviewActivity extends Activity {
@@ -35,9 +40,29 @@ public class OverviewActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.flight_overview);
-
         createView();
 
+
+
+        final Button btnSubscription = (Button) findViewById(R.id.btnSubscribe);
+        btnSubscription.setClickable(true);
+        btnSubscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getApplicationContext();
+                CharSequence text = "You are Subscribed to this flight";
+                int duration = Toast.LENGTH_SHORT;
+
+                // Perform action on click
+                if(v.getId() == R.id.btnSubscribe)
+                {
+                    Log.d("Subscription Button","working");
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
+
+            }
+        });
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {

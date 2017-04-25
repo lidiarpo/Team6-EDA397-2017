@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HomeActivity">
         </activity>
-        <activity android:name=".FlightActivity" ></activity>
-        <activity android:name="OverviewActivity" android:label="OverviewActivity"></activity>
+        <activity android:name=".FlightActivity" />
+        <activity android:name="OverviewActivity" />
 
         <activity
             android:name=".SplashActivity"
