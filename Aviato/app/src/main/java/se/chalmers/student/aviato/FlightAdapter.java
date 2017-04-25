@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by gryphex on 2017-04-04.
- */
 
 public class FlightAdapter extends ArrayAdapter<Flight> {
     public FlightAdapter(Context context, ArrayList<Flight> flights) {
@@ -20,7 +17,7 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         // Get data item for this position
         Flight flight = getItem(position);
 
@@ -28,7 +25,6 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_flight, parent, false);
         }
-
 
 
         // Lookup view for data population
@@ -39,12 +35,12 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
         TextView tvAirline = (TextView) convertView.findViewById(R.id.tvAirline);
         RelativeLayout rlEntry = (RelativeLayout) convertView.findViewById(R.id.rlSingleFlightEntry);
 
-        if(position % 2 == 0){
+        if (position % 2 == 0) {
             rlEntry.setBackgroundResource(R.color.colorFlightItem);
         }
 
         // Populate the data into the template view using the data object
-        if(flight != null){
+        if (flight != null) {
             tvSource.setText(flight.get("departureAirportFsCode"));
             tvDestination.setText(flight.get("arrivalAirportFsCode"));
             tvArrTime.setText(flight.get("arrivalDate"));
@@ -54,5 +50,6 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
 
         // Return the completed view to render on screen
         return convertView;
+
     }
 }
