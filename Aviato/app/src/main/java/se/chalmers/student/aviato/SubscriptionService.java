@@ -8,6 +8,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
+import se.chalmers.student.aviato.DB.NotificationsCRUD;
+import se.chalmers.student.aviato.DB.NotificationsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 
 
@@ -16,11 +18,15 @@ public class SubscriptionService extends IntentService {
     private static String TAG = "SubscriptionService";
     FlightsDbHelper mDbHelper;
     SubscriptionsCRUD subscriptionsCRUD;
+    NotificationsDbHelper notificationsDbHelper;
+    NotificationsCRUD notificationsCRUD;
 
     public SubscriptionService() {
         super("SubscriptionService");
         mDbHelper = new FlightsDbHelper(this);
         subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
+        notificationsDbHelper = new NotificationsDbHelper(this);
+        notificationsCRUD = new NotificationsCRUD(notificationsDbHelper);
     }
 
     @Override
