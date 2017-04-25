@@ -12,17 +12,23 @@ import java.util.List;
 
 import se.chalmers.student.aviato.DB.FlightsContract.FlightEntry;
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
+import se.chalmers.student.aviato.DB.NotificationsCRUD;
+import se.chalmers.student.aviato.DB.NotificationsDbHelper;
 
 
 public class SubscriptionService extends IntentService {
 
     private static String TAG = "SubscriptionService";
     FlightsDbHelper mDbHelper;
+    NotificationsDbHelper notificationsDbHelper;
     SQLiteDatabase db;
+    NotificationsCRUD notificationsCRUD;
 
     public SubscriptionService() {
         super("SubscriptionService");
         mDbHelper = new FlightsDbHelper(this);
+        notificationsDbHelper = new NotificationsDbHelper(this);
+        notificationsCRUD = new NotificationsCRUD(notificationsDbHelper);
     }
 
     @Override
@@ -33,6 +39,15 @@ public class SubscriptionService extends IntentService {
             //addEntry();
             //readEntry();
             //deleteSubscription("8821");
+            //Notification test = new Notification();
+            //test.setFlightId("5522145");
+            //test.setText("Hello World!");
+            //notificationsCRUD.addNotification(test);
+            //notificationsCRUD.readNotifications();
+            //notificationsCRUD.existsNotification("5522145");
+            //notificationsCRUD.deleteNotification("5522145");
+            //notificationsCRUD.existsNotification("5522145");
+            //notificationsCRUD.readNotifications();
             readSubscriptions();
         }
         Log.i(TAG,"Subscription Service running");
