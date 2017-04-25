@@ -1,13 +1,17 @@
 package se.chalmers.student.aviato;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import se.chalmers.student.aviato.DB.NotificationsCRUD;
+import se.chalmers.student.aviato.DB.NotificationsDbHelper;
 
 /**
  * Created by gryphex on 2017-04-24.
@@ -15,13 +19,12 @@ import java.util.List;
 
 public class NotificationActivity extends Activity {
 
-    ListView mNotificationListView;
+    public static final int NOTIFICATION_READ = 1;
+    public static final int NOTIFICATION_NOT_READ = 0;
 
-    //TODO: onListViewItemSelected method to enable removal of notifications
-
-    //TODO: Have items bolded if they aren't read
-
-    //TODO: "Mark all notifications as read" button
+    private ListView mNotificationListView;
+    private NotificationsCRUD mNotCrud;
+    private Notification mSelItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +33,13 @@ public class NotificationActivity extends Activity {
 
         // The listview to populate
         mNotificationListView = (ListView) findViewById(R.id.lvNotifications);
-        List<String> mList = new ArrayList<>();
 
-        // TODO: Fill mList with the notifications existing in the database (currently under develpment)
+        NotificationsDbHelper dbHelper = new NotificationsDbHelper(this);
+        mNotCrud = new NotificationsCRUD(dbHelper);
 
+        // Fill the list with notifications in the database
+        List<Notification> mList = mNotCrud.readNotifications();
+        
         NotificationArrayAdapter listAdapter =
                 new NotificationArrayAdapter(NotificationActivity.this,
                         R.layout.notification_list,
@@ -45,10 +51,25 @@ public class NotificationActivity extends Activity {
     public void onStart(){
         super.onStart();
 
+        //TODO: onListViewItemSelected method to enable removal of notifications
         mNotificationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                NotificationActivity selItem = (NotificationActivity) adapter.getItemAtPosition(position);
+                mSelItem = (Notification) adapter.getItemAtPosition(position);
 
+                TextView text = (TextView) v.findViewById(R.id.tvNotifications);
+
+                // Change the design of the notification if pressed
+                if (mSelItem.getRead() == NOTIFICATION_NOT_READ) {
+                    text.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.colorWhite));
+                    text.setTypeface(Typeface.DEFAULT);
+                    mSelItem.setRead(NOTIFICATION_READ);
+                    mNotCrud.updateNotification(mSelItem);
+                } else {
+                    text.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.colorFlightItem));
+                    text.setTypeface(Typeface.DEFAULT_BOLD);
+                    mSelItem.setRead(NOTIFICATION_NOT_READ);
+                    mNotCrud.updateNotification(mSelItem);
+                }
             }
         });
     }
