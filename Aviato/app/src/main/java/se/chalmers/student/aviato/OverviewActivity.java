@@ -35,7 +35,9 @@ public class OverviewActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.flight_overview);
+
         createView();
+
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
@@ -84,6 +86,7 @@ public class OverviewActivity extends Activity {
         tvArrGate = (TextView) findViewById(R.id.tvArrGate);
         tvArrTerminal = (TextView) findViewById(R.id.tvArrTerminal);
     }
+
 
     private void populateOverview(HashMap<String, String> flight) {
 
