@@ -14,12 +14,20 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
+import se.chalmers.student.aviato.DB.FlightsDbHelper;
+import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
+
 import static android.R.id.message;
 
 
 public class OverviewActivity extends Activity {
 
     private String flight;
+    HashMap<String, String> data;
+    FlightsDbHelper mDbHelper;
+    SubscriptionsCRUD subscriptionsCRUD;
+
+
 
     TextView tvAirlineName;
     TextView tvStatus;
@@ -56,9 +64,13 @@ public class OverviewActivity extends Activity {
                 // Perform action on click
                 if(v.getId() == R.id.btnSubscribe)
                 {
-                    Log.d("Subscription Button","working");
+                    //Log.d("Context value:","working");
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
+                    mDbHelper = new FlightsDbHelper(context);
+                    Log.d("Context value:", mDbHelper +"");
+                    subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
+                    subscriptionsCRUD.addSubscription(getFlightObject());
                 }
 
             }
@@ -72,7 +84,8 @@ public class OverviewActivity extends Activity {
 
             //tvAirlineName.setText("TEST!!!!");
 
-            HashMap<String, String> data = new HashMap<String, String>();
+            //HashMap<String, String> data = new HashMap<String, String>();
+            data = new HashMap<String, String>();
             StringTokenizer tokenizer = new StringTokenizer(flight, ",");
             while(tokenizer.hasMoreTokens()) {
                 StringTokenizer s = new StringTokenizer(tokenizer.nextToken(), "='");
@@ -130,6 +143,26 @@ public class OverviewActivity extends Activity {
        tvArrTerminal.setText(flight.get("arrivalTerminal"));
 
     }
+    public Flight getFlightObject(){
+        Flight flightOverview = new Flight();
+        flightOverview.set("flightId",data.get("flightId"));
+        flightOverview.set("carrierFsCode",data.get("carrierFsCode"));
+        flightOverview.set("flightNumber",data.get("flightNumber"));
+        flightOverview.set("departureAirportFsCode",data.get("departureAirportFsCode"));
+        flightOverview.set("arrivalAirportFsCode",data.get("arrivalAirportFsCode"));
+        flightOverview.set("departureDate",data.get("departureDate"));
+        flightOverview.set("arrivalDate",data.get("arrivalDate"));
+        flightOverview.set("status",data.get("status"));
+        flightOverview.set("flightType",data.get("flightType"));
+        flightOverview.set("flightDurations",data.get("flightDurations"));
+        flightOverview.set("departureTerminal",data.get("departureTerminal"));
+        flightOverview.set("departureGate",data.get("Flight{departureGate"));
+        flightOverview.set("arrivalTerminal",data.get("arrivalTerminal"));
+        flightOverview.set("arrivalGate",data.get("arrivalGate"));
 
+
+        return flightOverview;
+
+    }
 
 }
