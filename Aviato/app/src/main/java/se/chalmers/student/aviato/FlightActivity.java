@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView;
 import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.android.volley.Response;
@@ -64,7 +64,7 @@ public class FlightActivity extends Activity{
 
 
 
-       refreshListener = new SwipeRefreshLayout.OnRefreshListener(){
+        refreshListener = new SwipeRefreshLayout.OnRefreshListener(){
             @Override
             public void onRefresh() {
                 flightRequests  = new FlightRequests(getApplicationContext());
@@ -92,9 +92,10 @@ public class FlightActivity extends Activity{
 
             @Override
             public void onErrorResponse(VolleyError error) {
-               // Log.e("ERROR","Volley Error");
+                // Log.e("ERROR","Volley Error");
             }
         };
+
         scheduleAlarm();
     }
 
