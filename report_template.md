@@ -119,7 +119,7 @@ During the 2nd sprint we vastly increased our velocity and focused on getting a 
 
 * **Refactoring**: Naturally we refactored much of the code for this sprint. A lot of previous code were already outdated and needed to be polished, complete reworked or removed. 
 
-* **Pair programming**: 
+* **Pair programming**: In the sprint 2, pair programming proved to be more effective and fruitful as compared to sprint 1. The reason might be that android beginner member in the pair did some tasks individually first to get familiar with android. Later, pair programming was complemented with switching places between the members. Additionally, it also reduced the time spent on the task to some extent.
 
 * **Simple design**:  
 
