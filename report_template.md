@@ -102,10 +102,10 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#50|N/A|Henrik|1|Coding standards|
 |#51|87437e3|Lois|3|Refactoring|
 |#12|6f2cd9a|Lois|5|Simple Design|
-|#25|xxxx|Person X|8|Practice, practice, practice|
-|#4|xxxx|Person X|3|Practice, practice, practice|
+|#25|72a8075|Dimitris|8|Simple Design|
+|#4|0d2356a|Jobaer, Lídia|3 (Real effort 5) |Simple Design, Refactoring, Pair Programming|
 |#19|a106116,d4db884|Elsa|3|Refactoring|
-|#48|xxxx|Person X|5|Practice, practice, practice|
+|#48|84e3da7, e828628|Lídia, Jobaer|5|Simple Design, Refactoring, Pair Programming|
 |#15|2d3cf1d, 96f1b1d, e0a7d26|Henrik, Ayesha|5|Refactoring|
 |#08|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 |#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
@@ -119,9 +119,11 @@ During the 2nd sprint we vastly increased our velocity and focused on getting a 
 
 * **Refactoring**: Naturally we refactored much of the code for this sprint. A lot of previous code were already outdated and needed to be polished, complete reworked or removed. 
 
-* **Pair programming**: 
+* **Pair programming**: In the sprint 2, pair programming proved to be more effective and fruitful as compared to sprint 1. The reason might be that android beginner member in the pair did some tasks individually first to get familiar with android. Later, pair programming was complemented with switching places between the members. Additionally, it also reduced the time spent on the task to some extent.
 
-* **Simple design**: 
+* **Simple design**: During sprint 2, despite the tasks being characterized by increased complexity, we tried to implement the simplest yet most effective solutions by using well-proven concepts (e.g. CRUD database) and keeping coupling between components at a minimum.
+
+During the last acceptance meeting, the Product Owner and the Customer requested several specific features to be implemented during the coming sprint. However, due to the extensive nature of the features there was no room for self-organizing and determining the velocity, since the user stories contained in the sprint backlog were practically already decided. We understand that emergent feature requests by the customer are something not unusual in the fast-pacing industry and practically necessary. However, they should be generally kept at a minimum as they invalidate many of the aspects of the adopted agile methodology.
 
 # Postmortem
 Once the project is finished, summarize your experiences.
