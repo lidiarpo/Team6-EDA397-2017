@@ -51,7 +51,7 @@ public class FlightActivity extends Activity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Flight flight = (Flight)flightlistView.getItemAtPosition(position);
 
-                //setContentView(R.layout.flight_overview);
+                //setContentView(R.layout.activity_overview);
                 //OverviewAdapter adapter = new OverviewAdapter( , arrayoftheFlightData);
 
                 Intent loadOverviewActivity = new Intent(FlightActivity.this, OverviewActivity.class);
