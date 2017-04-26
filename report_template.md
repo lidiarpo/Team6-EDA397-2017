@@ -69,7 +69,7 @@ During the 1st sprint we setted both the procedural and technical foundations of
 * **Backlog**: User Stories were kept in two distinct backlogs, one for the product and one for the sprint. Whenever a new User Story is created it is added to the Product Backlog. Before the sprint is started the team selects the top prioritized user User Stories from the product backlog and put them into the Sprint Backlog. The Sprint Backlog is then closed, meaning that the team cannot commit to more work than what is in the Sprint Backlog.
 
 ## Sprint 2:
-
+Sprint two started by going through the sprint goals set by the product owner. We also analyzed how we could integrate all feature request; which were feasible and which weren't. We moved on to populating the product backlog with all the user stories which we felt were missing. The user stories were prioritized and those that related to the sprint goal were estimated via planning poker. We realized that our velocity for the last sprint was rather low, and therefore commited to more work than we did for Sprint 1. Once the sprint backlog was set, everyone were able to pick their first user story of the sprint. No one were allowed to take more than one user story at a time. 
 
 ### Commitment
 In the parenthesis the estimation point of each issue, followed by the issue number.
@@ -111,11 +111,17 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 
 ### Reflections
+During the 2nd sprint we vastly increased our velocity and focused on getting a big chunk of functionality implemented. The team kept some of the agile practices, while excluding others. The XP which we hadn't tried out in sprint one, and therefore added to this sprint were: Collective code ownership and Coding standards. 
 
+* **Collective code ownership**: When we had our code base from the first sprint we all felt acquainted with the foundation and could therefore branch out easily. We divided the work so that the risk of bottlenecks were severly decreased. Everyone could almost always work on something without having to wait for someone else to get done. If that occurred we used Pair Programming to speed up the work of the bottleneck, while giving work to the dependee at the same time. The person working on a task have been the chief architect for that specific part of the design. The practice could be further strenghtened by a larger test coverage.
+
+* **Coding standards**: We came up with coding standards, primarilty based on the ones that Google have set up for Android contributors. Coding standards can be a very effective practice to ease readability and make the team members feel a larger collective ownership. The coding standards were however defined in the middle of the sprint, which was very stacked with work from the start. This made it difficult to integrate the coding standards for this sprint. This is however a practice that we could benefit greatly from for next sprint. 
 
 * **Refactoring**: Naturally we refactored much of the code for this sprint. A lot of previous code were already outdated and needed to be polished, complete reworked or removed. 
 
-* **Coding standards**: We came up with coding standards, primarilty based on the ones that Google have set up for Android contributors. Coding standards can be a very effective practice to ease readability and make the team members feel a larger collective ownership. The coding standards were however defined in the middle of the sprint, which was very stacked with work from the start. This made it difficult to integrate the coding standards for this sprint. This is however a practice that we could benefit greatly from for next sprint. 
+* **Pair programming**: 
+
+* **Simple design**: 
 
 # Postmortem
 Once the project is finished, summarize your experiences.
