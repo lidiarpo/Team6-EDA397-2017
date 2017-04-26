@@ -105,7 +105,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#25|xxxx|Person X|8|Practice, practice, practice|
 |#4|xxxx|Person X|3|Practice, practice, practice|
 |#19|a106116,d4db884|Elsa|3|Refactoring|
-|#48|xxxx|Person X|5|Practice, practice, practice|
+|#48|84e3da7, e828628|Lídia|5|Simple Design, Refactoring|
 |#15|2d3cf1d, 96f1b1d, e0a7d26|Henrik, Ayesha|5|Refactoring|
 |#08|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 |#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
@@ -121,7 +121,7 @@ During the 2nd sprint we vastly increased our velocity and focused on getting a 
 
 * **Pair programming**: 
 
-* **Simple design**: 
+* **Simple design**:  
 
 # Postmortem
 Once the project is finished, summarize your experiences.
