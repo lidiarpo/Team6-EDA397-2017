@@ -106,7 +106,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#4|xxxx|Person X|3|Practice, practice, practice|
 |#19|a106116,d4db884|Elsa|3|Refactoring|
 |#48|xxxx|Person X|5|Practice, practice, practice|
-|#15|xxxx|Person X|5|Practice, practice, practice|
+|#15|2d3cf1d, 96f1b1d, e0a7d26|Henrik|5|Refactoring|
 |#08|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 |#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 
