@@ -19,7 +19,7 @@ public class FlightRequests {
     private RequestQueueSingleton queue;
     private Context context;
 
-    public FlightRequests(Context cOntext) {
+    public FlightRequests(Context context) {
         this.context = context;
     }
 

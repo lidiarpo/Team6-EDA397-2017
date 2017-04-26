@@ -252,6 +252,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp"
+        android:text="Subscribe"
+        android:onClick="onBtnClicked"/>
         android:text="@string/button_subscribe" />
 
 </RelativeLayout>
