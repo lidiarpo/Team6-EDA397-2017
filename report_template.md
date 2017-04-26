@@ -101,7 +101,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#49|940b7a9|Henrik|2|Refactoring|
 |#50|N/A|Henrik|1|Coding standards|
 |#51|87437e3|Lois|3|Refactoring|
-|#12|xxxx|Person X|5|Practice, practice, practice|
+|#12|6f2cd9a|Lois|5|Simple Design|
 |#25|xxxx|Person X|8|Practice, practice, practice|
 |#4|xxxx|Person X|3|Practice, practice, practice|
 |#19|a106116,d4db884|Elsa|3|Refactoring|
