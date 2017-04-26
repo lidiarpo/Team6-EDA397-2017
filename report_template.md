@@ -95,9 +95,9 @@ Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
 |#52|0996d6d|Elsa|2|Simple Design|
-|#42|xxxx|Person X|2|Practice, practice, practice|
+|#42|3348c13|Ayesha|2|Refactoring, Simple Design|
 |#44|2638149, 865d854|Lois|2 (Real effort 3)|Simple Design, Refactoring|
-|#45|xxxx|Person X|2|Practice, practice, practice|
+|#45|04620e5|Ayesha|2|Simple Design, Refactoring|
 |#49|940b7a9|Henrik|2|Refactoring|
 |#50|N/A|Henrik|1|Coding standards|
 |#51|87437e3|Lois|3|Refactoring|
@@ -106,7 +106,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#4|xxxx|Person X|3|Practice, practice, practice|
 |#19|a106116,d4db884|Elsa|3|Refactoring|
 |#48|xxxx|Person X|5|Practice, practice, practice|
-|#15|2d3cf1d, 96f1b1d, e0a7d26|Henrik|5|Refactoring|
+|#15|2d3cf1d, 96f1b1d, e0a7d26|Henrik, Ayesha|5|Refactoring|
 |#08|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 |#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 
