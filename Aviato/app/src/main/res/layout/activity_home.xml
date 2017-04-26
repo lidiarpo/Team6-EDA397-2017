@@ -27,13 +27,13 @@
             android:text="@string/home_flights"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/subscription_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bulldozer"
+            android:background="@drawable/android_subscription"
             android:layout_weight="1.0"
             android:textColor="@color/colorWhite"
-            android:text="@string/home_under_construction" />
+            android:text="Flight Subscription" />
 
     </LinearLayout>
 

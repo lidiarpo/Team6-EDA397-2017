@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rlSingleSubscriptionEntry"
+                android:background="@drawable/background_color"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/subCarrierCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:layout_marginRight="10sp"
+        android:layout_marginLeft="10sp"
+        android:text="carrierCode"/>
+
+    <TextView
+        android:id="@+id/subFlightNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/subCarrierCode"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:text="flightNr"/>
+
+    <ImageView
+        android:id="@+id/departImage"
+        android:layout_below="@+id/subCarrierCode"
+        android:layout_marginTop="10pt"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:src="@drawable/android_airplane_takeoff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/subDepTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:text="Departure"
+        android:layout_marginRight="10sp"
+        android:gravity="center"
+        android:layout_above="@+id/subArrTime"
+        android:layout_toEndOf="@+id/departImage"
+        android:layout_marginBottom="11dp"/>
+
+    <TextView
+        android:id="@+id/subDepAirport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10sp"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:text="airport"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/subDepTime"
+        android:layout_toRightOf="@+id/subDepTime"
+        android:layout_alignTop="@+id/subDepTime"/>
+
+    <TextView
+        android:id="@+id/subDepValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:text="DepVal"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/subDepAirport"
+        android:layout_alignBottom="@+id/subDepAirport"
+        android:layout_alignTop="@+id/subDepAirport"/>
+
+    <ImageView
+        android:id="@+id/landingImage"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/departImage"
+        android:rotation="55"
+        android:src="@drawable/android_airplane_takeoff"/>
+
+    <TextView
+        android:id="@+id/subArrTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arrival"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:layout_marginRight="10sp"
+        android:layout_below="@+id/departImage"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60sp"/>
+
+    <TextView
+        android:id="@+id/subArrAirport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="airport"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:layout_alignBaseline="@+id/subArrTime"
+        android:layout_alignBottom="@+id/subArrTime"
+        android:layout_toEndOf="@+id/subDepTime"/>
+
+    <TextView
+        android:id="@+id/subArrValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ArrVal"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:layout_alignBottom="@+id/subArrAirport"
+        android:layout_toEndOf="@+id/subDepAirport"
+        android:layout_alignTop="@+id/subArrAirport"/>
+
+    <TextView
+        android:id="@+id/subTextStatus"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/subDepValue"
+        android:paddingRight="10sp"
+        android:text="Status:"
+        android:layout_below="@+id/subDepValue"/>
+
+    <TextView
+        android:id="@+id/subStatus"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/subTextStatus"
+        android:layout_toEndOf="@+id/subTextStatus"
+        android:text="TextView"/>
+
+    <ImageButton
+        android:id="@+id/deleteSubBtn"
+        android:onClick="onClick"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/android_delete"/>
+
+</RelativeLayout>

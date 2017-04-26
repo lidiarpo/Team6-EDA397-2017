@@ -16,6 +16,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".FlightActivity" />
         <activity android:name=".NotificationActivity" />
+        <activity android:name=".SubscriptionActivity" />
+
         <activity
             android:name=".SplashActivity"
             android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">

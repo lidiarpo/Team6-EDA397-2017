@@ -131,7 +131,7 @@ public class FlightParser{
             e.printStackTrace();
         }
 
-        Log.d(TAG,flight.toString());
+        //Log.d(TAG,flight.toString());
 
         return flight;
     }
