@@ -96,13 +96,14 @@ Feature | Commits  | Group members | Effort | Practices
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
 |#52|xxxx|Person X|2|Practice, practice, practice|
 |#42|xxxx|Person X|2|Practice, practice, practice|
-|#44|xxxx|Person X|2|Practice, practice, practice|
+|#44|2638149, 865d854|Lois|2 (Real effort 3)|Simple Design, Refactoring|
 |#45|xxxx|Person X|2|Practice, practice, practice|
 |#49|940b7a9|Henrik|2|Refactoring|
 |#50|N/A|Henrik|1|Coding standards|
-|#51|xxxx|Person X|3|Practice, practice, practice|
+|#51|87437e3|Lois|3|Refactoring|
 |#12|xxxx|Person X|5|Practice, practice, practice|
-
+|#08|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
+|#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 
 ### Reflections
 
