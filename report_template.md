@@ -94,7 +94,7 @@ In the parenthesis the estimation point of each issue, followed by the issue num
 Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
-|#52|xxxx|Person X|2|Practice, practice, practice|
+|#52|0996d6d|Elsa|2|Simple Design|
 |#42|xxxx|Person X|2|Practice, practice, practice|
 |#44|2638149, 865d854|Lois|2 (Real effort 3)|Simple Design, Refactoring|
 |#45|xxxx|Person X|2|Practice, practice, practice|
@@ -102,6 +102,11 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#50|N/A|Henrik|1|Coding standards|
 |#51|87437e3|Lois|3|Refactoring|
 |#12|xxxx|Person X|5|Practice, practice, practice|
+|#25|xxxx|Person X|8|Practice, practice, practice|
+|#4|xxxx|Person X|3|Practice, practice, practice|
+|#19|a106116,d4db884|Elsa|3|Refactoring|
+|#48|xxxx|Person X|5|Practice, practice, practice|
+|#15|xxxx|Person X|5|Practice, practice, practice|
 |#08|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 |#10|7bcdcb7, f0e43f7, 394a05e|Ayesha,Lois,...|5|Pair Programming|
 
@@ -110,7 +115,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 
 * **Refactoring**: Naturally we refactored much of the code for this sprint. A lot of previous code were already outdated and needed to be polished, complete reworked or removed. 
 
-* **Coding standards**: We came up with coding standards, primarilty based on the ones that Google have set up for Android contributors. Coding standards can be a very effective practice to ease readability and make the team members feel a larger collective ownership. The coding standards were however defined in the middle of the sprint, which was very stacked with work from the start. This made it difficult to integrate the coding standards for this sprint. This is however a practice that we could benefit greatly from for next sprint.
+* **Coding standards**: We came up with coding standards, primarilty based on the ones that Google have set up for Android contributors. Coding standards can be a very effective practice to ease readability and make the team members feel a larger collective ownership. The coding standards were however defined in the middle of the sprint, which was very stacked with work from the start. This made it difficult to integrate the coding standards for this sprint. This is however a practice that we could benefit greatly from for next sprint. 
 
 # Postmortem
 Once the project is finished, summarize your experiences.
