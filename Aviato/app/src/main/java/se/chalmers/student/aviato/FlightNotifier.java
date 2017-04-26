@@ -24,39 +24,48 @@ public class FlightNotifier {
      * Example: {@code new FlightNotifier(this, "13:32")}
      *
      * @param context
-     * @param date the date you want the alarm to be triggered (currently in HH:MM)
+     * @param date the date you want the alarm to be triggered (currently in a format such as: 2017-04-26T11:15:00.000Z)
      */
     public FlightNotifier(Context context, String date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         try {
             // Try to parse the supplied string that represents a date
             Date d = sdf.parse(date);
-            // If successful then get the hours and minutes
+            // If successful then set the appropriate date
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(d);
-            int alarmHour = calendar.get(Calendar.HOUR);
-            int alarmMinute = calendar.get(Calendar.MINUTE);
 
-            // Create a pending intent that will receive our alarm
-            Intent alarmIntent = new Intent(context, AlarmReceiver.class);
-            pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
-            alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-
-            // Set the proper time for our alarm to ring
-            calendar.setTimeInMillis(System.currentTimeMillis());
-            // calendar.set(2017, Calendar.APRIL, 26, 2, 55, 0); // Beware, months are indexed from 0
-            calendar.set(Calendar.HOUR, alarmHour);
-            calendar.set(Calendar.MINUTE, alarmMinute);
-            calendar.set(Calendar.SECOND, 0);
-
-            // Set the alarm
-            alarmMgr.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-            Log.v("FlightNotifier", "Alarm is set");
-
+            init(context, calendar.getTimeInMillis());
         } catch (ParseException ex) {
             // Should we throw an exception here and crash instead?
             Log.e("FlightNotifer", "Error parsing the supplied date");
         }
+    }
+
+    /**
+     * Setup a flight notifier, which will generate a notification at the requested time in the future
+     * Example for setting an alarm 10 seconds later: {@code new FlightNotifier(this, Calendar.getInstance().getTimeInMillis() + 10 * 1000)}
+     * @param context
+     * @param millisToTriggerAlarm unix time in milliseconds that the alarm is triggered
+     */
+    public FlightNotifier(Context context, long millisToTriggerAlarm) {
+        init(context, millisToTriggerAlarm);
+    }
+
+    /**
+     * Initializer to be used by the different constructors
+     * @param context
+     * @param millisToTriggerAlarm
+     */
+    private void init(Context context, long millisToTriggerAlarm) {
+        // Create a pending intent that will receive our alarm
+        Intent alarmIntent = new Intent(context, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
+        alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+
+        // Set the alarm
+        alarmMgr.set(AlarmManager.RTC_WAKEUP, millisToTriggerAlarm, pendingIntent);
+        Log.v("FlightNotifier", "Alarm is set");
     }
 
     /**
