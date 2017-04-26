@@ -8,7 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
+import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
+import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
 
 /**
  * Created by gryphex on 2017-04-04.
@@ -21,6 +29,13 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+
+        SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat viewFormat = new SimpleDateFormat(VIEW_DATE_FORMAT);
+        Calendar cal = Calendar.getInstance();
+        viewFormat.setTimeZone(cal.getTimeZone());
+
         // Get data item for this position
         Flight flight = getItem(position);
 
@@ -47,8 +62,16 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
         if(flight != null){
             tvSource.setText(flight.get("departureAirportFsCode"));
             tvDestination.setText(flight.get("arrivalAirportFsCode"));
-            tvArrTime.setText(flight.get("arrivalDate"));
-            tvDepTime.setText(flight.get("departureDate"));
+            String arrivalDate = null;
+            String departureDate = null;
+            try {
+                arrivalDate = viewFormat.format(format.parse(flight.get("arrivalDate")));
+                departureDate = viewFormat.format(format.parse(flight.get("departureDate")));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            tvArrTime.setText(arrivalDate);
+            tvDepTime.setText(departureDate);
             tvAirline.setText(flight.get("carrierFsCode") + flight.get("flightNumber"));
         }
 
