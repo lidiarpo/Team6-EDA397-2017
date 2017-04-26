@@ -103,7 +103,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#51|87437e3|Lois|3|Refactoring|
 |#12|6f2cd9a|Lois|5|Simple Design|
 |#25|xxxx|Person X|8|Practice, practice, practice|
-|#4|xxxx|Person X|3|Practice, practice, practice|
+|#4|0d2356a|Jobaer|3 (Real Effort 4)|Simple Design, Refactoring|
 |#19|a106116,d4db884|Elsa|3|Refactoring|
 |#48|84e3da7, e828628|Lídia|5|Simple Design, Refactoring|
 |#15|2d3cf1d, 96f1b1d, e0a7d26|Henrik, Ayesha|5|Refactoring|
