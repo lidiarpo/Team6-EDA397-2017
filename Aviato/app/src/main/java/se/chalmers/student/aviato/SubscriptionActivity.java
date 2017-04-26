@@ -6,19 +6,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+//For Testing Purposes
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 
-
-
 public class SubscriptionActivity extends Activity {
-
     ListView subscriptionlistView;
-    public ArrayList<Flight> listOfStrings;
+    public ArrayList listOfSubscriptions;
+    String flightIDtoDelete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,39 +27,50 @@ public class SubscriptionActivity extends Activity {
 
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
 
-        //Adding subscription to the helpDB for testing purposes
+        //TODO:Connect to "real" DB
+        //Adding/Reading subscription helpDB testing purposes
         FlightsDbHelper dbHelper = new FlightsDbHelper(this);
         SubscriptionsCRUD helpCrud = new SubscriptionsCRUD(dbHelper);
-
 
         // The listview to populate
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
         List mList = helpCrud.readSubscriptions();
-        listOfStrings = new ArrayList(mList);
+        listOfSubscriptions = new ArrayList(mList);
+        //Log.d("listOfStrings",listOfSubscriptions.toString());
 
-        SubscriptionAdapter adapter = new SubscriptionAdapter(this, listOfStrings);
+        SubscriptionAdapter adapter = new SubscriptionAdapter(this, listOfSubscriptions);
         subscriptionlistView.setAdapter(adapter);
 
     }
-
+    //Method when delete subscription button is pressed
     public void onClick(View v) {
-        //find the position of the subscription
+        //find the position of the flight in the view
         View parentRow = (View) v.getParent();
         ListView listView = (ListView) parentRow.getParent();
         final int position = listView.getPositionForView(parentRow);
-        Object subscriptionToDelete = listOfStrings.get(position);
+        String flightObjToString =  listOfSubscriptions.get(position).toString();
 
-        //TODO: find subscriptionToDelete flightID attribute Value
-        //Object value = subscriptionToDelete.flightAttributes.get();
-       // String flightIdValue = subscriptionToDelete.get("flightID");
+        Pattern pattern = Pattern.compile("flightId='(.*?)'");
+        Matcher matcher = pattern.matcher(flightObjToString);
+        if (matcher.find())
+        {
+            //System.out.println(matcher.group(1));
+            flightIDtoDelete = matcher.group(1);
+            //Delete subscription from helpdb
+            FlightsDbHelper dbHelper2 = new FlightsDbHelper(this);
+            SubscriptionsCRUD helpCrud2 = new SubscriptionsCRUD(dbHelper2);
+            helpCrud2.deleteSubscription(flightIDtoDelete);
 
-        //TODO: Delete from database
-        //FlightsDbHelper dbHelper2 = new FlightsDbHelper(this);
-        //SubscriptionsCRUD helpCrud2 = new SubscriptionsCRUD(dbHelper2);
-        //helpCrud2.deleteSubscription(flightIdValue);
+            //Refresh View after deletion
+            List mList = helpCrud2.readSubscriptions();
+            listOfSubscriptions = new ArrayList(mList);
+            SubscriptionAdapter adapter = new SubscriptionAdapter(this, listOfSubscriptions);
+            subscriptionlistView.setAdapter(adapter);
+            Toast.makeText(SubscriptionActivity.this, "This Subscription has been removed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(SubscriptionActivity.this, "This Subscription could NOT been removed", Toast.LENGTH_SHORT).show();
+        }
 
-        //TODO: Refresh View after deletion
-        Toast.makeText(SubscriptionActivity.this, "This Subscription has been removed", Toast.LENGTH_SHORT).show();
     }
 
 }
