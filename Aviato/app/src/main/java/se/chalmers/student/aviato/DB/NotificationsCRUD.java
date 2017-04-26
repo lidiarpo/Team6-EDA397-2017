@@ -24,7 +24,8 @@ public class NotificationsCRUD {
         db = notificationsDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(NotificationEntry.COLUMN_NAME_FLIGHT_ID, notification.getFlightId());
-        values.put(NotificationEntry.COLUMN_NAME_NOTIFICATION_TEXT,notification.getText());
+        values.put(NotificationEntry.COLUMN_NAME_NOTIFICATION_TEXT, notification.getText());
+        values.put(NotificationEntry.COLUMN_NAME_NOTIFICATION_READ, notification.getRead());
         long newRowId = db.insert(NotificationEntry.TABLE_NAME, null, values);
         Log.d(TAG,"Added new row to the notifications DB with ID:" + newRowId);
     }
@@ -67,7 +68,8 @@ public class NotificationsCRUD {
         // you will actually use after this query.
         String[] projection = {
                 NotificationEntry.COLUMN_NAME_FLIGHT_ID,
-                NotificationEntry.COLUMN_NAME_NOTIFICATION_TEXT};
+                NotificationEntry.COLUMN_NAME_NOTIFICATION_TEXT,
+                NotificationEntry.COLUMN_NAME_NOTIFICATION_READ};
 
         Cursor cursor = db.query(
                 NotificationEntry.TABLE_NAME,                     // The table to query
@@ -80,9 +82,9 @@ public class NotificationsCRUD {
         );
 
         while(cursor.moveToNext()) {
-            Notification notification = new Notification();
-            notification.setFlightId(cursor.getString(0));
-            notification.setText(cursor.getString(1));
+            Notification notification = new Notification(cursor.getString(0), cursor.getString(1), cursor.getInt(2));
+            //notification.setFlightId();
+            //notification.setText(cursor.getString(1));
             Log.d(TAG,notification.toString());
             notifications.add(notification);
         }

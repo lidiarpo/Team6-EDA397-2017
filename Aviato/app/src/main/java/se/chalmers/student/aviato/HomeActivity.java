@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import org.json.JSONObject;
-
 
 public class HomeActivity extends Activity {
 
@@ -21,6 +19,8 @@ public class HomeActivity extends Activity {
         //add flight image button to homescreen
         Button flightBtn = (Button) findViewById(R.id.flight_button);
         Button notificationBtn = (Button) findViewById(R.id.notification_button);
+        Button subscriptionBtn = (Button) findViewById(R.id.subscription_button);
+
 
         flightBtn.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -35,6 +35,14 @@ public class HomeActivity extends Activity {
             public void onClick(View v){
                 Intent loadNotificationActivity = new Intent(HomeActivity.this, NotificationActivity.class);
                 startActivity(loadNotificationActivity);
+            }
+        });
+
+        subscriptionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent loadSupscriptionActivity = new Intent(HomeActivity.this, SubscriptionActivity.class);
+                startActivity(loadSupscriptionActivity);
             }
         });
     }

@@ -57,15 +57,12 @@ public class FlightActivity extends Activity{
         });
 
 
-        //TODO: Make Flight attributes look differently in the listview now the Flight object is
-        //TODO: just shown as a list, need to change activity_flight.xml
-
         listener  = new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 FlightParser fp = new FlightParser();
-                Log.d("RESPONSE",response.toString());
+                //Log.d("RESPONSE",response.toString());
                 setFlights(new FlightParser().parseFlights(response));
             }
         };
@@ -74,7 +71,7 @@ public class FlightActivity extends Activity{
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("ERROR","Volley Error");
+               // Log.e("ERROR","Volley Error");
             }
         };
     }
@@ -96,7 +93,6 @@ public class FlightActivity extends Activity{
 
 
     public void setFlights(ArrayList<Flight> result) {
-
         FlightAdapter adapter = new FlightAdapter(this, result);
         flightlistView.setAdapter(adapter);
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
