@@ -3,6 +3,7 @@ package se.chalmers.student.aviato;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -39,7 +40,7 @@ public class NotificationActivity extends Activity {
 
         // Fill the list with notifications in the database
         List<Notification> mList = mNotCrud.readNotifications();
-        
+
         NotificationArrayAdapter listAdapter =
                 new NotificationArrayAdapter(NotificationActivity.this,
                         R.layout.notification_list,
@@ -48,11 +49,11 @@ public class NotificationActivity extends Activity {
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
 
-        //TODO: onListViewItemSelected method to enable removal of notifications
         mNotificationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 mSelItem = (Notification) adapter.getItemAtPosition(position);
 
@@ -72,5 +73,28 @@ public class NotificationActivity extends Activity {
                 }
             }
         });
+
+        mNotificationListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                mSelItem = (Notification) parent.getItemAtPosition(position);
+
+                // Remove the notification if read and long-pressed
+                if (mSelItem.getRead() == NOTIFICATION_READ){
+                    mNotCrud.deleteNotification(mSelItem.getFlightId());
+                    restart();
+                    return true;
+                }
+
+                return false;
+            }
+        });
+    }
+
+    /**
+     * Method to restart the activity.
+     */
+    public void restart() {
+        this.recreate();
     }
 }
