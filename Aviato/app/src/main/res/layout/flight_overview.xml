@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlSingleFlightOverview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rlSingleFlightDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/rlFlightOverview"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorHeader">
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvFlightOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/overview_header_overview"
+            android:textAlignment="viewStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAirlineName"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="36dp"
+            android:layout_toEndOf="@+id/tvDestination"
+            android:text="AirlineName"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/tvFlightNumber"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvAirlineName"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/tvAirlineName"
+            android:text="FlightNumber" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAirlineName"
+            android:layout_marginTop="17dp"
+            android:layout_toEndOf="@+id/tvAirlineName"
+            android:text="Status" />
+
+        <TextView
+            android:id="@+id/tvDeparts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvSource"
+            android:layout_below="@+id/tvStatus"
+            android:layout_marginTop="22dp"
+            android:text="DEPARTS"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvDeparts"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="12dp"
+            android:text="Source" />
+
+        <TextView
+            android:id="@+id/tvDepFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvDestination"
+            android:layout_alignEnd="@+id/tvArrFrom"
+            android:text="DepFrom" />
+
+        <TextView
+            android:id="@+id/tvScheduled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvDepGate"
+            android:layout_alignStart="@+id/tvDepTime"
+            android:layout_marginBottom="20dp"
+            android:text="SCHEDULED"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvGateDep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvTerminaDep"
+            android:layout_alignBottom="@+id/tvTerminaDep"
+            android:layout_alignEnd="@+id/tvStatus"
+            android:text="GATE"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTerminaDep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvScheduled"
+            android:layout_alignBottom="@+id/tvScheduled"
+            android:layout_alignStart="@+id/tvDepTerminal"
+            android:text="TERMINAL"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDepTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvSource"
+            android:layout_below="@+id/tvSource"
+            android:layout_marginTop="62dp"
+            android:text="DepTime" />
+
+        <TextView
+            android:id="@+id/tvDepGate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvDepTime"
+            android:layout_alignBottom="@+id/tvDepTime"
+            android:layout_alignStart="@+id/tvStatus"
+            android:text="DepGate" />
+
+        <TextView
+            android:id="@+id/tvDepTerminal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvDepGate"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/tvFlightNumber"
+            android:text="DepTerminal" />
+
+        <TextView
+            android:id="@+id/tvArrives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvArrFrom"
+            android:layout_alignStart="@+id/tvDestination"
+            android:layout_marginBottom="17dp"
+            android:text="ARRIVES"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvSource"
+            android:layout_below="@+id/tvSource"
+            android:layout_marginTop="155dp"
+            android:text="Destination" />
+
+        <TextView
+            android:id="@+id/tvArrFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvEstimated"
+            android:layout_toEndOf="@+id/tvEstimated"
+            android:text="ArrFrom" />
+
+        <TextView
+            android:id="@+id/tvEstimated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tvScheduled"
+            android:layout_below="@+id/tvDestination"
+            android:layout_marginTop="27dp"
+            android:text="ESTIMATED"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvGateArr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvEstimated"
+            android:layout_alignEnd="@+id/tvGateDep"
+            android:layout_alignStart="@+id/tvArrGate"
+            android:layout_alignTop="@+id/tvEstimated"
+            android:text="GATE"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTerminalArr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvGateArr"
+            android:layout_alignStart="@+id/tvArrTerminal"
+            android:text="TERMINAL"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvArrTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvEstimated"
+            android:layout_below="@+id/tvEstimated"
+            android:layout_marginTop="23dp"
+            android:text="ArrTime" />
+
+        <TextView
+            android:id="@+id/tvArrGate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvArrTime"
+            android:layout_alignBottom="@+id/tvArrTime"
+            android:layout_alignStart="@+id/tvGateDep"
+            android:text="ArrGate" />
+
+        <TextView
+            android:id="@+id/tvArrTerminal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvDepTerminal"
+            android:layout_alignTop="@+id/tvArrGate"
+            android:text="ArrTerminal" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSubscribe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
+        android:text="@string/button_subscribe" />
+
+</RelativeLayout>

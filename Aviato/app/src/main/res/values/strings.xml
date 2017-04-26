@@ -7,4 +7,6 @@
     <string name="home_under_construction">Coming soon</string>
     <string name="home_notifications">Notifications</string>
     <string name="notification_storage">notifications.txt</string>
+    <string name="button_subscribe">Subscribe</string>
+    <string name="overview_header_overview">Flight Overview</string>
 </resources>

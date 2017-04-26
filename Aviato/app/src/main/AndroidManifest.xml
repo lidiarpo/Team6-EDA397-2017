@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HomeActivity" />
         <activity android:name=".FlightActivity" />
+        <activity android:name=".OverviewActivity" />
         <activity android:name=".NotificationActivity" />
         <activity android:name=".SubscriptionActivity" />
 

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.AdapterView;
 import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.android.volley.Response;
@@ -41,6 +42,28 @@ public class FlightActivity extends Activity{
         // The listview to populate
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
+
+
+        flightlistView.setClickable(true);
+
+        flightlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Flight flight = (Flight)flightlistView.getItemAtPosition(position);
+
+                //setContentView(R.layout.flight_overview);
+                //OverviewAdapter adapter = new OverviewAdapter( , arrayoftheFlightData);
+
+                Intent loadOverviewActivity = new Intent(FlightActivity.this, OverviewActivity.class);
+
+                loadOverviewActivity.putExtra("flight", flight.toString());
+                startActivity(loadOverviewActivity);
+
+            }
+        });
+
+
+
         refreshListener = new SwipeRefreshLayout.OnRefreshListener(){
             @Override
             public void onRefresh() {
