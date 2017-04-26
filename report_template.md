@@ -97,7 +97,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#52|0996d6d|Elsa|2|Simple Design|
 |#42|3348c13|Ayesha|2|Refactoring, Simple Design|
 |#44|2638149, 865d854|Lois|2 (Real effort 3)|Simple Design, Refactoring|
-|#45|04620e5|Ayesha|2|Simple Design, Refactoring|
+|#45|04620e5|Ayesha|2 (Real Effort 3)|Simple Design, Refactoring|
 |#49|940b7a9|Henrik|2|Refactoring|
 |#50|N/A|Henrik|1|Coding standards|
 |#51|87437e3|Lois|3|Refactoring|
