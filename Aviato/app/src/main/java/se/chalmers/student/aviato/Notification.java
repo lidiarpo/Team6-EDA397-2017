@@ -5,25 +5,37 @@ package se.chalmers.student.aviato;
  */
 
 public class Notification {
-    private String flightId;
-    private String text;
+    private String mFlightId;
+    private String mText;
+    private int mRead;
 
-    public Notification() {
+    public Notification(String fId, String notification, int notificationRead) {
+        mFlightId = fId;
+        mText = notification;
+        mRead = notificationRead;
     }
 
     public String getFlightId() {
-        return flightId;
+        return mFlightId;
     }
 
     public String getText() {
-        return text;
+        return mText;
+    }
+
+    public int getRead() {
+        return mRead;
     }
 
     public void setFlightId(String flightId) {
-        this.flightId = flightId;
+        this.mFlightId = flightId;
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.mText = text;
+    }
+
+    public void setRead(int read) {
+        this.mRead = read;
     }
 }
