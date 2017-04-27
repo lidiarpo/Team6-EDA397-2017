@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorHeader">#d9d9d9</color>
-    <color name="colorFlightItem">#c2ff49</color>
+    <color name="colorFlightItem">#8affff</color>
+    <color name="colorBackgroundCenter">#37d5d5</color>
+    <color name="colorBackgroundEnd">#0aa5a5</color>
     <color name="colorWhite">#a8a8a8</color>
     <color name="colorButtonIcon">#2a2a2a</color>
     <color name="colorBlack">#000000</color>
