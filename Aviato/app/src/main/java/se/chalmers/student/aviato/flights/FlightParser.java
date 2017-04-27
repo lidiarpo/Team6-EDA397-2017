@@ -1,6 +1,4 @@
-package se.chalmers.student.aviato;
-
-import android.util.Log;
+package se.chalmers.student.aviato.flights;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,7 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 
-import static se.chalmers.student.aviato.Utilities.*;
+import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
+import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
 
 
 public class FlightParser{

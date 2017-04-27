@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.flights;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,8 +12,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
+
+import se.chalmers.student.aviato.R;
 
 import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
 import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;

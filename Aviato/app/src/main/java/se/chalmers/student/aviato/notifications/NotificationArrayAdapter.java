@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.notifications;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static se.chalmers.student.aviato.NotificationActivity.NOTIFICATION_NOT_READ;
+import se.chalmers.student.aviato.R;
 
 
 /**
@@ -47,7 +47,7 @@ public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
             text.setText(fId + " " + nText);
 
             // Set the design for the notification
-            if (n.getRead() == NOTIFICATION_NOT_READ) {
+            if (n.getRead() == NotificationActivity.NOTIFICATION_NOT_READ) {
                 text.setBackgroundColor(mContext.getResources().getColor(R.color.colorFlightItem));
                 text.setTypeface(Typeface.DEFAULT_BOLD);
             } else {

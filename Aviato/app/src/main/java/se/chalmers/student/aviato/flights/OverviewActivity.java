@@ -1,24 +1,20 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.flights;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
-
-import static android.R.id.message;
+import se.chalmers.student.aviato.R;
 
 
 public class OverviewActivity extends Activity {
