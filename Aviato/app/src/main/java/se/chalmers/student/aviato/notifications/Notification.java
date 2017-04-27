@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.notifications;
 
 /**
  * Created by Wasif Ali Moon on 4/25/2017.

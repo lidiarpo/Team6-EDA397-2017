@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.flights;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.flights;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,7 +11,8 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 
-import static se.chalmers.student.aviato.Utilities.*;
+import static se.chalmers.student.aviato.Utilities.APPID;
+import static se.chalmers.student.aviato.Utilities.APPKEY;
 
 public class FlightRequests {
 

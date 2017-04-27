@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import se.chalmers.student.aviato.flights.FlightActivity;
+import se.chalmers.student.aviato.notifications.NotificationActivity;
+import se.chalmers.student.aviato.subscriptions.SubscriptionActivity;
+
 
 public class HomeActivity extends Activity {
 

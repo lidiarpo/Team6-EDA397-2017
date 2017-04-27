@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.notifications;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

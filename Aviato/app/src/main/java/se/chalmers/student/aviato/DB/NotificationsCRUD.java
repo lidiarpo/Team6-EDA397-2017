@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import se.chalmers.student.aviato.DB.NotificationsContract.NotificationEntry;
-import se.chalmers.student.aviato.Notification;
+import se.chalmers.student.aviato.notifications.Notification;
 
 public class NotificationsCRUD {
     NotificationsDbHelper notificationsDbHelper;

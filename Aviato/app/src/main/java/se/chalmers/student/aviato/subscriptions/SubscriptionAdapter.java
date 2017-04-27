@@ -1,7 +1,6 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.subscriptions;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.flights.Flight;
 
 
 public class SubscriptionAdapter extends ArrayAdapter<Flight> {

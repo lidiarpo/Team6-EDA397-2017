@@ -1,8 +1,7 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.subscriptions;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -14,6 +13,7 @@ import java.util.regex.Pattern;
 //For Testing Purposes
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
+import se.chalmers.student.aviato.R;
 
 public class SubscriptionActivity extends Activity {
     ListView subscriptionlistView;

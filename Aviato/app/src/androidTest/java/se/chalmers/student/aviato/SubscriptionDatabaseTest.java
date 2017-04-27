@@ -12,6 +12,7 @@ import java.util.List;
 import se.chalmers.student.aviato.DB.FlightsContract;
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
+import se.chalmers.student.aviato.flights.Flight;
 
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.Matchers.is;

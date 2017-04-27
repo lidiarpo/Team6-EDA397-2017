@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.flights;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.AdapterView;
@@ -19,6 +18,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.subscriptions.SubscriptionReceiver;
 
 
 public class FlightActivity extends Activity{

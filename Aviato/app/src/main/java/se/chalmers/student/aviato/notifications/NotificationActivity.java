@@ -1,9 +1,8 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.notifications;
 
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -13,6 +12,7 @@ import java.util.List;
 
 import se.chalmers.student.aviato.DB.NotificationsCRUD;
 import se.chalmers.student.aviato.DB.NotificationsDbHelper;
+import se.chalmers.student.aviato.R;
 
 /**
  * Created by gryphex on 2017-04-24.

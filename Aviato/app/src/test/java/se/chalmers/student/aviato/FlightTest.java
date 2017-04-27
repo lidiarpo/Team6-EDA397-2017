@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.Set;
 
+import se.chalmers.student.aviato.flights.Flight;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 

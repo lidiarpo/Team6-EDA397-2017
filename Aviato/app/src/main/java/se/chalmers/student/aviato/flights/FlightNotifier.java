@@ -1,4 +1,4 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.flights;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import se.chalmers.student.aviato.notifications.AlarmReceiver;
 
 /**
  * Class to generate oneshot alarms

@@ -1,10 +1,9 @@
-package se.chalmers.student.aviato;
+package se.chalmers.student.aviato.subscriptions;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 
-import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.RequestFuture;
 
@@ -18,6 +17,9 @@ import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.NotificationsCRUD;
 import se.chalmers.student.aviato.DB.NotificationsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
+import se.chalmers.student.aviato.flights.RequestQueueSingleton;
+import se.chalmers.student.aviato.flights.Flight;
+import se.chalmers.student.aviato.flights.FlightParser;
 
 import static se.chalmers.student.aviato.Utilities.APPID;
 import static se.chalmers.student.aviato.Utilities.APPKEY;

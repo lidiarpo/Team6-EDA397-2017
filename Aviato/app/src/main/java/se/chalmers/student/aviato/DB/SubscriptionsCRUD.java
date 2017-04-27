@@ -8,7 +8,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.chalmers.student.aviato.Flight;
+import se.chalmers.student.aviato.flights.Flight;
 
 
 public class SubscriptionsCRUD {
