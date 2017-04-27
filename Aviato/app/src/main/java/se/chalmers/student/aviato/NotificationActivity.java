@@ -91,6 +91,8 @@ public class NotificationActivity extends Activity {
         });
     }
 
+    
+
     /**
      * Method to restart the activity.
      */
