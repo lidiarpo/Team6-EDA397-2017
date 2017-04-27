@@ -27,8 +27,7 @@ public class SubscriptionActivity extends Activity {
 
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
 
-        //TODO:Connect to "real" DB
-        //Adding/Reading subscription helpDB testing purposes
+        //Adding/Reading subscription
         FlightsDbHelper dbHelper = new FlightsDbHelper(this);
         SubscriptionsCRUD helpCrud = new SubscriptionsCRUD(dbHelper);
 
@@ -36,7 +35,6 @@ public class SubscriptionActivity extends Activity {
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
         List mList = helpCrud.readSubscriptions();
         listOfSubscriptions = new ArrayList(mList);
-        //Log.d("listOfStrings",listOfSubscriptions.toString());
 
         SubscriptionAdapter adapter = new SubscriptionAdapter(this, listOfSubscriptions);
         subscriptionlistView.setAdapter(adapter);

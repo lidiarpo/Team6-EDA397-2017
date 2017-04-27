@@ -1,6 +1,7 @@
 package se.chalmers.student.aviato;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,18 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
 
         // Populate the data into the template view using the data object
         if(flight != null){
-            subArrTime.setText(flight.get("arrivalDate"));
-            subDepTime.setText(flight.get("departureDate"));
+
+            String departureTime = flight.get("departureDate");
+            String arrivalTime = flight.get("arrivalDate");
+
+            String depTime = departureTime.substring(departureTime.lastIndexOf("T")+1);
+            depTime = depTime.substring(0, depTime.length() - 5);
+
+            String arrTime = arrivalTime.substring(arrivalTime.lastIndexOf("T")+1);
+            arrTime = arrTime.substring(0, arrTime.length() - 5);
+
+            subDepTime.setText(depTime);
+            subArrTime.setText(arrTime);
             subDepAirport.setText(flight.get("departureAirportFsCode"));
             subArrAirport.setText(flight.get("arrivalAirportFsCode"));
             subStatus.setText(flight.get("status"));
