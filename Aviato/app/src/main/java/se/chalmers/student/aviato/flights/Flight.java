@@ -4,20 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- *  This will be our result object
- *
- * Created by gryphex on 2017-04-04.
- */
 
 public class Flight{
     //Attributes for our FlightObject
     private Map<String, String> flightAttributes = new HashMap();
     public final static String INVALID_ATTRIBUTE = "INVALID ATTRIBUTE";
     public final static String NOT_AVAILABLE = "N/A";
-    private final String [] flightAttributeArray = {"flightId","carrierFsCode", "flightNumber", "departureAirportFsCode",
-            "arrivalAirportFsCode", "departureDate", "arrivalDate","status", "flightType","flightDurations",
-            "departureTerminal","departureGate","arrivalTerminal","arrivalGate"};
+    private final String [] flightAttributeArray = {"flightId","carrierFsCode","carrierName", "flightNumber",
+            "departureAirportFsCode", "arrivalAirportFsCode", "departureDate", "arrivalDate","status",
+            "flightType","flightDurations", "departureTerminal","departureGate","arrivalTerminal",
+            "arrivalGate","scheduledGateDeparture", "scheduledGateArrival","arrivalAirportName",
+            "departureAirportName"};
 
     /**
      * The Flight class constructor that initializes the flight attributes

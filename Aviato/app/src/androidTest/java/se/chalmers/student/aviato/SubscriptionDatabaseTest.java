@@ -55,6 +55,10 @@ public class SubscriptionDatabaseTest {
         flight1.set("departureGate","G");
         flight1.set("arrivalTerminal","2");
         flight1.set("arrivalGate","D");
+        flight1.set("scheduledGateDeparture","2017-04-26T16:15:00.000Z");
+        flight1.set("scheduledGateArrival","2017-04-26T16:15:00.000Z");
+        flight1.set("departureAirportName","Goteborg Airport");
+        flight1.set("arrivalAirportName","Barcelona Airport");
 
         flight2 = new Flight();
         flight2.set("flightId",FLIGHT_ID2);
@@ -71,6 +75,10 @@ public class SubscriptionDatabaseTest {
         flight2.set("departureGate","G");
         flight2.set("arrivalTerminal","2");
         flight2.set("arrivalGate","D");
+        flight2.set("scheduledGateDeparture","2017-04-26T16:15:00.000Z");
+        flight2.set("scheduledGateArrival","2017-04-26T16:15:00.000Z");
+        flight2.set("departureAirportName","Goteborg Airport");
+        flight2.set("arrivalAirportName","Paris Airport");
 
     }
 
@@ -130,5 +138,15 @@ public class SubscriptionDatabaseTest {
         deleteAll();
     }
 
+    @Test
+    public void testAttributesDB() throws Exception {
+        databaseCRUD.addSubscription(flight1);
+        List<Flight> flightsList = databaseCRUD.readSubscriptions();
+        Flight tmp = flightsList.get(0);
+        for (String attribute:flight1.getAttributes()) {
+            assertEquals(flight1.get(attribute),tmp.get(attribute));
+        }
+        deleteAll();
+    }
 
 }

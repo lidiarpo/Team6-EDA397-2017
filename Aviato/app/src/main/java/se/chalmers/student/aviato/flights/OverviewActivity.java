@@ -9,12 +9,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.StringTokenizer;
+import java.util.TimeZone;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 import se.chalmers.student.aviato.R;
+
+import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
+import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
 
 
 public class OverviewActivity extends Activity {
@@ -81,6 +88,7 @@ public class OverviewActivity extends Activity {
         if(extras != null) {
 
             flight = extras.getString("flight");
+            flight = flight.substring(7);
             Log.d("Flight", flight);
 
             //tvAirlineName.setText("TEST!!!!");
@@ -130,35 +138,32 @@ public class OverviewActivity extends Activity {
 
     private void populateOverview(HashMap<String, String> flight) {
 
-        tvAirlineName.setText(flight.get("carrierFsCode") + " - " + flight.get("flightNumber"));
+        SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat viewFormat = new SimpleDateFormat(VIEW_DATE_FORMAT);
+        Calendar cal = Calendar.getInstance();
+        viewFormat.setTimeZone(cal.getTimeZone());
+
+        tvAirlineName.setText(flight.get("carrierName") + " " + flight.get("carrierFsCode")
+                + flight.get("flightNumber"));
         //tvFlightNumber.setText(flight.get("flightNumber"));
         tvStatus.setText(flight.get("status"));
         tvSource.setText(flight.get("departureAirportFsCode"));
-        //tvDepFrom.setText(flight.get("departureAirportName"));
-        //tvDepTime.setText(flight.get("departureDate"));
-        tvDepGate.setText(flight.get("Flight{departureGate"));
+        tvDepFrom.setText(flight.get("departureAirportName"));
+
+        tvDepGate.setText(flight.get("departureGate"));
         tvDepTerminal.setText(flight.get("departureTerminal"));
         tvDestination.setText(flight.get("arrivalAirportFsCode"));
-        //tvArrFrom.setText(flight.get("ArrivalAirportName"));
-        //tvArrTime.setText(flight.get("arrivalDate"));
+        tvArrFrom.setText(flight.get("arrivalAirportName"));
+
+        try {
+            tvDepTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
+            tvArrTime.setText(viewFormat.format(format.parse(flight.get("arrivalDate"))));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         tvArrGate.setText(flight.get("arrivalGate"));
         tvArrTerminal.setText(flight.get("arrivalTerminal"));
-
-        String departureTime = flight.get("departureDate");
-        String depTime = departureTime.substring(11,16);
-
-        tvDepTime.setText(depTime);
-
-        String arrivalTime = flight.get("arrivalDate");
-        String arrTime = arrivalTime.substring(11,16);
-
-        tvArrTime.setText(arrTime);
-
-        Log.d("depTime", depTime);
-
-        Log.d("departureDate", flight.get("departureDate"));
-
-        Log.d("Arrival Date", flight.get("arrivalDate") );
 
     }
     public Flight getFlightObject(){
