@@ -32,7 +32,7 @@ public class FlightRequests {
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/arr/"
                 + Integer.toString(calendar.get(Calendar.YEAR)) + "/" + Integer.toString(calendar.get(Calendar.MONTH) + 1) + "/" + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH))
                 + "/" + Integer.toString(calendar.get(Calendar.HOUR_OF_DAY)) + "?appId=" + APPID +
-                "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
+                "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow) + "&extendedOptions=useInlinedReferences";
 
         Log.d(TAG, url);
 
@@ -49,7 +49,7 @@ public class FlightRequests {
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/GOT/dep/"
                 + Integer.toString(calendar.get(Calendar.YEAR)) + "/" + Integer.toString(calendar.get(Calendar.MONTH) + 1) + "/" + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH))
                 + "/" + Integer.toString(calendar.get(Calendar.HOUR_OF_DAY)) + "?appId=" + APPID +
-                "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow);
+                "&appKey=" + APPKEY + "&utc=false&numHours=" + Integer.toString(timeWindow) + "&extendedOptions=useInlinedReferences";
 
         Log.d(TAG, url);
 
@@ -64,7 +64,7 @@ public class FlightRequests {
 
         queue = RequestQueueSingleton.getInstance(context);
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/"
-                + flightId + "?appId=" + APPID + "&appKey=" + APPKEY;
+                + flightId + "?appId=" + APPID + "&appKey=" + APPKEY + "&extendedOptions=useInlinedReferences";;
 
         Log.d(TAG, url);
 

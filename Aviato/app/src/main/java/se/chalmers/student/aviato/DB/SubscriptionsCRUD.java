@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import se.chalmers.student.aviato.flights.Flight;
+import se.chalmers.student.aviato.DB.FlightsContract.FlightEntry;
 
 
 public class SubscriptionsCRUD {
@@ -26,22 +27,28 @@ public class SubscriptionsCRUD {
         db = mDbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_ID, flight.get("flightId"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_CARRIER_FS_CODE,flight.get("carrierFsCode"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_NUMBER,flight.get("flightNumber"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_FS_CODE,flight.get("departureAirportFsCode"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_FS_CODE,flight.get("arrivalAirportFsCode"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_DATE,flight.get("departureDate"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_DATE,flight.get("arrivalDate"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_STATUS,flight.get("status"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_TYPE,flight.get("flightType"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_DURATIONS,flight.get("flightDurations"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_TERMINAL,flight.get("departureTerminal"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_GATE,flight.get("departureGate"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_TERMINAL,flight.get("arrivalTerminal"));
-        values.put(FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_GATE,flight.get("arrivalGate"));
+        values.put(FlightEntry.COLUMN_NAME_FLIGHT_ID, flight.get("flightId"));
+        values.put(FlightEntry.COLUMN_NAME_CARRIER_FS_CODE,flight.get("carrierFsCode"));
+        values.put(FlightEntry.COLUMN_NAME_FLIGHT_NUMBER,flight.get("flightNumber"));
+        values.put(FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_FS_CODE,flight.get("departureAirportFsCode"));
+        values.put(FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_FS_CODE,flight.get("arrivalAirportFsCode"));
+        values.put(FlightEntry.COLUMN_NAME_DEPARTURE_DATE,flight.get("departureDate"));
+        values.put(FlightEntry.COLUMN_NAME_ARRIVAL_DATE,flight.get("arrivalDate"));
+        values.put(FlightEntry.COLUMN_NAME_STATUS,flight.get("status"));
+        values.put(FlightEntry.COLUMN_NAME_FLIGHT_TYPE,flight.get("flightType"));
+        values.put(FlightEntry.COLUMN_NAME_FLIGHT_DURATIONS,flight.get("flightDurations"));
+        values.put(FlightEntry.COLUMN_NAME_DEPARTURE_TERMINAL,flight.get("departureTerminal"));
+        values.put(FlightEntry.COLUMN_NAME_DEPARTURE_GATE,flight.get("departureGate"));
+        values.put(FlightEntry.COLUMN_NAME_ARRIVAL_TERMINAL,flight.get("arrivalTerminal"));
+        values.put(FlightEntry.COLUMN_NAME_ARRIVAL_GATE,flight.get("arrivalGate"));
+        values.put(FlightEntry.COLUMN_NAME_CARRIER_NAME,flight.get("carrierName"));
+        values.put(FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_NAME,flight.get("departureAirportName"));
+        values.put(FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_NAME,flight.get("arrivalAirportName"));
+        values.put(FlightEntry.COLUMN_NAME_SCHEDULED_GATE_DEPARTURE,flight.get("scheduledGateDeparture"));
+        values.put(FlightEntry.COLUMN_NAME_SCHEDULED_GATE_ARRIVAL,flight.get("scheduledGateArrival"));
 
-        long newRowId = db.insert(FlightsContract.FlightEntry.TABLE_NAME, null, values);
+
+        long newRowId = db.insert(FlightEntry.TABLE_NAME, null, values);
         Log.d(TAG,"Added new row to the subscriptions DB with ID:" + newRowId);
     }
 
@@ -49,9 +56,9 @@ public class SubscriptionsCRUD {
 
         db = mDbHelper.getWritableDatabase();
 
-        String selection = FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_ID + " LIKE ?";
+        String selection = FlightEntry.COLUMN_NAME_FLIGHT_ID + " LIKE ?";
         String[] selectionArgs = { flightId};
-        db.delete(FlightsContract.FlightEntry.TABLE_NAME, selection, selectionArgs);
+        db.delete(FlightEntry.TABLE_NAME, selection, selectionArgs);
         Log.d(TAG,"Deleted row from subscriptions DB with flightId:" + flightId);
 
     }
@@ -77,20 +84,25 @@ public class SubscriptionsCRUD {
         List<Flight> flights = new ArrayList<Flight>();
 
         String[] projection = {
-                FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_ID,
-                FlightsContract.FlightEntry.COLUMN_NAME_CARRIER_FS_CODE,
-                FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_NUMBER,
-                FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_FS_CODE,
-                FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_FS_CODE,
-                FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_DATE,
-                FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_DATE,
-                FlightsContract.FlightEntry.COLUMN_NAME_STATUS,
-                FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_TYPE,
-                FlightsContract.FlightEntry.COLUMN_NAME_FLIGHT_DURATIONS,
-                FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_TERMINAL,
-                FlightsContract.FlightEntry.COLUMN_NAME_DEPARTURE_GATE,
-                FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_TERMINAL,
-                FlightsContract.FlightEntry.COLUMN_NAME_ARRIVAL_GATE};
+                FlightEntry.COLUMN_NAME_FLIGHT_ID,
+                FlightEntry.COLUMN_NAME_CARRIER_FS_CODE,
+                FlightEntry.COLUMN_NAME_CARRIER_NAME,
+                FlightEntry.COLUMN_NAME_FLIGHT_NUMBER,
+                FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_FS_CODE,
+                FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_NAME,
+                FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_FS_CODE,
+                FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_NAME,
+                FlightEntry.COLUMN_NAME_DEPARTURE_DATE,
+                FlightEntry.COLUMN_NAME_SCHEDULED_GATE_DEPARTURE,
+                FlightEntry.COLUMN_NAME_ARRIVAL_DATE,
+                FlightEntry.COLUMN_NAME_SCHEDULED_GATE_ARRIVAL,
+                FlightEntry.COLUMN_NAME_STATUS,
+                FlightEntry.COLUMN_NAME_FLIGHT_TYPE,
+                FlightEntry.COLUMN_NAME_FLIGHT_DURATIONS,
+                FlightEntry.COLUMN_NAME_DEPARTURE_TERMINAL,
+                FlightEntry.COLUMN_NAME_DEPARTURE_GATE,
+                FlightEntry.COLUMN_NAME_ARRIVAL_TERMINAL,
+                FlightEntry.COLUMN_NAME_ARRIVAL_GATE};
 
         Cursor cursor = db.query(
                 FlightsContract.FlightEntry.TABLE_NAME,                     // The table to query

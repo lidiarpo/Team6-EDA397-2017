@@ -8,10 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 import se.chalmers.student.aviato.R;
 import se.chalmers.student.aviato.flights.Flight;
+
+import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
+import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
 
 
 public class SubscriptionAdapter extends ArrayAdapter<Flight> {
@@ -21,6 +28,13 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+
+        SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat viewFormat = new SimpleDateFormat(VIEW_DATE_FORMAT);
+        Calendar cal = Calendar.getInstance();
+        viewFormat.setTimeZone(cal.getTimeZone());
+
         // Get data item for this position
         Flight flight = getItem(position);
 
@@ -47,17 +61,12 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
         // Populate the data into the template view using the data object
         if(flight != null){
 
-            String departureTime = flight.get("departureDate");
-            String arrivalTime = flight.get("arrivalDate");
-
-            String depTime = departureTime.substring(departureTime.lastIndexOf("T")+1);
-            depTime = depTime.substring(0, depTime.length() - 5);
-
-            String arrTime = arrivalTime.substring(arrivalTime.lastIndexOf("T")+1);
-            arrTime = arrTime.substring(0, arrTime.length() - 5);
-
-            subDepTime.setText(depTime);
-            subArrTime.setText(arrTime);
+            try {
+                subDepTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
+                subArrTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             subDepAirport.setText(flight.get("departureAirportFsCode"));
             subArrAirport.setText(flight.get("arrivalAirportFsCode"));
             subStatus.setText(flight.get("status"));

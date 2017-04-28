@@ -1,5 +1,7 @@
 package se.chalmers.student.aviato.flights;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,7 +80,6 @@ public class FlightParser{
                     if (flightStatus.optJSONObject(attribute)!=null) {
                         value = flightStatus.getJSONObject(attribute).optString("dateUtc","");
                     }
-
                 } else if (attribute.equals("flightType")) {
                     if (flightStatus.optJSONObject(attribute)!=null) {
                         value = flightStatus.getJSONObject("schedule").optString(attribute);
@@ -99,9 +100,31 @@ public class FlightParser{
                     if (flightStatus.optJSONObject("airportResources")!=null) {
                         value = flightStatus.getJSONObject("airportResources").optString(attribute);
                     }
-                }else if (attribute.equals("arrivalGate")){
-                    if (flightStatus.optJSONObject("airportResources")!=null) {
+                }else if (attribute.equals("arrivalGate")) {
+                    if (flightStatus.optJSONObject("airportResources") != null) {
                         value = flightStatus.getJSONObject("airportResources").optString(attribute);
+                    }
+                }else if (attribute.equals("departureAirportFsCode")) {
+                    value = flightStatus.getJSONObject("departureAirport").optString("fs");
+                }else if (attribute.equals("departureAirportName")) {
+                    value = flightStatus.getJSONObject("departureAirport").optString("name");
+                }else if (attribute.equals("arrivalAirportFsCode")) {
+                    value = flightStatus.getJSONObject("arrivalAirport").optString("fs");
+                }else if (attribute.equals("arrivalAirportName")) {
+                    value = flightStatus.getJSONObject("arrivalAirport").optString("name");
+                }else if (attribute.equals("carrierFsCode")) {
+                    value = flightStatus.getJSONObject("carrier").optString("fs");
+                }else if (attribute.equals("carrierName")) {
+                    value = flightStatus.getJSONObject("carrier").optString("name");
+                }else if (attribute.equals("scheduledGateDeparture")) {
+                    JSONObject operational = flightStatus.getJSONObject("operationalTimes");
+                    if (operational.optJSONObject("scheduledGateDeparture")!=null){
+                        value = operational.getJSONObject("scheduledGateDeparture").optString("dateUtc","");
+                    }
+                }else if (attribute.equals("scheduledGateArrival")) {
+                    JSONObject operational = flightStatus.getJSONObject("operationalTimes");
+                    if (operational.optJSONObject("scheduledGateArrival")!=null){
+                        value = operational.getJSONObject("scheduledGateArrival").optString("dateUtc","");
                     }
                 }else{
                     value = flightStatus.optString(attribute);
@@ -115,10 +138,11 @@ public class FlightParser{
             e.printStackTrace();
         }
 
-        //Log.d(TAG,flight.toString());
+        Log.d(TAG,flight.toString());
 
         return flight;
     }
+
 
 
 }

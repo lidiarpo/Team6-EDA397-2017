@@ -9,11 +9,16 @@ public final class Constants {
                     FlightEntry._ID + " INTEGER PRIMARY KEY," +
                     FlightEntry.COLUMN_NAME_FLIGHT_ID + " TEXT," +
                     FlightEntry.COLUMN_NAME_CARRIER_FS_CODE + " TEXT," +
+                    FlightEntry.COLUMN_NAME_CARRIER_NAME + " TEXT," +
                     FlightEntry.COLUMN_NAME_FLIGHT_NUMBER + " TEXT," +
                     FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_FS_CODE + " TEXT," +
+                    FlightEntry.COLUMN_NAME_DEPARTURE_AIRPORT_NAME + " TEXT," +
                     FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_FS_CODE + " TEXT," +
+                    FlightEntry.COLUMN_NAME_ARRIVAL_AIRPORT_NAME + " TEXT," +
                     FlightEntry.COLUMN_NAME_DEPARTURE_DATE + " TEXT," +
+                    FlightEntry.COLUMN_NAME_SCHEDULED_GATE_DEPARTURE + " TEXT," +
                     FlightEntry.COLUMN_NAME_ARRIVAL_DATE + " TEXT," +
+                    FlightEntry.COLUMN_NAME_SCHEDULED_GATE_ARRIVAL + " TEXT," +
                     FlightEntry.COLUMN_NAME_STATUS + " TEXT," +
                     FlightEntry.COLUMN_NAME_FLIGHT_TYPE + " TEXT," +
                     FlightEntry.COLUMN_NAME_FLIGHT_DURATIONS + " TEXT," +
