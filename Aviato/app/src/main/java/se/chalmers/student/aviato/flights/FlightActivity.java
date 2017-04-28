@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.AdapterView;
@@ -16,17 +17,16 @@ import com.android.volley.VolleyError;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import se.chalmers.student.aviato.R;
 import se.chalmers.student.aviato.subscriptions.SubscriptionReceiver;
 
 
 public class FlightActivity extends Activity{
-
-    //This is our main array it will hold our flight data:
-    ArrayList<Flight> arrayoftheFlightData = new ArrayList<Flight>();
 
     private Response.Listener<JSONObject> listener;
     private Response.ErrorListener errorListener;
@@ -39,22 +39,22 @@ public class FlightActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flight);
 
-        // The listview to populate
+        setContentView(R.layout.activity_flight);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
-
-
         flightlistView.setClickable(true);
 
+        initListeners();
+
+        scheduleAlarm();
+    }
+
+    private void initListeners() {
         flightlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Flight flight = (Flight)flightlistView.getItemAtPosition(position);
-
-                //setContentView(R.layout.activity_overview);
-                //OverviewAdapter adapter = new OverviewAdapter( , arrayoftheFlightData);
 
                 Intent loadOverviewActivity = new Intent(FlightActivity.this, OverviewActivity.class);
 
@@ -66,9 +66,9 @@ public class FlightActivity extends Activity{
 
 
 
-        refreshListener = new SwipeRefreshLayout.OnRefreshListener(){
+        refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh() {
+            public void onRefresh(){
                 flightRequests  = new FlightRequests(getApplicationContext());
                 //TO-DO Modify in order to select Departures
                 Calendar rightNow = Calendar.getInstance();
@@ -85,7 +85,6 @@ public class FlightActivity extends Activity{
             @Override
             public void onResponse(JSONObject response) {
                 FlightParser fp = new FlightParser();
-                //Log.d("RESPONSE",response.toString());
                 setFlights(new FlightParser().parseFlights(response));
             }
         };
@@ -94,11 +93,9 @@ public class FlightActivity extends Activity{
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Log.e("ERROR","Volley Error");
+                Log.e("ERROR","Volley Error");
             }
         };
-
-        scheduleAlarm();
     }
 
     @Override
@@ -116,10 +113,16 @@ public class FlightActivity extends Activity{
 
     /**
      * Set the flights in the adapter of the listview
-     * @param result the arrayList with Flights objects
+     * @param flights the arrayList with Flights objects
      */
-    public void setFlights(ArrayList<Flight> result) {
-        FlightAdapter adapter = new FlightAdapter(this, result);
+    public void setFlights(List<Flight> flights) {
+        Collections.sort(flights, new Comparator<Flight>() {
+            @Override
+            public int compare(Flight f1, Flight f2) {
+                return f1.get("departureDate").compareTo(f2.get("departureDate"));
+            }
+        });
+        FlightAdapter adapter = new FlightAdapter(this, flights);
         flightlistView.setAdapter(adapter);
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
     }
