@@ -108,7 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
-            android:text="SCHEDULED"
+            android:text="DEPARTURE"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -206,7 +206,7 @@
             android:layout_alignEnd="@+id/tvScheduled"
             android:layout_below="@+id/tvDestination"
             android:layout_marginTop="27dp"
-            android:text="ESTIMATED"
+            android:text="ARRIVAL "
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
