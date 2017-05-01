@@ -11,10 +11,14 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
@@ -62,24 +66,36 @@ public class OverviewActivity extends Activity {
         btnSubscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                CharSequence text = "You are Subscribed to this flight";
-                int duration = Toast.LENGTH_SHORT;
+        Context context = getApplicationContext();
+        CharSequence text = "You have Subscribed to this flight";
+        int duration = Toast.LENGTH_SHORT;
+        String flightIDtoCheck;
 
-                // Perform action on click
-                if(v.getId() == R.id.btnSubscribe)
-                {
-                    //Log.d("Context value:","working");
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                    mDbHelper = new FlightsDbHelper(context);
-                    Log.d("Context value:", mDbHelper +"");
-                    subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
-                    subscriptionsCRUD.addSubscription(getFlightObject());
-                    Log.d("get flight object:", getFlightObject() +"");
+            // Perform action on click
+            if(v.getId() == R.id.btnSubscribe)
+            {
+                Toast toast = Toast.makeText(context, text, duration);
+                mDbHelper = new FlightsDbHelper(context);
+                subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
 
+                //Find the flightID of clicked flight
+                String flightString = getFlightObject().toString();
+                Pattern pattern = Pattern.compile("flightId='(.*?)'");
+                Matcher matcher = pattern.matcher(flightString);
+                if (matcher.find()) {
+                    flightIDtoCheck = matcher.group(1);
+                    Boolean check = comparetoDB(flightIDtoCheck);
+                    // if clicked flight ID is found in the DB
+                    if(check.equals(true)){
+                        Toast toast2 = Toast.makeText(context, "Already subscribed to this flight!", duration);
+                        toast2.show();
+                    }else {
+                        //Add that flight to subscription
+                        subscriptionsCRUD.addSubscription(getFlightObject());
+                        toast.show();
+                    }
                 }
-
+            }
             }
         });
 
@@ -100,8 +116,8 @@ public class OverviewActivity extends Activity {
                 StringTokenizer s = new StringTokenizer(tokenizer.nextToken(), "='");
                 String attribute = s.nextToken();
                 String value = s.nextToken();
-                Log.d("Attribute", attribute);
-                Log.d("Value", value);
+                //Log.d("Attribute", attribute);
+                //Log.d("Value", value);
 
                 data.put(attribute, value);
 
@@ -186,6 +202,25 @@ public class OverviewActivity extends Activity {
 
         return flightOverview;
 
+    }
+
+
+    boolean contains;
+    public Boolean comparetoDB(String id){
+        List<Flight> subscriptionFlights = subscriptionsCRUD.readSubscriptions();
+        for (Flight f : subscriptionFlights) {
+            if (f.get("flightId").equals(id)) {
+                contains = true;
+                break;
+            }
+        }
+        if(contains) {
+            // contains the id in the database
+        }else{
+            // does not contain the id in the database
+            contains = false;
+        }
+        return contains;
     }
 
 }
