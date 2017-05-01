@@ -103,7 +103,7 @@ public class SubscriptionService extends IntentService {
 
     private boolean generateNotification(Flight flight) {
         String arrivalOrDeparture = flight.isArrival() ? "arrives" : "leaves";
-        int hour = flight.getTime().get(Calendar.HOUR);
+        int hour = flight.getTime().get(Calendar.HOUR_OF_DAY);
         int min = flight.getTime().get(Calendar.MINUTE);
         String notificationText = "Flight to " +
                 flight.get("arrivalAirportFsCode") + " " + arrivalOrDeparture + " at " + hour + ":" + min;
