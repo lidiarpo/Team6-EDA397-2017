@@ -56,7 +56,10 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
 
         if(position % 2 == 0){
             rlEntry.setBackgroundResource(R.color.colorFlightItem);
+        }else{
+            rlEntry.setBackgroundResource(R.color.colorBackgroundCenter);
         }
+
 
         // Populate the data into the template view using the data object
         if(flight != null){
