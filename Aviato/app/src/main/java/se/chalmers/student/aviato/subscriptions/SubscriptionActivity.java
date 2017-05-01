@@ -2,6 +2,7 @@ package se.chalmers.student.aviato.subscriptions;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class SubscriptionActivity extends Activity {
         setContentView(R.layout.activity_subscription);
 
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
+        //If the listView is empty then change the view
+        this.subscriptionlistView.setEmptyView(findViewById(R.id.emptyElement_subscription));
 
         //Adding/Reading subscription
         FlightsDbHelper dbHelper = new FlightsDbHelper(this);
@@ -35,6 +38,7 @@ public class SubscriptionActivity extends Activity {
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
         List mList = helpCrud.readSubscriptions();
         listOfSubscriptions = new ArrayList(mList);
+
 
         SubscriptionAdapter adapter = new SubscriptionAdapter(this, listOfSubscriptions);
         subscriptionlistView.setAdapter(adapter);

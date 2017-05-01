@@ -5,6 +5,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_color">
 
+
+    <TextView
+        android:id="@+id/emptyElement_notification"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="You have no notifications to view"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:textColor="@color/colorWarning"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:textSize="20sp">
+    </TextView>
+
     <ListView
         android:id="@+id/lvNotifications"
         android:layout_width="match_parent"

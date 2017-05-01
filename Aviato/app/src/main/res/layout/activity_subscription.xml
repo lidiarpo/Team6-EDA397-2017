@@ -29,6 +29,20 @@
         android:headerDividersEnabled="false">
     </ListView>
 
+    <TextView
+        android:id="@+id/emptyElement_subscription"
+        android:text="You have no subscriptions to view"
+        android:textColor="@color/colorWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/headerSubscription"
+        android:layout_marginTop="200dp"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:textSize="20sp">
+    </TextView>
+
 
 
 </RelativeLayout>
