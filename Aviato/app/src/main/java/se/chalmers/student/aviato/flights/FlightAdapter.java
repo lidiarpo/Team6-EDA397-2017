@@ -49,8 +49,10 @@ public class FlightAdapter extends ArrayAdapter<Flight> {
         TextView tvAirline = (TextView) convertView.findViewById(R.id.tvAirline);
         RelativeLayout rlEntry = (RelativeLayout) convertView.findViewById(R.id.rlSingleFlightEntry);
 
-        if(position % 2 == 0) {
+        if(position % 2 == 0){
             rlEntry.setBackgroundResource(R.color.colorFlightItem);
+        }else{
+            rlEntry.setBackgroundResource(R.color.colorBackgroundCenter);
         }
 
         // Populate the data into the template view using the data object

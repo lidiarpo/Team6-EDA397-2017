@@ -18,6 +18,27 @@ public class Utilities {
     public final static String API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public final static String VIEW_DATE_FORMAT = "HH:mm";
 
+    private static long timeToNotify = 3600000; // How much time (in ms) to notify prior to a flight
+
+    /**
+     * Get the amount of time prior to a flight that a user should be notified about it
+     * @return time in milliseconds
+     */
+    public static long getTimeToNotify() {
+        return timeToNotify;
+    }
+
+    /**
+     * Set the amount of time prior to a flight that a user should be notified about it
+     * @param newTime in milliseconds for the user to be notified for a flight
+     * @return the previous time in milliseconds that the user used to be notified about a flight
+     */
+    public static long setTimeToNotify(long newTime) {
+        long prevTime = timeToNotify;
+        timeToNotify = newTime;
+        return prevTime;
+    }
+
     public static Calendar toCalendar(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
