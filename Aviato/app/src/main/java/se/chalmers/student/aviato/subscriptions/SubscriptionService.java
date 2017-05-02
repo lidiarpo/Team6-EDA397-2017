@@ -27,6 +27,7 @@ import se.chalmers.student.aviato.DB.NotificationsCRUD;
 import se.chalmers.student.aviato.DB.NotificationsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.Utilities;
 import se.chalmers.student.aviato.flights.Flight;
 import se.chalmers.student.aviato.flights.FlightParser;
 import se.chalmers.student.aviato.flights.RequestQueueSingleton;
@@ -64,7 +65,6 @@ public class SubscriptionService extends IntentService {
             updateFlightSubscriptions(subscriptionFlights);
 
             // For every flight we are subscribed to, check if any of them is leaving soon
-            final long ONE_HOUR_IN_MILLIS = 3600000;
             boolean notificationGenerated = false;
 
             //List<Flight> dummies = Utilities.getDummyFlights();
@@ -75,7 +75,7 @@ public class SubscriptionService extends IntentService {
                     Calendar now = calendar.getInstance();
                     long timeDelta = rawTime - now.getTimeInMillis();
                     // Notifications should be created for flights in the future only (timeDelta positive)
-                    if (timeDelta >= 0 && timeDelta <= ONE_HOUR_IN_MILLIS ) {
+                    if (timeDelta >= 0 && timeDelta <= Utilities.getTimeToNotify()) {
                         if (generateNotification(f)){
                             // If there is at least one notification generated, play a sound
                             notificationGenerated = true;
@@ -103,7 +103,7 @@ public class SubscriptionService extends IntentService {
 
     private boolean generateNotification(Flight flight) {
         String arrivalOrDeparture = flight.isArrival() ? "arrives" : "leaves";
-        int hour = flight.getTime().get(Calendar.HOUR);
+        int hour = flight.getTime().get(Calendar.HOUR_OF_DAY);
         int min = flight.getTime().get(Calendar.MINUTE);
         String notificationText = "Flight to " +
                 flight.get("arrivalAirportFsCode") + " " + arrivalOrDeparture + " at " + hour + ":" + min;

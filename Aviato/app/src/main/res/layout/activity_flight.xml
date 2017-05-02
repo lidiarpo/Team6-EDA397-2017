@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_color"
     tools:context="se.chalmers.student.aviato.flights.FlightActivity">
 
     <RelativeLayout
         android:id="@+id/rlFlightPresentation"
         android:layout_width="match_parent"
-        android:background="@color/colorHeader"
+        android:background="@drawable/background_color"
         android:layout_height="25dp">
 
         <TextView

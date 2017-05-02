@@ -48,9 +48,12 @@
             android:id="@+id/tvAirlineName"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/rlStatusInfo"
+            android:layout_alignStart="@+id/rlStatusInfo"
             android:layout_alignTop="@+id/rlStatusInfo"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="13dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:text="AirlineName"
             android:textAlignment="center"
             android:textStyle="bold" />
@@ -59,14 +62,14 @@
             android:id="@+id/tvStatus"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/tvAirlineName"
-            android:layout_below="@+id/tvAirlineName"
-            android:layout_marginTop="22dp"
             android:background="@android:color/holo_green_dark"
             android:text="Status"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/tvAirlineName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/tvDeparts"
@@ -94,16 +97,6 @@
             android:layout_alignStart="@+id/tvDeparts" />
 
         <TextView
-            android:id="@+id/tvDepFrom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:text="DepFrom - AirportName"
-            android:layout_above="@+id/tvDestination"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
             android:id="@+id/tvScheduled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,10 +105,10 @@
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_alignBaseline="@+id/tvTerminaDep"
-            android:layout_alignBottom="@+id/tvTerminaDep"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="11dp" />
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/tvSource"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/tvDepTime"
@@ -147,9 +140,9 @@
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginTop="22dp"
-            android:layout_below="@+id/tvDepFrom"
-            android:layout_alignEnd="@+id/tvStatus" />
+            android:layout_alignBaseline="@+id/tvScheduled"
+            android:layout_alignBottom="@+id/tvScheduled"
+            android:layout_alignStart="@+id/tvStatus" />
 
         <TextView
             android:id="@+id/tvDepGate"
@@ -173,13 +166,13 @@
             android:id="@+id/tvArrives"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/tvArrFrom"
-            android:layout_alignStart="@+id/tvDestination"
-            android:layout_marginBottom="17dp"
+            android:layout_marginBottom="26dp"
             android:text="ARRIVES"
             android:textColor="@android:color/black"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_above="@+id/tvEstimated"
+            android:layout_alignStart="@+id/tvDestination" />
 
         <TextView
             android:id="@+id/tvDestination"
@@ -191,25 +184,16 @@
             android:text="Destination" />
 
         <TextView
-            android:id="@+id/tvArrFrom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ArrFrom - AirportName"
-            android:layout_above="@+id/tvEstimated"
-            android:layout_alignStart="@+id/tvDepFrom"
-            android:layout_marginStart="17dp" />
-
-        <TextView
             android:id="@+id/tvEstimated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/tvScheduled"
-            android:layout_below="@+id/tvDestination"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="26dp"
             android:text="ARRIVAL "
             android:textColor="@android:color/black"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/tvDestination"
+            android:layout_alignStart="@+id/tvDestination" />
 
         <TextView
             android:id="@+id/tvGateArr"
@@ -262,7 +246,7 @@
             android:text="ArrTerminal"
             android:layout_alignBaseline="@+id/tvArrGate"
             android:layout_alignBottom="@+id/tvArrGate"
-            android:layout_alignEnd="@+id/tvDepTerminal" />
+            android:layout_alignStart="@+id/tvTerminalArr" />
 
     </RelativeLayout>
 
