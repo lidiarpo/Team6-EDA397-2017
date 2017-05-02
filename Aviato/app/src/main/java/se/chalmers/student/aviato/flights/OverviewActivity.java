@@ -123,12 +123,10 @@ public class OverviewActivity extends Activity {
         tvStatus = (TextView) findViewById(R.id.tvStatus);
         //tvFlightNumber = (TextView) findViewById(R.id.tvFlightNumber);
         tvSource = (TextView) findViewById(R.id.tvSource);
-        tvDepFrom = (TextView) findViewById(R.id.tvDepFrom);
         tvDepTime = (TextView) findViewById(R.id.tvDepTime);
         tvDepGate = (TextView) findViewById(R.id.tvDepGate);
         tvDepTerminal = (TextView) findViewById(R.id.tvDepTerminal);
         tvDestination = (TextView) findViewById(R.id.tvDestination);
-        tvArrFrom = (TextView) findViewById(R.id.tvArrFrom);
         tvArrTime = (TextView) findViewById(R.id.tvArrTime);
         tvArrGate = (TextView) findViewById(R.id.tvArrGate);
         tvArrTerminal = (TextView) findViewById(R.id.tvArrTerminal);
@@ -144,17 +142,15 @@ public class OverviewActivity extends Activity {
         Calendar cal = Calendar.getInstance();
         viewFormat.setTimeZone(cal.getTimeZone());
 
-        tvAirlineName.setText(flight.get("carrierName") + " " + flight.get("carrierFsCode")
-                + flight.get("flightNumber"));
+        tvAirlineName.setText("(" + flight.get("carrierFsCode") + ")"+ " " +flight.get("carrierName")
+                + " " + flight.get("flightNumber"));
         //tvFlightNumber.setText(flight.get("flightNumber"));
         tvStatus.setText(flight.get("status"));
-        tvSource.setText(flight.get("departureAirportFsCode"));
-        tvDepFrom.setText(flight.get("departureAirportName"));
-
+        tvSource.setText(flight.get("departureAirportFsCode") + "  -  " + flight.get("departureAirportName"));
         tvDepGate.setText(flight.get("departureGate"));
         tvDepTerminal.setText(flight.get("departureTerminal"));
-        tvDestination.setText(flight.get("arrivalAirportFsCode"));
-        tvArrFrom.setText(flight.get("arrivalAirportName"));
+        tvDestination.setText(flight.get("arrivalAirportFsCode") + "  -  " + flight.get("arrivalAirportName"));
+
 
         try {
             tvDepTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
