@@ -125,6 +125,53 @@ During the 2nd sprint we vastly increased our velocity and focused on getting a 
 
 During the last acceptance meeting, the Product Owner and the Customer requested several specific features to be implemented during the coming sprint. However, due to the extensive nature of the features there was no room for self-organizing and determining the velocity, since the user stories contained in the sprint backlog were practically already decided. We understand that emergent feature requests by the customer are something not unusual in the fast-pacing industry and practically necessary. However, they should be generally kept at a minimum as they invalidate many of the aspects of the adopted agile methodology.
 
+## Sprint 3:
+
+
+### Commitment
+In the parathesis the estimation point of each issue, followed by the issue number.
+1. Refactor code, i.e. structure #83 (1)
+2. Placeholders when there are no subscriptions or notifications #87 (1)
+3. Present a settings view #20 (3)
+4. Notify a user at least 1 hour before the subscribed flight #25 (8)
+5. Fix flight list UI #90 (3)
+6. Order list of flights #85 (3)
+7. Add column to dB to check for delays or early flights #92 (8)
+8. Present filtering options #14 (8)
+9. Add tabs for arrivals and departures to the list of flights #47 (8)
+10. Create a time-interval filter to the flight data #16 (5)
+11. Make the UI more consistent #86 (3)
+12. Create a filter based on airline #9 (5)
+13. Create a filter for local or internation flights #7 (5)
+14. Notification settings #88 (8)
+15. Subscription settings #91 (8)
+
+
+### Work Done 
+Feature | Commits  | Group members | Effort | Practices
+----------------|----------------|----------------|----------------|----------------
+Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
+|#83|xxxx|Dimitris|1|Practice, practice|
+|#87|xxxx|Elsa|1|Practice, practice|
+|#20|9553347|Henrik|3|Simple design|
+|#25|xxxx|Dimitris|8|Practice, practice|
+|#90|xxxx|Elsa|3|Practice, practice|
+|#85|xxxx|Lois|3|Practice, practice|
+|#92|xxxx|Lois|8|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+|#X|xxxx|Person X|3|Practice, practice|
+
+### Reflections
+
+* **Simple design**: Simple design was used effectively to get a quick outline for the settings activity and it's respective view. Instead of trying to create something ideal, which would require hours of research on potential solutions, we created something that worked and made it possible to continue with the issues which are reliant on #20. The other option would be to make the issue into a bottleneck for future settings progress.
+
+
 # Postmortem
 Once the project is finished, summarize your experiences.
 
