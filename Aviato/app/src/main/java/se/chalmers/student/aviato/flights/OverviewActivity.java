@@ -2,6 +2,7 @@ package se.chalmers.student.aviato.flights;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,7 @@ import java.util.regex.Pattern;
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.Utilities;
 
 import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
 import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
@@ -161,7 +163,9 @@ public class OverviewActivity extends Activity {
         tvAirlineName.setText("(" + flight.get("carrierFsCode") + ")"+ " " +flight.get("carrierName")
                 + " " + flight.get("flightNumber"));
         //tvFlightNumber.setText(flight.get("flightNumber"));
-        tvStatus.setText(flight.get("status"));
+        String status = flight.get("status");
+        tvStatus.setBackgroundColor(Utilities.getStatusColor(status));
+        tvStatus.setText(Utilities.getStatusName(status));
         tvSource.setText(flight.get("departureAirportFsCode") + "  -  " + flight.get("departureAirportName"));
         tvDepGate.setText(flight.get("departureGate"));
         tvDepTerminal.setText(flight.get("departureTerminal"));
