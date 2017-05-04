@@ -55,14 +55,15 @@
             android:text="@string/home_notifications" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/settings_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bulldozer"
-            android:backgroundTint="@color/colorButtonNotWorkingIcon"
+            android:background="@drawable/android_settings"
+            android:backgroundTint="@color/colorBlack"
             android:layout_weight="1.0"
+            android:textSize="17sp"
             android:textColor="@color/colorWhite"
-            android:text="@string/home_under_construction" />
+            android:text="@string/home_settings" />
 
     </LinearLayout>
 

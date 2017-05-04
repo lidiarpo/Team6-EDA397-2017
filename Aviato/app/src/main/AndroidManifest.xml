@@ -18,6 +18,7 @@
         <activity android:name=".flights.OverviewActivity" />
         <activity android:name=".notifications.NotificationActivity" />
         <activity android:name=".subscriptions.SubscriptionActivity" />
+        <activity android:name=".settings.SettingsActivity" />
 
         <activity
             android:name=".SplashActivity"
