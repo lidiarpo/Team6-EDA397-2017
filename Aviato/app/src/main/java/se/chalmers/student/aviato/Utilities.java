@@ -1,11 +1,15 @@
 package se.chalmers.student.aviato;
 
 
+import android.graphics.Color;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import se.chalmers.student.aviato.flights.Flight;
@@ -19,6 +23,37 @@ public class Utilities {
     public final static String VIEW_DATE_FORMAT = "HH:mm";
 
     private static long timeToNotify = 3600000; // How much time (in ms) to notify prior to a flight
+
+    private static final Map<String,String> statusMap;
+    static{
+        statusMap = new HashMap<String,String>();
+
+        statusMap.put("S","Scheduled");
+        statusMap.put("A","Active");
+        statusMap.put("C","Canceled");
+        statusMap.put("D","Diverted");
+        statusMap.put("DN","Data source needed");
+        statusMap.put("L","Landed");
+        statusMap.put("NO","Not Operational");
+        statusMap.put("R","Redirected");
+        statusMap.put("U","Unknown");
+    }
+
+    private static final Map<String,Integer> colorsMap;
+    static{
+        colorsMap = new HashMap<String,Integer>();
+
+        colorsMap.put("S", Color.GREEN);
+        colorsMap.put("A",Color.GREEN);
+        colorsMap.put("C",Color.RED);
+        colorsMap.put("D",Color.YELLOW);
+        colorsMap.put("DN",Color.YELLOW);
+        colorsMap.put("L",Color.GREEN);
+        colorsMap.put("NO",Color.RED);
+        colorsMap.put("R",Color.DKGRAY);
+        colorsMap.put("U",Color.CYAN);
+    }
+
 
     /**
      * Get the amount of time prior to a flight that a user should be notified about it
@@ -116,5 +151,15 @@ public class Utilities {
         dummyFlights.add(f4);
 
         return dummyFlights;
+    }
+
+    public static String getStatusName(String statusCode){
+
+        return statusMap.get(statusCode);
+
+    }
+
+    public static int getStatusColor(String statusCode){
+        return colorsMap.get(statusCode);
     }
 }
