@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="sans"
         android:gravity="center"
-        android:text="Flight Overview"
+        android:text="@string/flight_item_overview"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
             android:layout_marginTop="13dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="AirlineName"
+            android:text="@string/flight_item_airline"
             android:textAlignment="center"
             android:textStyle="bold" />
 
@@ -62,10 +62,10 @@
             android:id="@+id/tvStatus"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_dark"
-            android:text="Status"
+            android:background="@color/colorDefaultFlightStatus"
+            android:text="@string/flight_item_status"
             android:textAlignment="center"
-            android:textColor="@android:color/background_light"
+            android:textColor="@color/colorWhite"
             android:textStyle="bold"
             android:layout_below="@+id/tvAirlineName"
             android:layout_centerHorizontal="true"
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:text="DEPARTS"
+            android:text="@string/flight_item_depart_holder"
             android:textAlignment="viewStart"
             android:textColor="@android:color/black"
             android:textSize="15sp"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="0dp"
             android:layout_marginTop="5dp"
-            android:text="Source"
+            android:text="@string/flight_item_source"
             android:textAlignment="viewStart"
             android:layout_below="@+id/tvDeparts"
             android:layout_alignStart="@+id/tvDeparts" />
@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
-            android:text="DEPARTURE"
+            android:text="@string/flight_item_departure_holder"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -114,7 +114,7 @@
             android:id="@+id/tvDepTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DepTime"
+            android:text="@string/flight_item_departure_value"
             android:layout_alignBaseline="@+id/tvDepTerminal"
             android:layout_alignBottom="@+id/tvDepTerminal"
             android:layout_alignStart="@+id/tvScheduled" />
@@ -123,7 +123,7 @@
             android:id="@+id/tvGateDep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GATE"
+            android:text="@string/flight_item_gate_holder"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="15sp"
@@ -136,7 +136,7 @@
             android:id="@+id/tvTerminaDep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TERMINAL"
+            android:text="@string/flight_item_terminal_holder"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -148,7 +148,7 @@
             android:id="@+id/tvDepGate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DepGate"
+            android:text="@string/flight_item_gate_departure"
             android:layout_marginTop="14dp"
             android:layout_below="@+id/tvGateDep"
             android:layout_alignEnd="@+id/rlStatusInfo" />
@@ -157,7 +157,7 @@
             android:id="@+id/tvDepTerminal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DepTerminal"
+            android:text="@string/flight_item_terminal_departure"
             android:layout_alignBaseline="@+id/tvDepGate"
             android:layout_alignBottom="@+id/tvDepGate"
             android:layout_alignStart="@+id/tvTerminaDep" />
@@ -167,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
-            android:text="ARRIVES"
+            android:text="@string/flight_item_arrives_holder"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -181,14 +181,14 @@
             android:layout_alignStart="@+id/tvSource"
             android:layout_below="@+id/tvSource"
             android:layout_marginTop="155dp"
-            android:text="Destination" />
+            android:text="@string/flight_item_destination" />
 
         <TextView
             android:id="@+id/tvEstimated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:text="ARRIVAL "
+            android:text="@string/flight_item_arrival_holder"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -203,7 +203,7 @@
             android:layout_alignEnd="@+id/tvGateDep"
             android:layout_alignStart="@+id/tvArrGate"
             android:layout_alignTop="@+id/tvEstimated"
-            android:text="GATE"
+            android:text="@string/flight_item_gate_holder"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="15sp"
@@ -213,7 +213,7 @@
             android:id="@+id/tvTerminalArr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TERMINAL"
+            android:text="@string/flight_item_terminal_holder"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -228,7 +228,7 @@
             android:layout_alignStart="@+id/tvEstimated"
             android:layout_below="@+id/tvEstimated"
             android:layout_marginTop="23dp"
-            android:text="ArrTime" />
+            android:text="@string/flight_item_arrival_value" />
 
         <TextView
             android:id="@+id/tvArrGate"
@@ -237,13 +237,13 @@
             android:layout_alignBaseline="@+id/tvArrTime"
             android:layout_alignBottom="@+id/tvArrTime"
             android:layout_alignStart="@+id/tvGateDep"
-            android:text="ArrGate" />
+            android:text="@string/flight_item_gate_arrival" />
 
         <TextView
             android:id="@+id/tvArrTerminal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ArrTerminal"
+            android:text="@string/flight_item_terminal_arrival"
             android:layout_alignBaseline="@+id/tvArrGate"
             android:layout_alignBottom="@+id/tvArrGate"
             android:layout_alignStart="@+id/tvTerminalArr" />
@@ -257,8 +257,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp"
-        android:text="Subscribe"
+        android:background="@color/colorHeader"
+        android:text="@string/button_subscribe"
         android:onClick="onBtnClicked"/>
-        android:text="@string/button_subscribe" />
-
 </RelativeLayout>

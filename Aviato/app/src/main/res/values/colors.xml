@@ -7,8 +7,10 @@
     <color name="colorFlightItem">#8affff</color>
     <color name="colorBackgroundCenter">#37d5d5</color>
     <color name="colorBackgroundEnd">#0aa5a5</color>
-    <color name="colorWhite">#a8a8a8</color>
+    <color name="colorWhite">#ffffff</color>
     <color name="colorButtonIcon">#2a2a2a</color>
     <color name="colorBlack">#000000</color>
     <color name="colorButtonNotWorkingIcon">#3c3b3b</color>
+    <color name="colorDefaultFlightStatus">#17c445</color>
+    <color name="colorHeaderDivider">#adaeae</color>
 </resources>
