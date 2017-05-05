@@ -5,6 +5,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_color">
 
+    <TextView
+        android:id="@+id/headerSubscription"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_notifications"
+        android:textStyle="bold"
+        android:fontFamily="sans"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
     <ListView
         android:id="@+id/lvNotifications"
         android:layout_width="match_parent"

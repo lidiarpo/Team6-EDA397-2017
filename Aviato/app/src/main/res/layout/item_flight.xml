@@ -8,13 +8,13 @@
         android:id="@+id/tvSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Source" />
+        android:text="@string/flight_item_source" />
 
     <TextView
         android:id="@+id/tvDestination"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
-        android:text="Destination"
+        android:text="@string/flight_item_destination"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/tvSource"
         android:layout_marginStart="28dp" />
@@ -23,7 +23,7 @@
         android:id="@+id/tvAirline"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
-        android:text="Airline"
+        android:text="@string/flight_item_airline"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp" />
@@ -32,7 +32,7 @@
         android:id="@+id/tvArrTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ArrTime"
+        android:text="@string/flight_item_arrival_value"
         android:layout_alignBaseline="@+id/tvDepTime"
         android:layout_alignBottom="@+id/tvDepTime"
         android:layout_alignStart="@+id/tvDestination" />
@@ -44,6 +44,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tvSource"
         android:layout_marginTop="12dp"
-        android:text="DepTime" />
+        android:text="@string/flight_item_departure_value" />
 
 </RelativeLayout>

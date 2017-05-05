@@ -22,7 +22,7 @@
             android:background="@drawable/android_airplane_takeoff"
             android:backgroundTint="@color/colorButtonIcon"
             android:layout_weight="1.0"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textColor="@color/colorWhite"
             android:text="@string/home_flights"/>
 
@@ -30,10 +30,11 @@
             android:id="@+id/subscription_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/android_subscription"
+            android:background="@drawable/android_subscriptions"
             android:layout_weight="1.0"
+            android:textSize="18sp"
             android:textColor="@color/colorWhite"
-            android:text="Flight Subscription" />
+            android:text="@string/home_subscriptions" />
 
     </LinearLayout>
 
@@ -50,7 +51,7 @@
             android:background="@drawable/android_notification"
             android:backgroundTint="@color/colorBlack"
             android:layout_weight="1.0"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textColor="@color/colorWhite"
             android:text="@string/home_notifications" />
 
@@ -61,7 +62,7 @@
             android:background="@drawable/android_settings"
             android:backgroundTint="@color/colorBlack"
             android:layout_weight="1.0"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textColor="@color/colorWhite"
             android:text="@string/home_settings" />
 

@@ -5,9 +5,36 @@
     <string name="flight_header_airline">Airline</string>
     <string name="home_flights">Check Flights</string>
     <string name="home_under_construction">Coming soon</string>
+    <string name="home_subscriptions">My Subscriptions</string>
     <string name="home_settings">Settings</string>
     <string name="home_notifications">Notifications</string>
     <string name="notification_storage">notifications.txt</string>
     <string name="button_subscribe">Subscribe</string>
     <string name="overview_header_overview">Flight Overview</string>
+    <string name="placeholder_subscriptions">You don\'t have any subscriptions</string>
+    <string name="placeholder_notifications">You don\'t have any notifications</string>
+    <string name="flight_item_source">Source</string>
+    <string name="flight_item_destination">Destination</string>
+    <string name="flight_item_airline">Airline</string>
+    <string name="flight_item_arrival_value">ArrValue</string>
+    <string name="flight_item_departure_value">DepValue</string>
+    <string name="flight_item_departure">Departure</string>
+    <string name="flight_item_airport">Airport</string>
+    <string name="flight_item_arrival">Arrival</string>
+    <string name="flight_item_status">Status</string>
+    <string name="flight_item_carrier_code">CarrierCode</string>
+    <string name="flight_item_flight_id">FlightID</string>
+    <string name="flight_item_gate_departure">DepGate</string>
+    <string name="flight_item_gate_arrival">ArrGate</string>
+    <string name="flight_item_terminal_departure">DepTerminal</string>
+    <string name="flight_item_terminal_arrival">ArrTerminal</string>
+    <string name="flight_item_overview">Flight Overview</string>
+    <string name="flight_item_status_holder">Status:</string>
+    <string name="flight_item_departure_holder">DEPARTURE</string>
+    <string name="flight_item_depart_holder">DEPARTS</string>
+    <string name="flight_item_terminal_holder">TERMINAL</string>
+    <string name="flight_item_gate_holder">GATE</string>
+    <string name="flight_item_arrives_holder">ARRIVES</string>
+    <string name="flight_item_arrival_holder">ARRIVAL</string>
+
 </resources>
