@@ -158,7 +158,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#90|xxxx|Elsa|3|Practice, practice|
 |#85|xxxx|Lois|3|Practice, practice|
 |#92|xxxx|Lois|8|Practice, practice|
-|#X|xxxx|Person X|3|Practice, practice|
+|#86|97c09dc|Henrik|3|Refactoring, Coding standards|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
@@ -170,6 +170,10 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 ### Reflections
 
 * **Simple design**: Simple design was used effectively to get a quick outline for the settings activity and it's respective view. Instead of trying to create something ideal, which would require hours of research on potential solutions, we created something that worked and made it possible to continue with the issues which are reliant on #20. The other option would be to make the issue into a bottleneck for future settings progress.
+
+* **Refactoring**: Naturally refactoring have occurred as we have continued development of existing components. The refactoring have helped to make the code more streamlined and easier to understand. 
+
+* **Coding standards**: For this sprint we tried to keep the coding standards in mind while coding, refactoring some of the old code to make it more inline with our standards when deemed fit. Doing this did however cost some extra development time, but we believe that we would make up for it if we would do more sprints in the future. Unfortunately this is our last sprint, and if none of the team members pick up the project for future development all the work of implementing the coding standards would've been futile.
 
 
 # Postmortem
