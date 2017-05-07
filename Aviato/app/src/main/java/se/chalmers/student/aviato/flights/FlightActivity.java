@@ -7,10 +7,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.widget.PopupWindow;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -32,19 +40,22 @@ public class FlightActivity extends Activity{
     private Response.ErrorListener errorListener;
     private FlightRequests flightRequests;
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
-
+    Button btnFilters;
     ListView flightlistView;
     SwipeRefreshLayout mSwipeRefreshLayout;
+    PopupWindow popupWindow;
+    TextView header, airlineHeader;
+    RadioButton arrivalBtn, departureBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_flight);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         flightlistView = (ListView) findViewById(R.id.lvFlightContainer);
         flightlistView.setClickable(true);
-
+        btnFilters = (Button) findViewById(R.id.btnFilters);
+        btnFilters.setClickable(true);
         initListeners();
 
         //scheduleAlarm();
@@ -52,6 +63,27 @@ public class FlightActivity extends Activity{
     }
 
     private void initListeners() {
+        btnFilters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                //Inflate the view from a predefined XML layout
+                View popupView = inflater.inflate(R.layout.filters_dialog, null);
+                // create a 300px width and 470px height PopupWindow
+                popupWindow = new PopupWindow(popupView, 900, 1070, true);
+                // display the popup in the center
+                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+
+                popupWindow.setTouchable(true);
+                popupWindow.setFocusable(true);
+
+                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+                header = (TextView) popupView.findViewById(R.id.filtersText);
+                arrivalBtn = (RadioButton) popupView.findViewById(R.id.arrivalRadioBtn);
+                departureBtn = (RadioButton) popupView.findViewById(R.id.departureRadioBtn);
+                airlineHeader = (TextView) popupView.findViewById(R.id.airlineFilter);
+            }
+        });
         flightlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
