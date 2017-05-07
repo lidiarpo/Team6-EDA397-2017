@@ -6,15 +6,16 @@ import android.preference.PreferenceActivity;
 
 import se.chalmers.student.aviato.R;
 
-/**
- * Created by gryphex on 2017-05-03.
- */
 
 public class SettingsActivity extends Activity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+
+        // Display the fragment as the main content.
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new SettingsFragment())
+                .commit();
     }
 }

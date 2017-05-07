@@ -36,5 +36,18 @@
     <string name="flight_item_gate_holder">GATE</string>
     <string name="flight_item_arrives_holder">ARRIVES</string>
     <string name="flight_item_arrival_holder">ARRIVAL</string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="subscription_settings">Susbcription Settings</string>
+    <string name="title_notifications_switch">Switch Notifications</string>
+    <string name="summary_notifications_switch">Switches notifications on and off</string>
+    <string name="title_notifications_sound_switch">Notifications sound</string>
+    <string name="summary_notifications__sound_switch">Switches on and off the notifications sound</string>
+    <string name="title_list_notifications_limit">Number of notifications Stored</string>
+    <string name="summary_list_notifications_limit">Select the amount of old notifications you wish to store</string>
+    <string name="dialog_title_list_notifications_limit">Notifications limit</string>
+    <string name="title_subscription_update">Update frequency</string>
+    <string name="summary_subscription_update">Updateshow frequently the app updates the subscribed flights</string>
+    <string name="dialog_title_subscription_update">Update frequency</string>
+
 
 </resources>

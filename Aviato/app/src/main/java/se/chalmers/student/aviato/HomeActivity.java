@@ -3,6 +3,8 @@ package se.chalmers.student.aviato;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +21,8 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        PreferenceManager.setDefaultValues(this,R.xml.preferences,false);
 
 
         //add flight image button to homescreen
