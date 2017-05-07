@@ -3,22 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorWhite"
-    android:layout_margin="1dp">
+    android:background="@color/colorWhite">
 
     <TextView
         android:id="@+id/filtersText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="Select Filters"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         android:visibility="visible" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="62dp">
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="22dp">
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/arrivalRadioBtn"
             android:layout_width="184dp"
             android:layout_height="wrap_content"
@@ -28,7 +33,7 @@
             android:textAppearance="@android:style/TextAppearance.DeviceDefault"
             android:visibility="visible" />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/departureRadioBtn"
             android:layout_width="184dp"
             android:layout_height="wrap_content"
@@ -41,6 +46,8 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="100dp">
         <TextView
             android:id="@+id/airlineFilter"
@@ -50,26 +57,63 @@
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:visibility="visible"
             />
-
+        <Spinner
+            android:id="@+id/spinnerAirline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/airline_array"
+            android:layout_below="@+id/airlineFilter"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="22dp"
+            android:spinnerMode="dialog"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/spinnerAirline"/>
     </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="98dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/windowFilterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time Window"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:visibility="visible"
+            />
+        <EditText
+            android:id="@+id/timeWindowFilter"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/windowFilterText"
+            android:layout_marginTop="22dp"
+            android:hint="@string/time_window_holder"
+            android:inputType="number"
+            android:maxLength="1"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="100dp"
         android:visibility="visible">
 
         <Button
             android:id="@+id/applyBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/button"
-            android:layout_alignBottom="@+id/button"
+            android:layout_alignBaseline="@+id/cancelbutton"
+            android:layout_alignBottom="@+id/cancelbutton"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="73dp"
             android:text="Apply" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/cancelbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -77,4 +121,5 @@
             android:layout_marginStart="45dp"
             android:text="Cancel" />
     </RelativeLayout>
+
 </LinearLayout>
