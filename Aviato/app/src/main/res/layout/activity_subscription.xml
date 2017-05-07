@@ -13,7 +13,7 @@
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My Subscribed Flights"
+        android:text="@string/placeholder_subscriptions"
         android:textStyle="bold"
         android:fontFamily="sans"
         android:textSize="20sp"

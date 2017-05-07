@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.Utilities;
 import se.chalmers.student.aviato.flights.Flight;
 
 import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
@@ -56,7 +57,10 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
 
         if(position % 2 == 0){
             rlEntry.setBackgroundResource(R.color.colorFlightItem);
+        }else{
+            rlEntry.setBackgroundResource(R.color.colorBackgroundCenter);
         }
+
 
         // Populate the data into the template view using the data object
         if(flight != null){
@@ -69,7 +73,7 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
             }
             subDepAirport.setText(flight.get("departureAirportFsCode"));
             subArrAirport.setText(flight.get("arrivalAirportFsCode"));
-            subStatus.setText(flight.get("status"));
+            subStatus.setText(Utilities.getStatusName(flight.get("status")));
             subCarrierCode.setText(flight.get("carrierFsCode"));
             subFlightNumber.setText(flight.get("flightNumber"));
         }

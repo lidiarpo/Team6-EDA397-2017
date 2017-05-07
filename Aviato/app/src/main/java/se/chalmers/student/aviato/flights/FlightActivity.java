@@ -59,6 +59,7 @@ public class FlightActivity extends Activity{
         initListeners();
 
         //scheduleAlarm();
+
     }
 
     private void initListeners() {

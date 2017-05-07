@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color">
+    <TextView
+        android:id="@+id/tvNotificationHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Notification settings" />
+
+    <Switch
+        android:id="@+id/swNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNotificationHeader"
+        android:text="Notifications on/off"
+        android:textSize="17dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvNotificationDelay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/swNotification"
+        android:textSize="17dp"
+        android:text="Delayed flights" />
+    <CheckBox
+        android:id="@+id/cbNotificationDelay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/swNotification"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/tvNotificationCancelled"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cbNotificationDelay"
+        android:textSize="17dp"
+        android:text="Cancelled flights" />
+    <CheckBox
+        android:id="@+id/cbNotificationCancelled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbNotificationDelay"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/tvNotificationEarly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cbNotificationCancelled"
+        android:textSize="17dp"
+        android:text="Early flights" />
+    <CheckBox
+        android:id="@+id/cbNotificationEarly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvNotificationEarly"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

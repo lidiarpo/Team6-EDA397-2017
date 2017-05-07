@@ -1,0 +1,45 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/notification_settings">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notifications_switch"
+            android:title="@string/title_notifications_switch"
+            android:summary="@string/summary_notifications_switch" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notifications_sound_switch"
+            android:title="@string/title_notifications_sound_switch"
+            android:summary="@string/summary_notifications__sound_switch" />
+
+        <ListPreference
+            android:defaultValue="10"
+            android:key="list_notifications_limit"
+            android:title="@string/title_list_notifications_limit"
+            android:summary="@string/summary_list_notifications_limit"
+            android:entries="@array/entries_list_notifications_limit"
+            android:entryValues="@array/entryvalues_list_notifications_limit"
+            android:dialogTitle="@string/dialog_title_list_notifications_limit" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/subscription_settings">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:key="list_subscription_update"
+            android:title="@string/title_subscription_update"
+            android:summary="@string/summary_subscription_update"
+            android:entries="@array/entries_subscription_update"
+            android:entryValues="@array/entryvalues_subscription_update"
+            android:dialogTitle="@string/dialog_title_subscription_update" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

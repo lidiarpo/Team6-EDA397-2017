@@ -2,6 +2,7 @@ package se.chalmers.student.aviato.flights;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,14 +12,19 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.Utilities;
 
 import static se.chalmers.student.aviato.Utilities.API_DATE_FORMAT;
 import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
@@ -62,24 +68,36 @@ public class OverviewActivity extends Activity {
         btnSubscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                CharSequence text = "You are Subscribed to this flight";
-                int duration = Toast.LENGTH_SHORT;
+        Context context = getApplicationContext();
+        CharSequence text = "You have Subscribed to this flight";
+        int duration = Toast.LENGTH_SHORT;
+        String flightIDtoCheck;
 
-                // Perform action on click
-                if(v.getId() == R.id.btnSubscribe)
-                {
-                    //Log.d("Context value:","working");
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                    mDbHelper = new FlightsDbHelper(context);
-                    Log.d("Context value:", mDbHelper +"");
-                    subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
-                    subscriptionsCRUD.addSubscription(getFlightObject());
-                    Log.d("get flight object:", getFlightObject() +"");
+            // Perform action on click
+            if(v.getId() == R.id.btnSubscribe)
+            {
+                Toast toast = Toast.makeText(context, text, duration);
+                mDbHelper = new FlightsDbHelper(context);
+                subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
 
+                //Find the flightID of clicked flight
+                String flightString = getFlightObject().toString();
+                Pattern pattern = Pattern.compile("flightId='(.*?)'");
+                Matcher matcher = pattern.matcher(flightString);
+                if (matcher.find()) {
+                    flightIDtoCheck = matcher.group(1);
+                    Boolean check = comparetoDB(flightIDtoCheck);
+                    // if clicked flight ID is found in the DB
+                    if(check.equals(true)){
+                        Toast toast2 = Toast.makeText(context, "Already subscribed to this flight!", duration);
+                        toast2.show();
+                    }else {
+                        //Add that flight to subscription
+                        subscriptionsCRUD.addSubscription(getFlightObject());
+                        toast.show();
+                    }
                 }
-
+            }
             }
         });
 
@@ -100,8 +118,8 @@ public class OverviewActivity extends Activity {
                 StringTokenizer s = new StringTokenizer(tokenizer.nextToken(), "='");
                 String attribute = s.nextToken();
                 String value = s.nextToken();
-                Log.d("Attribute", attribute);
-                Log.d("Value", value);
+                //Log.d("Attribute", attribute);
+                //Log.d("Value", value);
 
                 data.put(attribute, value);
 
@@ -123,12 +141,10 @@ public class OverviewActivity extends Activity {
         tvStatus = (TextView) findViewById(R.id.tvStatus);
         //tvFlightNumber = (TextView) findViewById(R.id.tvFlightNumber);
         tvSource = (TextView) findViewById(R.id.tvSource);
-        tvDepFrom = (TextView) findViewById(R.id.tvDepFrom);
         tvDepTime = (TextView) findViewById(R.id.tvDepTime);
         tvDepGate = (TextView) findViewById(R.id.tvDepGate);
         tvDepTerminal = (TextView) findViewById(R.id.tvDepTerminal);
         tvDestination = (TextView) findViewById(R.id.tvDestination);
-        tvArrFrom = (TextView) findViewById(R.id.tvArrFrom);
         tvArrTime = (TextView) findViewById(R.id.tvArrTime);
         tvArrGate = (TextView) findViewById(R.id.tvArrGate);
         tvArrTerminal = (TextView) findViewById(R.id.tvArrTerminal);
@@ -144,17 +160,17 @@ public class OverviewActivity extends Activity {
         Calendar cal = Calendar.getInstance();
         viewFormat.setTimeZone(cal.getTimeZone());
 
-        tvAirlineName.setText(flight.get("carrierName") + " " + flight.get("carrierFsCode")
-                + flight.get("flightNumber"));
+        tvAirlineName.setText("(" + flight.get("carrierFsCode") + ")"+ " " +flight.get("carrierName")
+                + " " + flight.get("flightNumber"));
         //tvFlightNumber.setText(flight.get("flightNumber"));
-        tvStatus.setText(flight.get("status"));
-        tvSource.setText(flight.get("departureAirportFsCode"));
-        tvDepFrom.setText(flight.get("departureAirportName"));
-
+        String status = flight.get("status");
+        tvStatus.setBackgroundColor(Utilities.getStatusColor(status));
+        tvStatus.setText(Utilities.getStatusName(status));
+        tvSource.setText(flight.get("departureAirportFsCode") + "  -  " + flight.get("departureAirportName"));
         tvDepGate.setText(flight.get("departureGate"));
         tvDepTerminal.setText(flight.get("departureTerminal"));
-        tvDestination.setText(flight.get("arrivalAirportFsCode"));
-        tvArrFrom.setText(flight.get("arrivalAirportName"));
+        tvDestination.setText(flight.get("arrivalAirportFsCode") + "  -  " + flight.get("arrivalAirportName"));
+
 
         try {
             tvDepTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
@@ -186,6 +202,25 @@ public class OverviewActivity extends Activity {
 
         return flightOverview;
 
+    }
+
+
+    boolean contains;
+    public Boolean comparetoDB(String id){
+        List<Flight> subscriptionFlights = subscriptionsCRUD.readSubscriptions();
+        for (Flight f : subscriptionFlights) {
+            if (f.get("flightId").equals(id)) {
+                contains = true;
+                break;
+            }
+        }
+        if(contains) {
+            // contains the id in the database
+        }else{
+            // does not contain the id in the database
+            contains = false;
+        }
+        return contains;
     }
 
 }

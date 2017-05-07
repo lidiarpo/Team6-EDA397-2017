@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import se.chalmers.student.aviato.Utilities;
 import se.chalmers.student.aviato.notifications.AlarmReceiver;
 
 /**
@@ -23,13 +24,11 @@ public class FlightNotifier {
 
     /**
      * Setup a flight notifier, which will generate a notification at the requested time in the future
-     * Example: {@code new FlightNotifier(this, "13:32")}
-     *
      * @param context
      * @param date the date you want the alarm to be triggered (currently in a format such as: 2017-04-26T11:15:00.000Z)
      */
     public FlightNotifier(Context context, String date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat sdf = new SimpleDateFormat(Utilities.API_DATE_FORMAT);
         try {
             // Try to parse the supplied string that represents a date
             Date d = sdf.parse(date);
