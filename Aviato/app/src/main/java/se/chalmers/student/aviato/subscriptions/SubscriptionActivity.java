@@ -26,6 +26,7 @@ public class SubscriptionActivity extends Activity {
         setContentView(R.layout.activity_subscription);
 
         subscriptionlistView = (ListView) findViewById(R.id.lvSubscriptionContainer);
+        this.subscriptionlistView.setEmptyView(findViewById(R.id.headerSubscription));
 
         //Adding/Reading subscription
         FlightsDbHelper dbHelper = new FlightsDbHelper(this);
