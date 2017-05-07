@@ -9,4 +9,5 @@
     <string name="notification_storage">notifications.txt</string>
     <string name="button_subscribe">Subscribe</string>
     <string name="overview_header_overview">Flight Overview</string>
+    <string name="ARN">ARN-ARLANDA AIRPORT</string>
 </resources>
