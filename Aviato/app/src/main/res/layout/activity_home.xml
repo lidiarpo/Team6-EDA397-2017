@@ -2,119 +2,80 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/background_color"
-    tools:context="se.chalmers.student.aviato.HomeActivity"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical">
+    tools:context="se.chalmers.student.aviato.HomeActivity">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:orientation="horizontal" >
+
+
+        <Button
+            android:id="@+id/flight_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:drawableTop="@drawable/airplane"
+            android:background="@drawable/shadow"
+            android:backgroundTint="@color/colorButtonIcon"
+            android:paddingTop="50dp"
             android:layout_weight="1.0"
-            android:background="#00000000"
-            android:orientation="horizontal" >
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_flights"/>
 
-            <Button
-                android:id="@+id/flight_button"
-                android:layout_width="271dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorFlightItem"
-                android:textSize="20dp"
-                android:text="@string/home_flights" />
-
-            <ImageView
-                android:id="@+id/imageView"
-
-                android:background="@color/colorFlightItem"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-                android:src="@drawable/android_airplane_takeoff"/>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
+        <Button
+            android:id="@+id/subscription_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:drawableTop="@drawable/subscribe"
+            android:background="@drawable/shadow"
+            android:backgroundTint="@color/colorButtonIcon"
+            android:paddingTop="50dp"
             android:layout_weight="1.0"
-            android:background="#00000000"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/subscription_button"
-                android:layout_width="271dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorBackgroundCenter"
-                android:textSize="20dp"
-                android:text="@string/home_subscriptions" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:background="@color/colorBackgroundCenter"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-                android:src="@drawable/android_subscriptions"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/notification_button"
-                android:layout_width="271dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorFlightItem"
-                android:textSize="20dp"
-                android:text="@string/home_notifications" />
-
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:background="@color/colorFlightItem"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-                android:src="@drawable/android_notification"/>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/settings_button"
-                android:layout_width="271dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorBackgroundCenter"
-                android:textSize="20dp"
-                android:text="@string/home_settings" />
-
-
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:background="@color/colorBackgroundCenter"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-                android:src="@drawable/android_settings"/>
-
-
-        </LinearLayout>
-
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_subscriptions" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/notification_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/notification"
+            android:background="@drawable/shadow"
+            android:backgroundTint="@color/colorBlack"
+            android:paddingTop="50dp"
+            android:layout_weight="1.0"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_notifications" />
+
+        <Button
+            android:id="@+id/settings_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/settings"
+            android:background="@drawable/shadow"
+            android:backgroundTint="@color/colorBlack"
+            android:paddingTop="50dp"
+            android:layout_weight="1.0"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/home_settings" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

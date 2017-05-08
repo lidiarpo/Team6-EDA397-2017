@@ -26,4 +26,45 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="airline_array">
+        <item>Select an airline</item>
+        <item>Air Baltic (BT)</item>
+        <item>Air Berlin (AB)</item>
+        <item>Air Europa (AEA)</item>
+        <item>Air France (AF)</item>
+        <item>AIS Airlines (PNX)</item>
+        <item>Amapola 42 (APF)</item>
+        <item>BH Air (BGH)</item>
+        <item>BRA (TF)</item>
+        <item>British Airways (BA)</item>
+        <item>Brussels Airlines (SN)</item>
+        <item>Corendon Airlines (CAI/XC)</item>
+        <item>CSA Czech Airlines (OK)</item>
+        <item>Finnair (AY)</item>
+        <item>Freebird International (FHY)</item>
+        <item>Germania (ST)</item>
+        <item>Germanwings (4U)</item>
+        <item>Icelandair (FI)</item>
+        <item>Iran Air (IR)</item>
+        <item>Jet Time (JTG)</item>
+        <item>KLM Royal Dutch Airline (KL)</item>
+        <item>Lufthansa (LH)</item>
+        <item>Norwegian (D8)</item>
+        <item>Nouvelair (BJ)</item>
+        <item>Novair (NVR)</item>
+        <item>Orbest Orizona Airlines (IWD)</item>
+        <item>Primera Air (PF/6F)</item>
+        <item>Ryanair (FR)</item>
+        <item>SAS Scandinavian Airlines (SK)</item>
+        <item>Sky Airlines (SHY)</item>
+        <item>Sun Express (XQ)</item>
+        <item>Swiss (LS)</item>
+        <item>TAP Portugal (TP)</item>
+        <item>Thomas Cook Airlines Scandinavia (DK)</item>
+        <item>Tuifly Nordic (BLX)</item>
+        <item>Turkish Airlines (TK)</item>
+        <item>Vueling (VY)</item>
+        <item>Widerö (WF)</item>
+        <item>Wizz Air (W)</item>
+    </string-array>
 </resources>

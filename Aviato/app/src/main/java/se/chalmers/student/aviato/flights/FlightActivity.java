@@ -6,18 +6,22 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.volley.Response;
@@ -40,12 +44,15 @@ public class FlightActivity extends Activity{
     private Response.ErrorListener errorListener;
     private FlightRequests flightRequests;
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
-    Button btnFilters;
+    Button btnFilters, applyBtn, cancelBtn;
     ListView flightlistView;
     SwipeRefreshLayout mSwipeRefreshLayout;
     PopupWindow popupWindow;
+    EditText timeWindowFilter;
     TextView header, airlineHeader;
-    RadioButton arrivalBtn, departureBtn;
+    CheckBox arrivalBtn, departureBtn;
+    Spinner airlineSpinner;
+    String airline = "", arr = "", dep = "", timeWindow = "6";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,9 +75,9 @@ public class FlightActivity extends Activity{
             public void onClick(View v) {
                 LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 //Inflate the view from a predefined XML layout
-                View popupView = inflater.inflate(R.layout.filters_dialog, null);
+                final View popupView = inflater.inflate(R.layout.filters_dialog, null);
                 // create a 300px width and 470px height PopupWindow
-                popupWindow = new PopupWindow(popupView, 900, 1070, true);
+                popupWindow = new PopupWindow(popupView, 1000, 1200, true);
                 // display the popup in the center
                 popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
@@ -79,9 +86,35 @@ public class FlightActivity extends Activity{
 
                 popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
                 header = (TextView) popupView.findViewById(R.id.filtersText);
-                arrivalBtn = (RadioButton) popupView.findViewById(R.id.arrivalRadioBtn);
-                departureBtn = (RadioButton) popupView.findViewById(R.id.departureRadioBtn);
+                arrivalBtn = (CheckBox) popupView.findViewById(R.id.arrivalRadioBtn);
+                departureBtn = (CheckBox) popupView.findViewById(R.id.departureRadioBtn);
                 airlineHeader = (TextView) popupView.findViewById(R.id.airlineFilter);
+                applyBtn = (Button) popupView.findViewById(R.id.applyBtn);
+                airlineSpinner = (Spinner) popupView.findViewById(R.id.spinnerAirline);
+                timeWindowFilter = (EditText)popupView.findViewById(R.id.timeWindowFilter);
+                timeWindowFilter.setFilters(new InputFilter[]{new TimeWindowInputFilter(1, 6)});
+                applyBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        airline = airlineSpinner.getSelectedItem().toString();
+                        if (airline.equals("Select an airline")){
+                            airline = "";
+                        }
+                        arr = arrivalBtn.isChecked() ? "arr" : "";
+                        dep = departureBtn.isChecked() ? "dep" : "";
+                        timeWindow = timeWindowFilter.getText().toString();
+                        if (timeWindow == ""){
+                            timeWindow = "6";
+                        }
+                        Log.d("FILTERSSSSs" , airline + " " + arr + " " + dep + " " + timeWindow);
+                        popupWindow.dismiss();
+                    }
+                });
+                cancelBtn = (Button) popupView.findViewById(R.id.cancelbutton);
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                    }
+                });
             }
         });
         flightlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
