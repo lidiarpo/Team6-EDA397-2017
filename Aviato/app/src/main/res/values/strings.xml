@@ -48,6 +48,9 @@
     <string name="title_subscription_update">Update frequency</string>
     <string name="summary_subscription_update">Updateshow frequently the app updates the subscribed flights</string>
     <string name="dialog_title_subscription_update">Update frequency</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 
 </resources>

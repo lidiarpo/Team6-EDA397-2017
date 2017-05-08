@@ -63,27 +63,7 @@ public class FlightActivity extends Activity{
     }
 
     private void initListeners() {
-        btnFilters.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                //Inflate the view from a predefined XML layout
-                View popupView = inflater.inflate(R.layout.filters_dialog, null);
-                // create a 300px width and 470px height PopupWindow
-                popupWindow = new PopupWindow(popupView, 900, 1070, true);
-                // display the popup in the center
-                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
-                popupWindow.setTouchable(true);
-                popupWindow.setFocusable(true);
-
-                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-                header = (TextView) popupView.findViewById(R.id.filtersText);
-                arrivalBtn = (RadioButton) popupView.findViewById(R.id.arrivalRadioBtn);
-                departureBtn = (RadioButton) popupView.findViewById(R.id.departureRadioBtn);
-                airlineHeader = (TextView) popupView.findViewById(R.id.airlineFilter);
-            }
-        });
         flightlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
