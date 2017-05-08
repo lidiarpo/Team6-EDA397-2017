@@ -34,6 +34,8 @@ public class NotificationActivity extends Activity {
 
         // The listview to populate
         mNotificationListView = (ListView) findViewById(R.id.lvNotifications);
+        //If the listView is empty then change the view
+        this.mNotificationListView.setEmptyView(findViewById(R.id.headerNotification));
 
         NotificationsDbHelper dbHelper = new NotificationsDbHelper(this);
         mNotCrud = new NotificationsCRUD(dbHelper);

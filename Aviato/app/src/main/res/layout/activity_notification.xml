@@ -6,7 +6,7 @@
     android:background="@drawable/background_color">
 
     <TextView
-        android:id="@+id/headerSubscription"
+        android:id="@+id/headerNotification"
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
