@@ -1,8 +1,10 @@
 package se.chalmers.student.aviato.flights;
 
-/**
- * Created by jobaer-pc on 04-May-17.
- */
+
+import java.util.List;
 
 public interface FlightFilter {
+
+    public List<Flight> filter(List<Flight> flights, String... parameters);
+
 }
