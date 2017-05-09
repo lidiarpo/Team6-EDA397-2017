@@ -163,7 +163,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#14|fb8aaa5, eca6c97, 2d7f6bb|Ayesha|8|Refactoring, Coding Standard, Simple Design|
 |#105|f0a0448|Henrik|N/A|Refactoring, Simple Design|
 |#16|c43b1b3|Ayesha|5|Refactoring, Coding Standard, Simple Design|
-|#9|c43b1b3|Ayesha|5|Refactoring, Coding Standard, Simple Design|
+|#9|c43b1b3,ce45bfc|Ayesha,Jobaer|5|Refactoring, Coding Standard, Simple Design|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
