@@ -158,8 +158,8 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#90|xxxx|Elsa|3|Practice, practice|
 |#85|xxxx|Lois|3|Practice, practice|
 |#92|xxxx|Lois|8|Practice, practice|
-|#86|97c09dc|Henrik|3|Refactoring, Coding standards|
-|#X|xxxx|Person X|3|Practice, practice|
+|#86|97c09dc|Henrik, Ayesha|3|Refactoring, Coding standards|
+|#14|xxxx|Ayesha|8|Refactoring, Coding Standard, Simple Design|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
