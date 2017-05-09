@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 
 import se.chalmers.student.aviato.Utilities;
 
@@ -72,6 +73,7 @@ public class Flight{
      */
     public Calendar getTime() {
         SimpleDateFormat sdf = new SimpleDateFormat(Utilities.API_DATE_FORMAT);
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             // The date we are interested in depends on whether this is an arrival or a departure
             String date = this.isArrival() ? this.get("arrivalDate") : this.get("departureDate");
@@ -79,6 +81,7 @@ public class Flight{
             Date d = sdf.parse(date);
             // If successful then set the appropriate date
             Calendar calendar = Calendar.getInstance();
+            calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
             calendar.setTime(d);
             return calendar;
         } catch (ParseException ex) {

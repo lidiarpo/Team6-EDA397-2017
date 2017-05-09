@@ -64,7 +64,7 @@ public class FlightRequests {
 
         queue = RequestQueueSingleton.getInstance(context);
         String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/"
-                + flightId + "?appId=" + APPID + "&appKey=" + APPKEY + "&extendedOptions=useInlinedReferences";;
+                + flightId + "?appId=" + APPID + "&appKey=" + APPKEY + "&extendedOptions=useInlinedReferences";
 
         Log.d(TAG, url);
 

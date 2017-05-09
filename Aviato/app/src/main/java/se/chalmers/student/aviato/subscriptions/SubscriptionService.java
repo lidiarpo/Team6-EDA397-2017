@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.ExecutionException;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
@@ -74,9 +75,11 @@ public class SubscriptionService extends IntentService {
             for (Flight f : subscriptionFlights) {
                 Calendar calendar = f.getTime();
                 if (calendar != null) {
+                    calendar.setTimeZone(TimeZone.getDefault());
                     long rawTime = calendar.getTimeInMillis(); // the time of the departure or arrival
                     Calendar now = calendar.getInstance();
                     long timeDelta = rawTime - now.getTimeInMillis();
+                    Log.d(TAG,"timeDelta is:" + timeDelta + " flight time is" + f.getTime());
                     // Notifications should be created for flights in the future only (timeDelta positive)
                     if (timeDelta >= 0 && timeDelta <= Utilities.getTimeToNotify(mSharedPreferences)) {
                         if (mSharedPreferences.getBoolean("notifications_switch", true) && generateNotification(f)){
@@ -110,10 +113,11 @@ public class SubscriptionService extends IntentService {
 
     private boolean generateNotification(Flight flight) {
         String arrivalOrDeparture = flight.isArrival() ? "arrives" : "leaves";
-        int hour = flight.getTime().get(Calendar.HOUR_OF_DAY);
-        int min = flight.getTime().get(Calendar.MINUTE);
+        Calendar calendar = flight.getTime();
+        calendar.setTimeZone(TimeZone.getDefault());
         String notificationText = "Flight to " +
-                flight.get("arrivalAirportFsCode") + " " + arrivalOrDeparture + " at " + hour + ":" + min;
+                flight.get("arrivalAirportFsCode") + " " + arrivalOrDeparture + " at " + calendar.get(Calendar.HOUR_OF_DAY)
+                + ":" + calendar.get(Calendar.MINUTE);
         // Add and create a notification only if one does not already exist
         if (!notificationsCRUD.existsNotification(flight.get("flightId"))){
             Log.d(TAG, "Notification text: " + notificationText);
@@ -158,7 +162,7 @@ public class SubscriptionService extends IntentService {
                 //TO-DO Compare date of the flight, if it has passed remove it from subscription database
             }else {
                 String url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/"
-                        + flight.get("flightId") + "?appId=" + APPID + "&appKey=" + APPKEY;
+                        + flight.get("flightId") + "?appId=" + APPID + "&appKey=" + APPKEY + "&extendedOptions=useInlinedReferences";
                 RequestFuture<JSONObject> future = RequestFuture.newFuture();
                 JsonObjectRequest request = new JsonObjectRequest(url, null, future, future);
                 queue.addToRequestQueue(request);
