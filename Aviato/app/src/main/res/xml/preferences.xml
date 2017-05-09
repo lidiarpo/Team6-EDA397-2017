@@ -17,6 +17,15 @@
             android:summary="@string/summary_notifications__sound_switch" />
 
         <ListPreference
+            android:defaultValue="60"
+            android:key="list_notifications_time"
+            android:title="@string/title_list_notifications_time"
+            android:summary="@string/summary_list_notifications_time"
+            android:entries="@array/entries_list_notifications_time"
+            android:entryValues="@array/entryvalues_list_notifications_time"
+            android:dialogTitle="@string/dialog_title_list_notifications_time" />
+
+        <ListPreference
             android:defaultValue="10"
             android:key="list_notifications_limit"
             android:title="@string/title_list_notifications_limit"

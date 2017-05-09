@@ -49,5 +49,8 @@
     <string name="summary_subscription_update">Updateshow frequently the app updates the subscribed flights</string>
     <string name="dialog_title_subscription_update">Update frequency</string>
     <string name="time_window_holder">Upto 6 hours</string>
+    <string name="title_list_notifications_time">Time to Notify in Advance</string>
+    <string name="summary_list_notifications_time">Set the minutes in advance the app will notify you of yoru subscribed flights</string>
+    <string name="dialog_title_list_notifications_time">Notify time</string>
 
 </resources>

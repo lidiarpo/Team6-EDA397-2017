@@ -1,6 +1,9 @@
 package se.chalmers.student.aviato;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceGroup;
@@ -12,6 +15,7 @@ import se.chalmers.student.aviato.flights.FlightActivity;
 import se.chalmers.student.aviato.notifications.NotificationActivity;
 import se.chalmers.student.aviato.settings.SettingsActivity;
 import se.chalmers.student.aviato.subscriptions.SubscriptionActivity;
+import se.chalmers.student.aviato.subscriptions.SubscriptionReceiver;
 
 
 public class HomeActivity extends Activity {
@@ -62,6 +66,35 @@ public class HomeActivity extends Activity {
                 startActivity(loadSettingsActivity);
             }
         });
+
+        scheduleAlarm();
+    }
+
+    /**
+     * Schedules an alarm to launch a service in the background to update
+     * flight information from subscriptions and create notifications
+     */
+    public void scheduleAlarm() {
+        Intent intent = new Intent(getApplicationContext(), SubscriptionReceiver.class);
+        final PendingIntent pIntent = PendingIntent.getBroadcast(this, SubscriptionReceiver.REQUEST_CODE,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        long firstMillis = System.currentTimeMillis();
+        AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+
+        int updateFreq = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("list_subscription_update","15"));
+        switch (updateFreq){
+            case 15: alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+                    AlarmManager.INTERVAL_FIFTEEN_MINUTES, pIntent);
+                break;
+            case 30: alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+                    AlarmManager.INTERVAL_HALF_HOUR, pIntent);
+                break;
+            case 60: alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+                    AlarmManager.INTERVAL_HOUR, pIntent);
+                break;
+            default: alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+                    AlarmManager.INTERVAL_FIFTEEN_MINUTES, pIntent);
+        }
     }
 
 }

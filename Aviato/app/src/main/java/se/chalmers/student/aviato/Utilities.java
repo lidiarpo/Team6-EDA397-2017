@@ -64,7 +64,7 @@ public class Utilities {
     public static long getTimeToNotify(SharedPreferences sharedPreferences) {
         int millisecondsPerMinute = 60000;
         String defaultValue = "15";
-        int settingsValue = Integer.valueOf(sharedPreferences.getString("list_subscription_update", defaultValue));
+        int settingsValue = Integer.valueOf(sharedPreferences.getString("list_notifications_time", defaultValue));
 
         mTimeToNotify = settingsValue * millisecondsPerMinute;
         Log.w("TESTING", "" + mTimeToNotify);

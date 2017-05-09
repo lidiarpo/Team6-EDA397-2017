@@ -57,12 +57,12 @@ public class SubscriptionService extends IntentService {
         subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
         notificationsDbHelper = new NotificationsDbHelper(this);
         notificationsCRUD = new NotificationsCRUD(notificationsDbHelper);
-        queue = RequestQueueSingleton.getInstance(this);
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.i(TAG,"Subscription Service running");
+        queue = RequestQueueSingleton.getInstance(getApplicationContext());
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (intent != null) {
 
