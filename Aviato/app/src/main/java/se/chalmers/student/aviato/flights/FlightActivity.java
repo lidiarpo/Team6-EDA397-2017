@@ -68,7 +68,6 @@ public class FlightActivity extends Activity{
         btnFilters.setClickable(true);
         initListeners();
 
-        scheduleAlarm();
 
     }
 
@@ -241,17 +240,4 @@ public class FlightActivity extends Activity{
         flightlistView.setEmptyView(findViewById(R.id.empty));
     }
 
-    /**
-     * Schedules an alarm to launch a service in the background to update
-     * flight information from subscriptions and create notifications
-     */
-    public void scheduleAlarm() {
-        Intent intent = new Intent(getApplicationContext(), SubscriptionReceiver.class);
-        final PendingIntent pIntent = PendingIntent.getBroadcast(this, SubscriptionReceiver.REQUEST_CODE,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        long firstMillis = System.currentTimeMillis();
-        AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
-                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pIntent);
-    }
 }
