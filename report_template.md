@@ -126,7 +126,7 @@ During the 2nd sprint we vastly increased our velocity and focused on getting a 
 During the last acceptance meeting, the Product Owner and the Customer requested several specific features to be implemented during the coming sprint. However, due to the extensive nature of the features there was no room for self-organizing and determining the velocity, since the user stories contained in the sprint backlog were practically already decided. We understand that emergent feature requests by the customer are something not unusual in the fast-pacing industry and practically necessary. However, they should be generally kept at a minimum as they invalidate many of the aspects of the adopted agile methodology.
 
 ## Sprint 3:
-
+Sprint 3 started with a happy product owner who set the sprint goal to focus on making the application holistic. This meant that we had to think about what features were missing to make the application complete for a potential release. These were mainly revolving around settings and filters, but also on polishing the user interface to become consistent and more appealing to both customers and end-users. The sprint backlog was therefore filled with a wide variety of user stories, making it easier for the team members to work without bottlenecks.
 
 ### Commitment
 In the parathesis the estimation point of each issue, followed by the issue number.
@@ -158,7 +158,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#90|xxxx|Elsa|3|Practice, practice|
 |#85|xxxx|Lois|3|Practice, practice|
 |#92|xxxx|Lois|8|Practice, practice|
-|#86|97c09dc, 7bbda1b|Henrik, Ayesha|3|Refactoring, Coding standards|
+|#86|97c09dc, 7bbda1b|Henrik, Ayesha, Elsa|3|Refactoring, Coding standards, Collective code ownership|
 |#14|xxxx|Ayesha|8|Refactoring, Coding Standard, Simple Design|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
@@ -168,12 +168,15 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#X|xxxx|Person X|3|Practice, practice|
 
 ### Reflections
+The practice of not letting people to work on more than one user story at a time were kept for this sprint, since it worked so well the last time around. As the third sprint were almost twice as long as the previous two sprints we increased our velocity. Going in to the third sprint we did not have any more (core) practices to try out. Instead we focused on keep working with the practices that had worked well for us in the previous sprints.
 
 * **Simple design**: Simple design was used effectively to get a quick outline for the settings activity and it's respective view. Instead of trying to create something ideal, which would require hours of research on potential solutions, we created something that worked and made it possible to continue with the issues which are reliant on #20. The other option would be to make the issue into a bottleneck for future settings progress.
 
 * **Refactoring**: Naturally refactoring have occurred as we have continued development of existing components. The refactoring have helped to make the code more streamlined and easier to understand. 
 
 * **Coding standards**: For this sprint we tried to keep the coding standards in mind while coding, refactoring some of the old code to make it more inline with our standards when deemed fit. Doing this did however cost some extra development time, but we believe that we would make up for it if we would do more sprints in the future. Unfortunately this is our last sprint, and if none of the team members pick up the project for future development all the work of implementing the coding standards would've been futile.
+
+* **Collectice code ownership**: For this sprint we have gotten into the habit of refactoring each others code. The team members all know that they are free to refactor it and does not hesitate to do so if they see room for improvements.
 
 
 # Postmortem
