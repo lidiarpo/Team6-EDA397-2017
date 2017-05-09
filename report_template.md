@@ -158,7 +158,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#90|xxxx|Elsa|3|Practice, practice|
 |#85|xxxx|Lois|3|Practice, practice|
 |#92|xxxx|Lois|8|Practice, practice|
-|#86|97c09dc, 7bbda1b|Henrik, Ayesha, Elsa|3|Refactoring, Coding standards, Collective code ownership|
+|#86|97c09dc, 1076f1e, c50867b, eca6c97, 2d7f6bb, 7bbda1b|Henrik, Ayesha, Elsa, Lois|3|Refactoring, Coding standards, Collective code ownership|
 |#14|xxxx|Ayesha|8|Refactoring, Coding Standard, Simple Design|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
