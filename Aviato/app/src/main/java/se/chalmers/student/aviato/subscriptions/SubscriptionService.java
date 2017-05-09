@@ -49,7 +49,7 @@ public class SubscriptionService extends IntentService {
     NotificationsDbHelper notificationsDbHelper;
     NotificationsCRUD notificationsCRUD;
     private RequestQueueSingleton queue;
-    private SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    private SharedPreferences mSharedPreferences;
 
     public SubscriptionService() {
         super("SubscriptionService");
@@ -63,6 +63,7 @@ public class SubscriptionService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.i(TAG,"Subscription Service running");
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (intent != null) {
 
             List<Flight> subscriptionFlights = subscriptionsCRUD.readSubscriptions();

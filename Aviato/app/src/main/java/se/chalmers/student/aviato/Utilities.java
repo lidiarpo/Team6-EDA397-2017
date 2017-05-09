@@ -63,11 +63,11 @@ public class Utilities {
      */
     public static long getTimeToNotify(SharedPreferences sharedPreferences) {
         int millisecondsPerMinute = 60000;
-        int defaultValue = 15;
-        int settingsValue = sharedPreferences.getInt("list_subscription_update", defaultValue);
+        String defaultValue = "15";
+        int settingsValue = Integer.valueOf(sharedPreferences.getString("list_subscription_update", defaultValue));
 
         mTimeToNotify = settingsValue * millisecondsPerMinute;
-        Log.w("TESTING", "" + settingsValue);
+        Log.w("TESTING", "" + mTimeToNotify);
 
         return mTimeToNotify;
     }
