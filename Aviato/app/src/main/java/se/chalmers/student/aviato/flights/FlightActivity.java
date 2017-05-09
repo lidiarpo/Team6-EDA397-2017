@@ -65,7 +65,7 @@ public class FlightActivity extends Activity{
         btnFilters.setClickable(true);
         initListeners();
 
-        //scheduleAlarm();
+        scheduleAlarm();
 
     }
 
