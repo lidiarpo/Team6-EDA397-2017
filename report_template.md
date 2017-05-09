@@ -153,13 +153,13 @@ Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
 |#83|xxxx|Dimitris|1|Practice, practice|
-|#87|xxxx|Elsa|1|Practice, practice|
+|#87|38da7ee, 493b0dd|Elsa|1|Simple Design|
 |#20|9553347|Henrik|3|Simple design|
 |#25|xxxx|Dimitris|8|Practice, practice|
-|#90|xxxx|Elsa|3|Practice, practice|
+|#90|329787d|Elsa|3|Refactoring|
 |#85|xxxx|Lois|3|Practice, practice|
 |#92|xxxx|Lois|8|Practice, practice|
-|#86|97c09dc, 1076f1e, c50867b, eca6c97, 2d7f6bb, 7bbda1b|Henrik, Ayesha, Elsa, Lois|3|Refactoring, Coding standards, Collective code ownership|
+|#86|97c09dc, 1076f1e, c50867b, eca6c97, 2d7f6bb, 7bbda1b, 1076f1e|Henrik, Ayesha, Elsa, Lois|3|Refactoring, Coding standards, Collective code ownership|
 |#14|fb8aaa5, eca6c97, 2d7f6bb|Ayesha|8|Refactoring, Coding Standard, Simple Design|
 |#105|f0a0448|Henrik|N/A|Refactoring, Simple Design|
 |#16|c43b1b3|Ayesha|5|Refactoring, Coding Standard, Simple Design|
