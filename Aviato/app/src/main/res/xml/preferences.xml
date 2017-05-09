@@ -31,7 +31,7 @@
         android:title="@string/subscription_settings">
 
         <ListPreference
-            android:defaultValue="0"
+            android:defaultValue="15"
             android:key="list_subscription_update"
             android:title="@string/title_subscription_update"
             android:summary="@string/summary_subscription_update"

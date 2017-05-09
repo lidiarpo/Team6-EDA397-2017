@@ -1,7 +1,10 @@
 package se.chalmers.student.aviato;
 
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,8 +24,7 @@ public class Utilities {
 
     public final static String API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public final static String VIEW_DATE_FORMAT = "HH:mm";
-
-    private static long timeToNotify = 3600000; // How much time (in ms) to notify prior to a flight
+    private static int mTimeToNotify;
 
     private static final Map<String,String> statusMap;
     static{
@@ -59,8 +61,15 @@ public class Utilities {
      * Get the amount of time prior to a flight that a user should be notified about it
      * @return time in milliseconds
      */
-    public static long getTimeToNotify() {
-        return timeToNotify;
+    public static long getTimeToNotify(SharedPreferences sharedPreferences) {
+        int millisecondsPerMinute = 60000;
+        int defaultValue = 15;
+        int settingsValue = sharedPreferences.getInt("list_subscription_update", defaultValue);
+
+        mTimeToNotify = settingsValue * millisecondsPerMinute;
+        Log.w("TESTING", "" + settingsValue);
+
+        return mTimeToNotify;
     }
 
     /**
@@ -68,9 +77,9 @@ public class Utilities {
      * @param newTime in milliseconds for the user to be notified for a flight
      * @return the previous time in milliseconds that the user used to be notified about a flight
      */
-    public static long setTimeToNotify(long newTime) {
-        long prevTime = timeToNotify;
-        timeToNotify = newTime;
+    public static long setTimeToNotify(int newTime) {
+        long prevTime = mTimeToNotify;
+        mTimeToNotify = newTime;
         return prevTime;
     }
 

@@ -1,7 +1,9 @@
 package se.chalmers.student.aviato.notifications;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +42,12 @@ public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
 
         // Populate the view with one textView per notification in the database
         TextView text = (TextView) mView.findViewById(R.id.tvNotifications);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        int defaultValue = 10;
+        int counter = 0;
+        int listLimit = sharedPreferences.getInt("list_notifications_limit", defaultValue);
         Notification n = mItems.get(position);
-        if(n != null ) {
+        if(n != null && counter < listLimit) {
             String fId = n.getFlightId();
             String nText = n.getText();
             text.setText(fId + " " + nText);
@@ -53,6 +59,7 @@ public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
             } else {
                 text.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
             }
+            counter++;
         }
 
         return mView;
