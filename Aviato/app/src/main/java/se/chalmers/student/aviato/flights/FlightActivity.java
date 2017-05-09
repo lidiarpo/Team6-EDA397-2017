@@ -29,6 +29,7 @@ import com.android.volley.VolleyError;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -40,7 +41,7 @@ import se.chalmers.student.aviato.subscriptions.SubscriptionReceiver;
 
 public class FlightActivity extends Activity{
 
-    private Response.Listener<JSONObject> listener;
+    private Response.Listener<JSONObject> listener, filterListener;
     private Response.ErrorListener errorListener;
     private FlightRequests flightRequests;
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
@@ -52,7 +53,9 @@ public class FlightActivity extends Activity{
     TextView header, airlineHeader;
     CheckBox arrivalBtn, departureBtn;
     Spinner airlineSpinner;
-    String airline = "", arr = "", dep = "", timeWindow = "6";
+    String airline = "", arr = "", dep = "";
+    int timeWindow = 6;
+    List<Flight> filteredFlights;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,18 +98,46 @@ public class FlightActivity extends Activity{
                 timeWindowFilter.setFilters(new InputFilter[]{new TimeWindowInputFilter(1, 6)});
                 applyBtn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
+                        filteredFlights = new ArrayList<Flight>();
+                        timeWindow = 6;
+                        airline = "";
                         airline = airlineSpinner.getSelectedItem().toString();
                         if (airline.equals("Select an airline")){
                             airline = "";
                         }
+                        else{
+                            int begin = airline.indexOf("(");
+                            int end = airline.indexOf(")");
+                            airline = airline.substring(begin + 1, end);
+                        }
                         arr = arrivalBtn.isChecked() ? "arr" : "";
                         dep = departureBtn.isChecked() ? "dep" : "";
-                        timeWindow = timeWindowFilter.getText().toString();
-                        if (timeWindow == ""){
-                            timeWindow = "6";
+                        String inputWindow = timeWindowFilter.getText().toString();
+                        if(inputWindow == null || inputWindow.trim().equals("")){
+                            timeWindow = 6;
+                        }
+                        else {
+                            timeWindow = Integer.parseInt(inputWindow);
                         }
                         Log.d("FILTERSSSSs" , airline + " " + arr + " " + dep + " " + timeWindow);
+                        flightRequests  = new FlightRequests(getApplicationContext());
+                        Calendar rightNow = Calendar.getInstance();
+                        String airportCode = "GOT";
+                        if(arr.isEmpty() && dep.isEmpty()){
+                            flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                        }
+                        else if(!arr.isEmpty()&& !dep.isEmpty()){
+                            flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                            flightRequests.getArrivals(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                        }
+                        else if(arr.isEmpty()&& !dep.isEmpty()){
+                            flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                        }
+                        else{
+                            flightRequests.getArrivals(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                        }
                         popupWindow.dismiss();
+
                     }
                 });
                 cancelBtn = (Button) popupView.findViewById(R.id.cancelbutton);
@@ -155,6 +186,22 @@ public class FlightActivity extends Activity{
             }
         };
 
+        filterListener  = new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                FlightParser fp = new FlightParser();
+                if(!airline.isEmpty()) {
+                    AirlineFilter airlineFilter = new AirlineFilter();
+                    filteredFlights.addAll(airlineFilter.filter(new FlightParser().parseFlights(response), airline));
+                }
+                else{
+                    filteredFlights.addAll(new FlightParser().parseFlights(response));
+                }
+                setFlights(filteredFlights);
+            }
+        };
+
         errorListener = new Response.ErrorListener() {
 
             @Override
@@ -191,6 +238,7 @@ public class FlightActivity extends Activity{
         FlightAdapter adapter = new FlightAdapter(this, flights);
         flightlistView.setAdapter(adapter);
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+        flightlistView.setEmptyView(findViewById(R.id.empty));
     }
 
     /**
