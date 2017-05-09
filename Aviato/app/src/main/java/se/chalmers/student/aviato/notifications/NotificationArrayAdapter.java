@@ -43,9 +43,9 @@ public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
         // Populate the view with one textView per notification in the database
         TextView text = (TextView) mView.findViewById(R.id.tvNotifications);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        int defaultValue = 10;
+        String defaultValue = "10";
         int counter = 0;
-        int listLimit = sharedPreferences.getInt("list_notifications_limit", defaultValue);
+        int listLimit = Integer.valueOf(sharedPreferences.getString("list_notifications_limit", defaultValue));
         Notification n = mItems.get(position);
         if(n != null && counter < listLimit) {
             String fId = n.getFlightId();
