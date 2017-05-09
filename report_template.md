@@ -145,6 +145,7 @@ In the parathesis the estimation point of each issue, followed by the issue numb
 13. Create a filter for local or internation flights #7 (5)
 14. Notification settings #88 (8)
 15. Subscription settings #91 (8)
+16. Apply settings on those parts of the code that use them #105 (N/A)
 
 
 ### Work Done 
@@ -160,6 +161,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#92|xxxx|Lois|8|Practice, practice|
 |#86|97c09dc, 1076f1e, c50867b, eca6c97, 2d7f6bb, 7bbda1b|Henrik, Ayesha, Elsa, Lois|3|Refactoring, Coding standards, Collective code ownership|
 |#14|xxxx|Ayesha|8|Refactoring, Coding Standard, Simple Design|
+|#105|f0a0448|Henrik|N/A|Refactoring, Simple Design|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
