@@ -6,10 +6,12 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -46,6 +48,7 @@ public class SubscriptionService extends IntentService {
     NotificationsDbHelper notificationsDbHelper;
     NotificationsCRUD notificationsCRUD;
     private RequestQueueSingleton queue;
+    private SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
     public SubscriptionService() {
         super("SubscriptionService");
@@ -75,8 +78,8 @@ public class SubscriptionService extends IntentService {
                     Calendar now = calendar.getInstance();
                     long timeDelta = rawTime - now.getTimeInMillis();
                     // Notifications should be created for flights in the future only (timeDelta positive)
-                    if (timeDelta >= 0 && timeDelta <= Utilities.getTimeToNotify()) {
-                        if (generateNotification(f)){
+                    if (timeDelta >= 0 && timeDelta <= Utilities.getTimeToNotify(mSharedPreferences)) {
+                        if (mSharedPreferences.getBoolean("notifications_switch", true) && generateNotification(f)){
                             // If there is at least one notification generated, play a sound
                             notificationGenerated = true;
                         }
@@ -94,7 +97,11 @@ public class SubscriptionService extends IntentService {
         // Play the standard alarm
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Ringtone ringtone = RingtoneManager.getRingtone(this, uri);
-        ringtone.play();
+
+        // Notification sound plays depending on settings.
+        if (mSharedPreferences.getBoolean("notifications_sound_switch", true)){
+            ringtone.play();
+        }
 
         // Vibrate for half a second
         Vibrator v = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
