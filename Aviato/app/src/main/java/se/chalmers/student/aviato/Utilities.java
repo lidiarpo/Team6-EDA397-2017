@@ -3,7 +3,6 @@ package se.chalmers.student.aviato;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -24,7 +23,7 @@ public class Utilities {
 
     public final static String API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public final static String VIEW_DATE_FORMAT = "HH:mm";
-    private static int mTimeToNotify;
+    private static long mTimeToNotify;
 
     private static final Map<String,String> statusMap;
     static{
