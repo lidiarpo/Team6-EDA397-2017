@@ -50,5 +50,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/about_app">
+
+        <Preference android:title="@string/share_button_title"
+            android:key="@string/share_button_title"
+            android:summary="@string/share_button_summary"/>
+
+        <Preference android:title="@string/credits_title"
+            android:key="@string/credits_title"
+            android:summary="@string/credits_summary"/>
+
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

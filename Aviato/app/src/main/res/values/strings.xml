@@ -52,5 +52,13 @@
     <string name="title_list_notifications_time">Time to Notify in Advance</string>
     <string name="summary_list_notifications_time">Set the minutes in advance the app will notify you of yoru subscribed flights</string>
     <string name="dialog_title_list_notifications_time">Notify time</string>
+    <string name="about_app">About Aviato</string>
+    <string name="share_button">Share</string>
+    <string name="share_button_summary">Tip a friend about Aviato</string>
+    <string name="share_button_title">Share</string>
+    <string name="credits_title">Credits</string>
+    <string name="credits_summary">Aviato was developed by Team 6 in EDA397</string>
+    <string name="email_body">It is really handy when it comes to getting notifications on inbound and outbound flights! :-)</string>
+    <string name="email_subject">Check out Aviato!</string>
 
 </resources>
