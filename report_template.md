@@ -153,10 +153,10 @@ In the parathesis the estimation point of each issue, followed by the issue numb
 Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
-|#83|xxxx|Dimitris|1|-|
+|#83|4305abf|Dimitris|1|Refactoring|
 |#87|38da7ee, 493b0dd|Elsa|1|Simple Design|
 |#20|9553347|Henrik|3|Simple design|
-|#25|xxxx|Dimitris|8|-|
+|#25|07b99f7, 6847714|Dimitris|5|Simple Design, Refactoring|
 |#90|329787d|Elsa|3|Refactoring|
 |#85|8884b34|Lois|3 (Real effort 1)|Simple Design|
 |#92|a4903db|Lois|8|Simple Design, Refactoring, Test-First|
@@ -168,6 +168,7 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#88|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
 |#91|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
 |#115|3a29fab|Lídia|1|Simple Design|
+|#117|fe0a207|Dimitris|3|Simple Design|
 |#47||xxxx|Lídia|8|-|   
 
 ### Reflections
@@ -175,7 +176,7 @@ The practice of not letting people to work on more than one user story at a time
 
 * **Simple design**: Simple design was used effectively to get a quick outline for the settings activity and it's respective view. Instead of trying to create something ideal, which would require hours of research on potential solutions, we created something that worked and made it possible to continue with the issues which are reliant on #20. The other option would be to make the issue into a bottleneck for future settings progress.
 
-* **Refactoring**: Naturally refactoring have occurred as we have continued development of existing components. The refactoring have helped to make the code more streamlined and easier to understand. 
+* **Refactoring**: Naturally refactoring have occurred as we have continued development of existing components. The refactoring have helped to make the code more streamlined and easier to understand. Additionally, the source code was organized in packages in order to facilitate its discoverability during development.
 
 * **Coding standards**: For this sprint we tried to keep the coding standards in mind while coding, refactoring some of the old code to make it more inline with our standards when deemed fit. Doing this did however cost some extra development time, but we believe that we would make up for it if we would do more sprints in the future. Unfortunately this is our last sprint, and if none of the team members pick up the project for future development all the work of implementing the coding standards would've been futile.
 
