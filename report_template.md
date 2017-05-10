@@ -157,15 +157,15 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#20|9553347|Henrik|3|Simple design|
 |#25|xxxx|Dimitris|8|Practice, practice|
 |#90|329787d|Elsa|3|Refactoring|
-|#85|xxxx|Lois|3|Practice, practice|
-|#92|xxxx|Lois|8|Practice, practice|
+|#85|8884b34|Lois|3 (Real effort 1)|Simple Design|
+|#92|a4903db|Lois|8|Simple Design, Refactoring, Test-First|
 |#86|97c09dc, 1076f1e, c50867b, eca6c97, 2d7f6bb, 7bbda1b, 1076f1e|Henrik, Ayesha, Elsa, Lois|3|Refactoring, Coding standards, Collective code ownership|
 |#14|fb8aaa5, eca6c97, 2d7f6bb|Ayesha|8|Refactoring, Coding Standard, Simple Design|
 |#105|f0a0448|Henrik|N/A|Refactoring, Simple Design|
 |#16|c43b1b3|Ayesha|5|Refactoring, Coding Standard, Simple Design|
 |#9|c43b1b3,ce45bfc|Ayesha,Jobaer|5|Refactoring, Coding Standard, Simple Design|
-|#X|xxxx|Person X|3|Practice, practice|
-|#X|xxxx|Person X|3|Practice, practice|
+|#88|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
+|#91|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
 |#X|xxxx|Person X|3|Practice, practice|
 |#X|xxxx|Person X|3|Practice, practice|
 
@@ -179,6 +179,8 @@ The practice of not letting people to work on more than one user story at a time
 * **Coding standards**: For this sprint we tried to keep the coding standards in mind while coding, refactoring some of the old code to make it more inline with our standards when deemed fit. Doing this did however cost some extra development time, but we believe that we would make up for it if we would do more sprints in the future. Unfortunately this is our last sprint, and if none of the team members pick up the project for future development all the work of implementing the coding standards would've been futile.
 
 * **Collectice code ownership**: For this sprint we have gotten into the habit of refactoring each others code. The team members all know that they are free to refactor it and does not hesitate to do so if they see room for improvements.
+
+* **Test-First**: In this sprint the group has obtained more experience with the Android framework, and has been able to apply Test-First practices to some of the functionality of the app, discovering early mistakes in the app.
 
 
 # Postmortem
