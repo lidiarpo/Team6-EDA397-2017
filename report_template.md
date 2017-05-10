@@ -152,10 +152,10 @@ In the parathesis the estimation point of each issue, followed by the issue numb
 Feature | Commits  | Group members | Effort | Practices
 ----------------|----------------|----------------|----------------|----------------
 Name and ID of each feature | Sha1 for the commit(s) that make up the feature | Names of the group members who developed the feature | The development effort expended, in story points or other unit of choice | The agile practices practiced when developing the feature
-|#83|xxxx|Dimitris|1|Practice, practice|
+|#83|xxxx|Dimitris|1|-|
 |#87|38da7ee, 493b0dd|Elsa|1|Simple Design|
 |#20|9553347|Henrik|3|Simple design|
-|#25|xxxx|Dimitris|8|Practice, practice|
+|#25|xxxx|Dimitris|8|-|
 |#90|329787d|Elsa|3|Refactoring|
 |#85|8884b34|Lois|3 (Real effort 1)|Simple Design|
 |#92|a4903db|Lois|8|Simple Design, Refactoring, Test-First|
@@ -166,8 +166,6 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#9|c43b1b3,ce45bfc|Ayesha,Jobaer|5|Refactoring, Coding Standard, Simple Design|
 |#88|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
 |#91|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
-|#X|xxxx|Person X|3|Practice, practice|
-|#X|xxxx|Person X|3|Practice, practice|
 
 ### Reflections
 The practice of not letting people to work on more than one user story at a time were kept for this sprint, since it worked so well the last time around. As the third sprint were almost twice as long as the previous two sprints we increased our velocity. Going in to the third sprint we did not have any more (core) practices to try out. Instead we focused on keep working with the practices that had worked well for us in the previous sprints.
