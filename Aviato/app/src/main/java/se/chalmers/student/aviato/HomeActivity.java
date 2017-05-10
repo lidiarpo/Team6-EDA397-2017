@@ -3,13 +3,11 @@ package se.chalmers.student.aviato;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
 import se.chalmers.student.aviato.flights.FlightActivity;
-import se.chalmers.student.aviato.flights.TabbedActivity;
 import se.chalmers.student.aviato.notifications.NotificationActivity;
 import se.chalmers.student.aviato.settings.SettingsActivity;
 import se.chalmers.student.aviato.subscriptions.SubscriptionActivity;
@@ -35,7 +33,7 @@ public class HomeActivity extends Activity {
         flightBtn.setOnClickListener(new View.OnClickListener() {
            @Override
             public void onClick(View v){
-               Intent loadFlightActivity = new Intent(HomeActivity.this, TabbedActivity.class);
+               Intent loadFlightActivity = new Intent(HomeActivity.this, FlightActivity.class);
                startActivity(loadFlightActivity);
            }
         });

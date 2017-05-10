@@ -38,9 +38,6 @@
             android:process=":remote"></receiver>
         <receiver android:name=".notifications.AlarmReceiver"></receiver>
 
-        <activity
-            android:name=".flights.TabbedActivity"
-            android:label="Aviato"></activity>
     </application>
 
 </manifest>
