@@ -146,6 +146,7 @@ In the parathesis the estimation point of each issue, followed by the issue numb
 14. Notification settings #88 (8)
 15. Subscription settings #91 (8)
 16. Apply settings on those parts of the code that use them #105 (N/A)
+17. Make activity overview more readable to the user #115 (1)
 
 
 ### Work Done 
@@ -166,6 +167,8 @@ Name and ID of each feature | Sha1 for the commit(s) that make up the feature | 
 |#9|c43b1b3,ce45bfc|Ayesha,Jobaer|5|Refactoring, Coding Standard, Simple Design|
 |#88|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
 |#91|4ac4608|Lois|8 (Real effort 3)|Simple Design, Refactoring|
+|#115|3a29fab|Lídia|1|Simple Design|
+|#47||xxxx|Lídia|8|-|   
 
 ### Reflections
 The practice of not letting people to work on more than one user story at a time were kept for this sprint, since it worked so well the last time around. As the third sprint were almost twice as long as the previous two sprints we increased our velocity. Going in to the third sprint we did not have any more (core) practices to try out. Instead we focused on keep working with the practices that had worked well for us in the previous sprints.
