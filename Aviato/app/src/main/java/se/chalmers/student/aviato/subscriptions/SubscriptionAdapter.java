@@ -67,7 +67,7 @@ public class SubscriptionAdapter extends ArrayAdapter<Flight> {
 
             try {
                 subDepTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
-                subArrTime.setText(viewFormat.format(format.parse(flight.get("departureDate"))));
+                subArrTime.setText(viewFormat.format(format.parse(flight.get("arrivalDate"))));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
