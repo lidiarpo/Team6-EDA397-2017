@@ -190,6 +190,34 @@ Once the project is finished, summarize your experiences.
 
 - For each practice, reflect on the combined experience from all sprints.
 
+* **Planning poker**: 
+
+* **Test-first**: 
+
+* **Pair programming**: 
+
+* **Continuous Integration**: 
+
+* **Onsite Customer**: 
+
+* **Small Releases**: 
+
+* **Simple Design**: 
+
+* **Refactoring**: 
+
+* **Sustainable Pace**: 
+
+* **Collectice code ownership**:
+
+* **Coding standards**:
+
+* **Point estimates**: 
+
+* **Definition of Done (DoD)**: 
+
+* **Backlog**: 
+
 - Which practices had the most impact on the software developed?
   Think of both positives and negatives.
 
