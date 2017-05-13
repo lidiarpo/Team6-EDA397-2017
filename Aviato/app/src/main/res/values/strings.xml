@@ -60,5 +60,10 @@
     <string name="credits_summary">Aviato was developed by Team 6 in EDA397</string>
     <string name="email_body">It is really handy when it comes to getting notifications on inbound and outbound flights! :-)</string>
     <string name="email_subject">Check out Aviato!</string>
+    <string name="fifteen_min">15 min</string>
+    <string name="thirty_min">30 min</string>
+    <string name="sixty_min">60 min</string>
+    <string name="onehundredtwenty_min">120 min</string>
+
 
 </resources>

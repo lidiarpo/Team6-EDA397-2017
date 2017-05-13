@@ -15,10 +15,10 @@
     </string-array>
 
     <string-array name="entries_list_notifications_time">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>120</item>
+        <item>@string/fifteen_min</item>
+        <item>@string/thirty_min</item>
+        <item>@string/sixty_min</item>
+        <item>@string/onehundredtwenty_min</item>
     </string-array>
 
     <string-array name="entryvalues_list_notifications_time">
@@ -29,9 +29,9 @@
     </string-array>
 
     <string-array name="entries_subscription_update">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
+        <item>@string/fifteen_min</item>
+        <item>@string/thirty_min</item>
+        <item>@string/sixty_min</item>
     </string-array>
 
     <string-array name="entryvalues_subscription_update">
