@@ -2,9 +2,7 @@ package se.chalmers.student.aviato.flights;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,14 +10,10 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import se.chalmers.student.aviato.DB.FlightsDbHelper;
 import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
@@ -33,11 +27,13 @@ import static se.chalmers.student.aviato.Utilities.VIEW_DATE_FORMAT;
 public class OverviewActivity extends Activity {
 
     private String flight;
+    private Flight flightObject;
     HashMap<String, String> data;
     FlightsDbHelper mDbHelper;
     SubscriptionsCRUD subscriptionsCRUD;
+    private static String TAG = "OverviewActivity";
 
-
+    Button btnSubscription;
 
     TextView tvAirlineName;
     TextView tvStatus;
@@ -60,73 +56,61 @@ public class OverviewActivity extends Activity {
         setContentView(R.layout.activity_overview);
 
         createView();
+        mDbHelper = new FlightsDbHelper(this);
+        subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
 
-
-
-        final Button btnSubscription = (Button) findViewById(R.id.btnSubscribe);
-        btnSubscription.setClickable(true);
-        btnSubscription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-        Context context = getApplicationContext();
-        CharSequence text = "You have Subscribed to this flight";
-        int duration = Toast.LENGTH_SHORT;
-        String flightIDtoCheck;
-
-            // Perform action on click
-            if(v.getId() == R.id.btnSubscribe)
-            {
-                Toast toast = Toast.makeText(context, text, duration);
-                mDbHelper = new FlightsDbHelper(context);
-                subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
-
-                //Find the flightID of clicked flight
-                String flightString = getFlightObject().toString();
-                Pattern pattern = Pattern.compile("flightId='(.*?)'");
-                Matcher matcher = pattern.matcher(flightString);
-                if (matcher.find()) {
-                    flightIDtoCheck = matcher.group(1);
-                    Boolean check = comparetoDB(flightIDtoCheck);
-                    // if clicked flight ID is found in the DB
-                    if(check.equals(true)){
-                        Toast toast2 = Toast.makeText(context, "Already subscribed to this flight!", duration);
-                        toast2.show();
-                    }else {
-                        //Add that flight to subscription
-                        subscriptionsCRUD.addSubscription(getFlightObject());
-                        toast.show();
-                    }
-                }
-            }
-            }
-        });
-
+        initListeners();
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
 
             flight = extras.getString("flight");
             flight = flight.substring(7);
-            Log.d("Flight", flight);
 
-            //tvAirlineName.setText("TEST!!!!");
-
-            //HashMap<String, String> data = new HashMap<String, String>();
             data = new HashMap<String, String>();
             StringTokenizer tokenizer = new StringTokenizer(flight, ",");
             while(tokenizer.hasMoreTokens()) {
                 StringTokenizer s = new StringTokenizer(tokenizer.nextToken(), "='");
-                String attribute = s.nextToken();
-                String value = s.nextToken();
-                //Log.d("Attribute", attribute);
-                //Log.d("Value", value);
-
+                String attribute = s.nextToken().trim();
+                String value = s.nextToken().trim();
                 data.put(attribute, value);
-
             }
 
-            populateOverview(data);
+            flightObject = getFlightObject();
+            populateOverview(flightObject);
+
+            if (subscriptionsCRUD.existsFlight(flightObject)){
+                btnSubscription.setVisibility(View.GONE);
+            }
+
         }
+    }
+
+    private void initListeners(){
+
+        btnSubscription.setClickable(true);
+        btnSubscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getApplicationContext();
+                Toast toast;
+
+                // Perform action on click
+                if(v.getId() == R.id.btnSubscribe)
+                {
+                    if(subscriptionsCRUD.existsFlight(flightObject)){
+                        toast = Toast.makeText(context, "Already subscribed to this flight!", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }else {
+                        //Add that flight to subscription
+                        subscriptionsCRUD.addSubscription(getFlightObject());
+                        toast = Toast.makeText(context, "You have been subscribed to this flight", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    btnSubscription.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
     }
 
     @Override
@@ -139,7 +123,6 @@ public class OverviewActivity extends Activity {
 
         tvAirlineName = (TextView) findViewById(R.id.tvAirlineName);
         tvStatus = (TextView) findViewById(R.id.tvStatus);
-        //tvFlightNumber = (TextView) findViewById(R.id.tvFlightNumber);
         tvSource = (TextView) findViewById(R.id.tvSource);
         tvDepTime = (TextView) findViewById(R.id.tvDepTime);
         tvDepGate = (TextView) findViewById(R.id.tvDepGate);
@@ -148,11 +131,12 @@ public class OverviewActivity extends Activity {
         tvArrTime = (TextView) findViewById(R.id.tvArrTime);
         tvArrGate = (TextView) findViewById(R.id.tvArrGate);
         tvArrTerminal = (TextView) findViewById(R.id.tvArrTerminal);
+
+        btnSubscription = (Button) findViewById(R.id.btnSubscribe);
     }
 
-    //Populate activity_overview xml
 
-    private void populateOverview(HashMap<String, String> flight) {
+    private void populateOverview(Flight flight) {
 
         SimpleDateFormat format = new SimpleDateFormat(API_DATE_FORMAT);
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -162,7 +146,6 @@ public class OverviewActivity extends Activity {
 
         tvAirlineName.setText("(" + flight.get("carrierFsCode") + ")"+ " " +flight.get("carrierName")
                 + " " + flight.get("flightNumber"));
-        //tvFlightNumber.setText(flight.get("flightNumber"));
         String status = flight.get("status");
         tvStatus.setBackgroundColor(Utilities.getStatusColor(status));
         tvStatus.setText(Utilities.getStatusName(status));
@@ -186,6 +169,11 @@ public class OverviewActivity extends Activity {
         Flight flightOverview = new Flight();
         flightOverview.set("flightId",data.get("flightId"));
         flightOverview.set("carrierFsCode",data.get("carrierFsCode"));
+        flightOverview.set("carrierName",data.get("carrierName"));
+        flightOverview.set("scheduledGateArrival",data.get("scheduledGateArrival"));
+        flightOverview.set("scheduledGateDeparture",data.get("scheduledGateDeparture"));
+        flightOverview.set("arrivalAirportName",data.get("arrivalAirportName"));
+        flightOverview.set("departureAirportName",data.get("departureAirportName"));
         flightOverview.set("flightNumber",data.get("flightNumber"));
         flightOverview.set("departureAirportFsCode",data.get("departureAirportFsCode"));
         flightOverview.set("arrivalAirportFsCode",data.get("arrivalAirportFsCode"));
@@ -195,32 +183,12 @@ public class OverviewActivity extends Activity {
         flightOverview.set("flightType",data.get("flightType"));
         flightOverview.set("flightDurations",data.get("flightDurations"));
         flightOverview.set("departureTerminal",data.get("departureTerminal"));
-        flightOverview.set("departureGate",data.get("Flight{departureGate"));
+        flightOverview.set("departureGate",data.get("departureGate"));
         flightOverview.set("arrivalTerminal",data.get("arrivalTerminal"));
         flightOverview.set("arrivalGate",data.get("arrivalGate"));
 
-
         return flightOverview;
 
-    }
-
-
-    boolean contains;
-    public Boolean comparetoDB(String id){
-        List<Flight> subscriptionFlights = subscriptionsCRUD.readSubscriptions();
-        for (Flight f : subscriptionFlights) {
-            if (f.get("flightId").equals(id)) {
-                contains = true;
-                break;
-            }
-        }
-        if(contains) {
-            // contains the id in the database
-        }else{
-            // does not contain the id in the database
-            contains = false;
-        }
-        return contains;
     }
 
 }
