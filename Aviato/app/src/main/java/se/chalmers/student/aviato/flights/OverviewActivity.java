@@ -37,9 +37,7 @@ public class OverviewActivity extends Activity {
 
     TextView tvAirlineName;
     TextView tvStatus;
-    TextView tvFlightNumber;
     TextView tvSource;
-    TextView tvDepFrom;
     TextView tvDepTime;
     TextView tvDepGate;
     TextView tvDepTerminal;
@@ -118,7 +116,6 @@ public class OverviewActivity extends Activity {
         super.onStart();
     }
 
-
     private void createView() {
 
         tvAirlineName = (TextView) findViewById(R.id.tvAirlineName);
@@ -134,7 +131,6 @@ public class OverviewActivity extends Activity {
 
         btnSubscription = (Button) findViewById(R.id.btnSubscribe);
     }
-
 
     private void populateOverview(Flight flight) {
 
@@ -165,6 +161,7 @@ public class OverviewActivity extends Activity {
         tvArrTerminal.setText(flight.get("arrivalTerminal"));
 
     }
+
     public Flight getFlightObject(){
         Flight flightOverview = new Flight();
         flightOverview.set("flightId",data.get("flightId"));

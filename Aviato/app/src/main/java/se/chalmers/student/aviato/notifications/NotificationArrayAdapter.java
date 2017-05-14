@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,24 +13,28 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import se.chalmers.student.aviato.DB.FlightsDbHelper;
+import se.chalmers.student.aviato.DB.SubscriptionsCRUD;
 import se.chalmers.student.aviato.R;
+import se.chalmers.student.aviato.flights.Flight;
 
-
-/**
- * Created by gryphex on 2017-04-25.
- */
 
 public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
 
     private Context mContext;
     private int mId;
     private List<Notification> mItems ;
+    private static String TAG = "NotificationArrayAdapt";
+    private FlightsDbHelper mDbHelper;
+    private SubscriptionsCRUD subscriptionsCRUD;
 
     public NotificationArrayAdapter(Context context, int textViewResourceId , List<Notification> list) {
         super(context, textViewResourceId, list);
         mContext = context;
         mId = textViewResourceId;
         mItems = list ;
+        mDbHelper = new FlightsDbHelper(mContext);
+        subscriptionsCRUD = new SubscriptionsCRUD(mDbHelper);
     }
 
     @Override
@@ -50,7 +55,8 @@ public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
         if(n != null && counter < listLimit) {
             String fId = n.getFlightId();
             String nText = n.getText();
-            text.setText(fId + " " + nText);
+            Flight flight = subscriptionsCRUD.retrieveFlight(fId);
+            text.setText(flight.get("carrierFsCode") + flight.get("flightNumber") + " " + nText);
 
             // Set the design for the notification
             if (n.getRead() == NotificationActivity.NOTIFICATION_NOT_READ) {

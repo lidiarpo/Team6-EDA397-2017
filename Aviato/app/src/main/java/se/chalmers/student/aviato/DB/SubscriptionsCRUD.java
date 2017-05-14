@@ -78,6 +78,16 @@ public class SubscriptionsCRUD {
         return false;
     }
 
+    public Flight retrieveFlight(String flightNumber) {
+        List<Flight> flights = readSubscriptions();
+        for (Flight f:flights) {
+            if (f.get("flightNumber").equals(flightNumber)){
+                return f;
+            }
+        }
+        return null;
+    }
+
     public List<Flight> readSubscriptions(){
 
         db = mDbHelper.getReadableDatabase();
