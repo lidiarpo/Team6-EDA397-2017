@@ -117,10 +117,10 @@ public class SubscriptionService extends IntentService {
         Calendar calendar = flight.getTime();
         calendar.setTimeZone(TimeZone.getDefault());
         String notificationText = "Flight to " +
-                flight.get("arrivalAirportFsCode") + " " + arrivalOrDeparture + " at " + calendar.get(Calendar.HOUR_OF_DAY)
-                + ":" + calendar.get(Calendar.MINUTE);
+                flight.get("arrivalAirportFsCode") + " " + arrivalOrDeparture + " at "
+                + String.format("%02d:%02d",calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE));
         // Add and create a notification only if one does not already exist
-        if (!notificationsCRUD.existsNotification(flight.get("flightId"))){
+        if (!notificationsCRUD.existsNotification(flight.get("flightNumber"))){
             Log.d(TAG, "Notification text: " + notificationText);
             Notification n = new Notification(flight.get("flightNumber"), notificationText, NotificationActivity.NOTIFICATION_NOT_READ);
             notificationsCRUD.addNotification(n);
