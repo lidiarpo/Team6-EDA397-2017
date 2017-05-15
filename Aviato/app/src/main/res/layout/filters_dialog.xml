@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:checked="true"
             android:text="Arrivals"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault"
             android:visibility="visible" />
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:checked="true"
             android:text="Departures"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault"
             android:visibility="visible" />
