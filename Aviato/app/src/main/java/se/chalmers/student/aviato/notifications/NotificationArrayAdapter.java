@@ -56,7 +56,11 @@ public class NotificationArrayAdapter extends ArrayAdapter<Notification>{
             String fId = n.getFlightId();
             String nText = n.getText();
             Flight flight = subscriptionsCRUD.retrieveFlight(fId);
-            text.setText(flight.get("carrierFsCode") + flight.get("flightNumber") + " " + nText);
+            if (flight!=null) {
+                text.setText(flight.get("carrierFsCode") + flight.get("flightNumber") + " " + nText);
+            }else{
+                text.setText(nText);
+            }
 
             // Set the design for the notification
             if (n.getRead() == NotificationActivity.NOTIFICATION_NOT_READ) {
