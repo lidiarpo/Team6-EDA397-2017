@@ -53,8 +53,9 @@ public class FlightActivity extends Activity{
     TextView header, airlineHeader;
     CheckBox arrivalBtn, departureBtn;
     Spinner airlineSpinner;
-    String airline = "", arr = "", dep = "";
+    String airline = "";
     int timeWindow = 6;
+    List<Flight> unfilteredFlights;
     List<Flight> filteredFlights;
 
     @Override
@@ -95,9 +96,11 @@ public class FlightActivity extends Activity{
                 airlineSpinner = (Spinner) popupView.findViewById(R.id.spinnerAirline);
                 timeWindowFilter = (EditText)popupView.findViewById(R.id.timeWindowFilter);
                 timeWindowFilter.setFilters(new InputFilter[]{new TimeWindowInputFilter(1, 6)});
+
                 applyBtn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         filteredFlights = new ArrayList<Flight>();
+                        filteredFlights.addAll(unfilteredFlights);
                         timeWindow = 6;
                         airline = "";
                         airline = airlineSpinner.getSelectedItem().toString();
@@ -108,33 +111,48 @@ public class FlightActivity extends Activity{
                             int begin = airline.indexOf("(");
                             int end = airline.indexOf(")");
                             airline = airline.substring(begin + 1, end);
+                            AirlineFilter af = new AirlineFilter();
+                            filteredFlights = af.filter(filteredFlights,airline);
                         }
-                        arr = arrivalBtn.isChecked() ? "arr" : "";
-                        dep = departureBtn.isChecked() ? "dep" : "";
+
                         String inputWindow = timeWindowFilter.getText().toString();
                         if(inputWindow == null || inputWindow.trim().equals("")){
                             timeWindow = 6;
                         }
                         else {
                             timeWindow = Integer.parseInt(inputWindow);
+                            TimeWindowFilter tf = new TimeWindowFilter();
+                            filteredFlights = tf.filter(filteredFlights,inputWindow);
                         }
-                        Log.d("FILTERSSSSs" , airline + " " + arr + " " + dep + " " + timeWindow);
+
                         flightRequests  = new FlightRequests(getApplicationContext());
-                        Calendar rightNow = Calendar.getInstance();
-                        String airportCode = "GOT";
-                        if(arr.isEmpty() && dep.isEmpty()){
-                            flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+
+                        if(!arrivalBtn.isChecked() && !departureBtn.isChecked()){
+                            filteredFlights = new ArrayList<Flight>();
                         }
-                        else if(!arr.isEmpty()&& !dep.isEmpty()){
-                            flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
-                            flightRequests.getArrivals(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                        else if(!arrivalBtn.isChecked() && departureBtn.isChecked()){
+                            List<Flight> flightResult = new ArrayList<Flight>();
+
+                            for (Flight flight: filteredFlights) {
+                                if (flight.get("departureAirportFsCode").equals("GOT")){
+                                    flightResult.add(flight);
+                                }
+
+                            }
+                            filteredFlights = flightResult;
                         }
-                        else if(arr.isEmpty()&& !dep.isEmpty()){
-                            flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
+                        else if(arrivalBtn.isChecked() && !departureBtn.isChecked()){
+                            List<Flight> flightResult = new ArrayList<Flight>();
+
+                            for (Flight flight: filteredFlights) {
+                                if (flight.get("arrivalAirportFsCode").equals("GOT")){
+                                    flightResult.add(flight);
+                                }
+
+                            }
+                            filteredFlights = flightResult;
                         }
-                        else{
-                            flightRequests.getArrivals(airportCode, rightNow, timeWindow, getApplicationContext(), filterListener, errorListener);
-                        }
+                        setFlights(filteredFlights);
                         popupWindow.dismiss();
 
                     }
@@ -170,7 +188,9 @@ public class FlightActivity extends Activity{
                 Calendar rightNow = Calendar.getInstance();
                 int timeWindow = 6;
                 String airportCode = "GOT";
+                unfilteredFlights=null;
                 flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), listener, errorListener);
+                flightRequests.getArrivals(airportCode, rightNow, timeWindow, getApplicationContext(), listener, errorListener);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         };
@@ -181,7 +201,12 @@ public class FlightActivity extends Activity{
             @Override
             public void onResponse(JSONObject response) {
                 FlightParser fp = new FlightParser();
-                setFlights(new FlightParser().parseFlights(response));
+                if (unfilteredFlights!=null) {
+                    unfilteredFlights.addAll(new FlightParser().parseFlights(response));
+                }else{
+                    unfilteredFlights = new FlightParser().parseFlights(response);
+                }
+                setFlights(unfilteredFlights);
             }
         };
 
@@ -219,8 +244,9 @@ public class FlightActivity extends Activity{
         Calendar rightNow = Calendar.getInstance();
         int timeWindow = 6;
         String airportCode = "GOT";
-
+        unfilteredFlights = null;
         flightRequests.getDepartures(airportCode, rightNow, timeWindow, this, listener, errorListener);
+        flightRequests.getArrivals(airportCode, rightNow, timeWindow, this, listener, errorListener);
     }
 
     /**
