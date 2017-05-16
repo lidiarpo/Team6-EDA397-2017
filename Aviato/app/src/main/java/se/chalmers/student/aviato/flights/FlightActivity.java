@@ -10,6 +10,9 @@ import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -58,6 +61,8 @@ public class FlightActivity extends Activity{
     List<Flight> unfilteredFlights;
     List<Flight> filteredFlights;
 
+    private static String TAG = "FlightActivity";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +75,32 @@ public class FlightActivity extends Activity{
         initListeners();
 
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.flightsmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.refresh:
+                setFlights(new ArrayList<Flight>());
+                findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
+                flightRequests  = new FlightRequests(getApplicationContext());
+                Calendar rightNow = Calendar.getInstance();
+                int timeWindow = 6;
+                String airportCode = "GOT";
+                unfilteredFlights=null;
+                flightRequests.getDepartures(airportCode, rightNow, timeWindow, getApplicationContext(), listener, errorListener);
+                flightRequests.getArrivals(airportCode, rightNow, timeWindow, getApplicationContext(), listener, errorListener);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void initListeners() {
@@ -207,6 +238,7 @@ public class FlightActivity extends Activity{
                     unfilteredFlights = new FlightParser().parseFlights(response);
                 }
                 setFlights(unfilteredFlights);
+                findViewById(R.id.loadingPanel).setVisibility(View.INVISIBLE);
             }
         };
 
@@ -262,7 +294,7 @@ public class FlightActivity extends Activity{
         });
         FlightAdapter adapter = new FlightAdapter(this, flights);
         flightlistView.setAdapter(adapter);
-        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+        findViewById(R.id.loadingPanel).setVisibility(View.INVISIBLE);
         flightlistView.setEmptyView(findViewById(R.id.empty));
     }
 
