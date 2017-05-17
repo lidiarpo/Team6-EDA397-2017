@@ -186,49 +186,98 @@ The practice of not letting people to work on more than one user story at a time
 
 
 # Postmortem
-Once the project is finished, summarize your experiences.
+**Introduction**
 
-- For each practice, reflect on the combined experience from all sprints.
+Our end product from 3 sprints is a fully functional application Aviato, that offers the user to search and filter for a flight and subscribe to it. If the user subscribes to a flight notification is sent to alarm the user of departure/arrival for that flight. 
 
+During the development of the mobile application Aviato we have not only improved our skills for working with Android, but also learnt a lot about agile processes. The development have been done in iterations, specifically sprints, where we have tried out different practices from both Extreme Programming and Scrum. We believe that the agile practices have eased the development and we would certainly apply the practices in future projects.
+
+**Reflection of used agile practices**
 * **Planning poker**: 
+Planning poker was used during the sprint planning of all the three sprints. The practice proved to be both positive and negative. Positive since it encouraged us to discuss the different user stories; if the user story was ambiguous we would discuss more specifically how the task would be carried out. We then re-estimated and chose the value of the majority, if two function points were equal we would go for the more conservative measure. The estimation itself were however futile as we did not make any use of it. Selecting the next task to work on were rarely affected with how much effort it was estimated to take. Filling the sprint backlog was not either affected by the function points (or the velocity of the last sprint), but rather by all functionality requested from the product owner.
 
 * **Test-first**: 
+The test first practice was poorly used, since most of the team members were inexperience with the Android framework. Implementing test for some functionality in Android required a previous expertise on the framework that the team lacked. A valuable amount of time was spent on researching the testing framework with mixed results. But some of the testing performed during the development helped tracking down inconsistencies in the design early. Overall the team agrees on the value of the test first to achieve software quality but also that it requires some previous knowledge in order to successfully implement this practice.
 
 * **Pair programming**: 
+This practice has proven to be particularly useful at the beginning of the project since some of the team members did not have any previous experience with the framework. It also had an impact on building better work relationships.
+
 
 * **Continuous Integration**: 
+By following this practice, we have used single source of repository and every group members worked in their local workspaces. We made sure to test each update and then commit the changes into the repository. This practice helped us to find bug easily and remove them before it creates any bigger problem. Our repository was continuously monitored by Travis, it tested the latest build automatically and notified us if any build fails. In general, it was a positive experience which enabled everyone to have the latest build. Although, the practice would have been more powerful if we had a larger test coverage as well as integration tests.
+
 
 * **Onsite Customer**: 
+In all of the sprints, the customer could interact freely with the developers and have the opportunity to try the project in the acceptance tests. In addition, the customer was also onsite during the workshops hours and could answer questions right away. As it turns out we did not communicate to the onsite customer much, one reason for that could be that our application had a very clear scope and often most of the questionable functionality was sorted out during our customer acceptance test.
 
-* **Small Releases**: 
+
+* **Small Releases**:
+We used small releases throughout the project, in our experience the biggest benefit of this practice is delivering value to the customer relatively fast. By handing over value iteratively, it enabled short progress feedback cycles. We made sure that in every sprint our release was small and contained the most valuable business requirements. 
+
 
 * **Simple Design**: 
+We have used this practice in most of the part of our development process. We only added those functionalities, which were required by the current sprint without thinking about what we might need in the future. Because of this practice we have avoided issues like overdesign. We found out that most design details were not needed for that specific sprint and if we tried to work them out upfront we might fall into a situation where refactoring could be difficult. Moreover, our code is prepared to anticipate any sort of change in the future. This agile practice also reduced the risks for long running bottlenecks.
 
 * **Refactoring**: 
+Kept the code in shape, making it cleaner. Helped with collective code ownership, making everyone able to understand the code and feeling that they were allowed to make changes wherever necessary. Additionally, this technique increased the discoverability of the different components, dependencies, logical links and eventually features of the product, on a code-level. This in turn decreased the necessary to identify the block(s) of code that was needed to be worked on during development and allowed the team to be more cross-functional and attain a universal overview of the code, by enabling all team members to promptly identify which parts of the system needed to be changed in order for a goal to be reached.
+Moreover, refactoring enhanced the maintainability of our code and product, by making it easier for the team members to determine which are the most suitable candidates (i.e. source files, components etc) for the fault to exist in and fix it.  This, regardless of whether they had personally worked on that part of the system.
 
 * **Sustainable Pace**: 
+This method helped us keep the project and its greater picture in mind. Particularly, the size of the commits was consistent without too many large chunks of code at every push. This facilitated the resolution of conflicts, whenever they emerged, during integration. By having a sustainable pace, the team was able to keep the product at high quality standards and introducing a relatively low amount of bugs and defects, even throughout the feature growth sprint.
+Furthermore, during the sprint planning meetings, the team's agreed velocity (i.e. the amount of complexity to be developed as well as the business value that would be generated) was carefully considered when collectively deciding on the sprint's scope. At certain occasions, the team had to ramp up the effort in order to complete the features that it had committed, but this happened rather exceptionally and was not the norm.
+
 
 * **Collectice code ownership**:
+This tactic helped us maintain a sustainable pace and remove unnecessary “blockers” due to parts of the system being comprehensible by only a subset of the team. This in turn made team members more committed and focused to do their part, as they felt that the system at its entirety was apt to modifications, without feeling that they lack the knowledge to do so. Additionally, it allowed stress and pressure on individuals to remain at manageable levels, as the workload could be easily distributed among the team members.
+By not having specific tasks or features tightly coupled with specific developers, the option to engage different parts of the system and the capability to work on a diverse set of stories, gave the members additional motivation and decreased the time which would otherwise be spent on attempting to cope with a steep learning curve.
+
 
 * **Coding standards**:
+For the initial sprint we did not consider coding standards at all, the focus was to quickly get a codebase. Once we entered the second sprint we realized that it would be useful to implement some coding standards and therefore assigned a user story for it. The outcome was a bit too extensive to implement throughout the code, but as we refactored our code we tried to implement more and more of the standards. The main reason why we didn't dogmatically follow the coding standards was that it was too much of an effort for the value it would provide for us as developers, we rather kept focus on developing value to our customer. We were therefore satisfied once each class was consistent with itself. The coding standards that we ended up with helped a lot with increasing the collective code ownership as it became less traceable who had done what and it therefore really felt like the code was developed by the team, rather than a specific individual. The code also became easier to read, and thus understand.
+
 
 * **Point estimates**: 
+We used Fibonacci numbers from 1 to 13 to assign points to each task based on the effort required for it. However, it was not much helpful since we overestimated and underestimated some tasks and estimated points for it didn’t really reflect the effort and time invested in it. It was the reason that no one really considered those points while picking a new task from backlog or while calculating total estimation effort for a sprint.
+We also think that a more uniform scale, for example, from 1 - 10 would have been more accurate in estimation as compared to fibonacci scale. It is because some tasks were somewhere 5 and 8 but we had to choose either of these because we did not have any choice.  
 
 * **Definition of Done (DoD)**: 
+We added DoD for all the tasks in the beginning of sprint 1. Scope of each task wasn’t clear back then. Because of this, DoDs were outdated by the end of sprint 1 because many task had evolved during the sprint. Also in the sprint 1, our tasks were very generic covering many sub-tasks. Therefore, DoDs for these task were also very strictly defined and limited. In sprint 2, we broke down the task in several smaller well-defined tasks, thus, leaving the DoDs useless and they were not taken into consideration while pushing a final version of user story.
+We think that DoDs could have been used more efficiently if they were added at the beginning of each sprint, because scope of each task was well-established at the beginning of each respective sprint in which it was implemented.
+
 
 * **Backlog**: 
+By maintaining an online backlog in our GitHub repository, we kept track of our progress while taking into consideration future tasks in mind. Furthermore, the Backlog was helpful during customer meetings as the customer was able to see what had already been achieved, what they thought was lacking as well as what we had in mind for the next iterations of the application. The backlog not only did it help us discover duplicate tasks and administer our workload in a systematic manner, but also made it possible to track which features were currently being developed and by whom, so probable discussions could be initiated with the responsible (e.g. in the case of interdependent tasks) when it was deemed necessary. Finally, the Backlog was beneficial to the "softer" aspects of the development process. In particular, its visualization of the current status and the amount of completed work, a figure that increased day by day, raised the motivation and the morale of the team, by indicating that the final goal was increasingly within reach.
 
-- Which practices had the most impact on the software developed?
-  Think of both positives and negatives.
+**Most impactful practices**
+* **Simple design**:
+With simple design being used overall in the whole development it enabled us to progress at a high pace and being able to change the system quickly. Because of the simplicity design being used throughout it could cause problem in the future for scalability of the application.
 
-- What would you do differently in a future but similar project?
+* **Refactoring**:
+we had one large refactoring session which slowed down the development a bit, but once it was completed we managed to increase our productivity because the code were more consistent and clearly divided. Generally, we realized that refactoring was very beneficial yet mostly feasible during short periods of time which are characterized by a decreased rate of feature growth. This helps to avoid merge conflicts when work that was started before refactoring needs to be committed.
 
-- Outcome, screenshots or similar.
+* **Planning Poker**:
+Even though planning poker was a bit of a waste of time since we did not use the points, it provided an arena for important discussions. If we would not have used this practice it is likely that the development would have been slowed down since people would be uncertain about what, and how, to do certain user stories.
 
-## Administrative details
+* **Test First**:
+The test-first practice impacted the development process in a negative way. When we tried to apply this practice the development pace often stalled resulting in frustration within the team. This overhead was often perceived by the team as not giving much customer value, mainly due to the inexperience of the team with the framework, as noted before.   
 
-- Send in the sprint reports and postmortem report via mail
-  to Terese and Magnus. Deadlines are in the course schedule.
+* **Collective code ownership**:
+Everyone felt comfortable modifying each other’s code which allowed for an easier distribution of tasks and prompt issue of hotfixes when a bug was detected. Team members had both the liberty and the knowledge to develop different parts of the system which had a positive impact on the development speed and the eventual minimize of technical debt.
 
-- The postmortem part shall be 2000-3000 words long.
+* **Backlog**:
+Backlog provided an important overview of the project for all the stakeholders of the project. It was the point of reference during sprint planning for the development team and for each member individually when deciding to work on a feature. Additionally, it provided the guidelines for the customer and the product owner to get a grasp on the amount and nature of work conducted during the sprint, as well as of what was to follow in the next one. The fact that the Backlog was hosted on GitHub, allowed great integration of the user stories with the development activities (e.g. correlating commits with features, closing bugs via commit messages etc).
 
+**What would we do differently in a future project?**
+* For this project, we didn’t use the on-site customer much. For the future practices, we would use a customer-proxy within a group. Customer-proxy would communicate with the customer on regular basis and all the group members will refer to the proxy for any input about the tasks.
+
+* The team has agreed on increasing the test coverage amount in future projects, since some of the testing performed has proven to be a driver for software quality. Coverage for future projects should be increased or at least aim to cover 70% of the code. Striving for a good balance on the time spent on testing and the overall time spent on the core functionality.
+
+* We would use different point scale for the story point estimation, rather than using the fibonacci sequence we could use a linear one so the team members could hopefully have a better “gut feeling” about the estimation.
+
+* We would add the definition of done for each task, to be implemented for a sprint, in the beginning of that sprint because scope of task is clear at the that point rather than adding DoDs before sprint 1 and freezing them for the rest of the sprints. Tasks evolve as the project progresses and their DoDs are volatile.
+
+* For the first sprint we should have made the user stories less generic and smaller, this would have helped us estimate the real effort necessary to implement each functionality. For future similar projects, we shall validate if the functionality is really necessary before adding it, as well add business value and benefit for customer to the user stories.
+
+* We would create some upfront design, with both technical and user interfaces. Having an upfront design would have helped us to save time and allowed us to focus on the technical aspects. 
+
+* We would create a Git workflow feature oriented, instead of each member having their own branch. This would have made our commit history more clear, and helped us to avoid rebase conflicts. 
